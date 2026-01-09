@@ -1,0 +1,74 @@
+{
+    "portfolioItems": [
+        {
+            "id": "yeschef-website",
+            "title": "Yeschef Restaurant Website",
+            "category": "website",
+            "description": "Modern restaurant website with online menu and ordering system",
+            "fullDescription": "A comprehensive restaurant website built for Yeschef featuring an intuitive online menu, seamless ordering system, and responsive design. The site provides customers with an excellent browsing experience across all devices.",
+            "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+            "link": "https://orederyeschef2.pages.dev",
+            "technologies": [
+                "React",
+                "Payment Processing",
+                "Responsive Design"
+            ],
+            "year": "2024"
+        },
+        {
+            "id": "content-creation-portfolio",
+            "title": "Content Creation Portfolio",
+            "category": "content",
+            "description": "Curated content created for various brands - videos, photography, and social media assets",
+            "fullDescription": "Explore our collection of brand-focused content creation work including short-form videos, professional photography, and social media assets. Each folder contains curated picks from projects we've delivered to our clients, showcasing our ability to capture brand essence and create engaging visual content.",
+            "image": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=600&fit=crop",
+            "link": "https://drive.google.com/drive/folders/placeholder-link",
+            "year": "2024"
+        },
+        {
+            "id": "business-pitch-deck",
+            "title": "Business Pitch Deck",
+            "category": "powerpoint",
+            "description": "Professional investor pitch deck with modern design and clear messaging",
+            "fullDescription": "A comprehensive pitch deck designed for a startup seeking investment. Features clean layouts, data visualizations, and compelling storytelling to communicate business value effectively.",
+            "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop",
+            "link": "https://www.canva.com/design/placeholder-link",
+            "year": "2024"
+        },
+        {
+            "id": "corporate-presentation",
+            "title": "Corporate Annual Report",
+            "category": "powerpoint",
+            "description": "Elegant annual report presentation with infographics and financial data",
+            "fullDescription": "A sophisticated annual report presentation designed for a corporate client, featuring custom infographics, financial charts, and a cohesive visual identity that aligns with the company's brand guidelines.",
+            "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop",
+            "link": "https://www.canva.com/design/placeholder-link-2",
+            "year": "2024"
+        },
+        {
+            "id": "ecommerce-website",
+            "title": "E-Commerce Platform",
+            "category": "website",
+            "description": "Full-featured online store with product catalog and payment integration",
+            "fullDescription": "A complete e-commerce solution featuring product management, shopping cart, secure payment integration, and admin dashboard. Built with modern web technologies to ensure fast performance and excellent user experience.",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+            "link": "#",
+            "technologies": [
+                "Next.js",
+                "Payment API",
+                "CMS"
+            ],
+            "year": "2024"
+        },
+        {
+            "id": "brand-strategy-deck",
+            "title": "Brand Strategy Presentation",
+            "category": "powerpoint",
+            "description": "Strategic brand positioning deck with market analysis and recommendations",
+            "fullDescription": "A comprehensive brand strategy presentation including market research, competitive analysis, brand positioning recommendations, and implementation roadmap. Designed to guide executive decision-making.",
+            "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
+            "link": "https://www.canva.com/design/placeholder-link-3",
+            "year": "2023"
+        }
+    ]
+}
