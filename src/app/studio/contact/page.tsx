@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import StudioFooter from '@/components/layout/StudioFooter';
@@ -11,6 +11,14 @@ import { EnvelopeIcon, PhoneIcon, ChatBubbleLeftRightIcon, MapPinIcon, CheckCirc
 type ServiceType = '' | 'website-development' | 'content-creation' | 'graphic-design' | 'powerpoint' | 'maintenance' | 'general';
 
 export default function ContactPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-white dark:bg-synapse-black" />}>
+            <ContactPageContent />
+        </Suspense>
+    );
+}
+
+function ContactPageContent() {
     const searchParams = useSearchParams();
     const [formStep, setFormStep] = useState(1);
     const [selectedService, setSelectedService] = useState<ServiceType>('');
