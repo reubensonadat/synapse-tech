@@ -11,6 +11,7 @@ import { CheckIcon, ChatBubbleLeftRightIcon, PaintBrushIcon, CreditCardIcon, Bol
 
 export default function PricingPage() {
     const [selectedTerm, setSelectedTerm] = useState<'3-month' | '6-month' | '12-month'>('12-month');
+    const [selectedCategory, setSelectedCategory] = useState<'websites' | 'webapps'>('websites');
 
     const contentCreationTiers = [
         {
@@ -61,48 +62,115 @@ export default function PricingPage() {
         }
     ];
 
-    const websitePackages = [
+    // Brand Websites - Identity packages
+    const brandWebsitePackages = [
         {
-            name: 'Starter',
-            priceRange: '3,500 - 5,000',
+            name: 'Basic',
+            subtitle: 'Starter',
+            priceRange: '2,500 - 3,500',
+            idealClient: 'Personal Brands, Students, Solopreneurs',
             features: [
-                'Up to 5 pages',
-                'Responsive design',
-                'Contact form',
-                'Basic SEO',
-                '1 month free support'
+                '1-3 Static Pages',
+                'Contact Form (Email)',
+                'Mobile Responsive',
+                '1 Month Free Support'
             ],
-            maintenance: 250
+            maintenance: 100
         },
         {
-            name: 'Business',
+            name: 'Standard',
+            subtitle: 'Professional',
             popular: true,
-            priceRange: '8,000 - 12,000',
+            priceRange: '4,000 - 5,500',
+            idealClient: 'Small Businesses, Shops, NGOs',
             features: [
-                'Up to 15 pages',
-                'Custom design',
-                'Advanced SEO',
-                'Blog/CMS setup',
-                'Analytics integration',
-                '2 months free support'
+                '5-8 Pages',
+                'Blog / News Section',
+                'SEO Optimization',
+                'Google Maps Integration'
             ],
-            maintenance: 400
+            maintenance: 150
         },
         {
-            name: 'E-Commerce',
-            priceRange: '18,000 - 25,000',
+            name: 'Premium',
+            subtitle: 'Enterprise',
+            priceRange: '7,000+',
+            idealClient: 'Established Companies, Luxury Brands',
             features: [
-                'Unlimited pages',
-                'Product catalog',
-                'Payment integration',
-                'User accounts',
-                'Admin dashboard',
-                'Inventory management',
-                '3 months free support'
+                'Unlimited Pages',
+                'Motion Graphics / Video Intro',
+                'Professional Copywriting',
+                'Custom Animations'
             ],
-            maintenance: 800
+            maintenance: 300
         }
     ];
+
+    // Business Applications - Systems packages
+    const businessAppPackages = [
+        {
+            name: 'Basic App',
+            subtitle: 'The Order Taker',
+            priceRange: '4,000 - 5,500',
+            techStack: 'Next.js + database',
+            deliveryFormat: 'PWA (Installable)',
+            features: [
+                'Customer ordering via app',
+                'WhatsApp order notifications',
+                'Mobile-first PWA design',
+                'Owner edits in database',
+                'Quick setup & delivery'
+            ],
+            maintenance: 200
+        },
+        {
+            name: 'Standard App',
+            subtitle: 'The Manager',
+            popular: true,
+            priceRange: '6,500 - 9,000',
+            techStack: 'Next.js + Admin Dashboard + Supabase/Firebase',
+            deliveryFormat: 'PWA (Installable)',
+            features: [
+                'Everything in Basic, plus:',
+                'Web admin dashboard (read-only)',
+                'Sales analytics & charts',
+                'Order history & search',
+                'Real-time order alerts'
+            ],
+            maintenance: 350
+        },
+        {
+            name: 'Premium App',
+            subtitle: 'The Full System',
+            priceRange: 'Custom Quote',
+            techStack: 'Next.js + Full Stack + Supabase/Firebase',
+            deliveryFormat: 'PWA (Installable)',
+            features: [
+                'Everything in Standard, plus:',
+                'Full admin panel (read & write)',
+                'Customer user accounts',
+                'Real-time data sync',
+                'Inventory management logic',
+                'Custom business workflows'
+            ],
+            maintenance: 700
+        }
+    ];
+
+    const categoryInfo = {
+        websites: {
+            title: 'Website Development',
+            description: 'Perfect for portfolios, corporate profiles, NGOs, and professional services. Get found online, look professional, and build trust with your audience.',
+            valueProposition: 'Get found, look professional, build trust.'
+        },
+        webapps: {
+            title: 'Web Application Development',
+            description: 'Ideal for restaurants, retail shops, booking agencies, and service providers. Automate your operations, manage data, and sell directly to customers.',
+            valueProposition: 'Automate operations, manage data, sell directly.'
+        }
+    };
+
+    const currentPackages = selectedCategory === 'websites' ? brandWebsitePackages : businessAppPackages;
 
     return (
         <div className="min-h-screen bg-white dark:bg-synapse-black text-black dark:text-white transition-colors duration-200">
@@ -165,7 +233,7 @@ export default function PricingPage() {
                     </motion.div>
                 </section>
 
-                {/* Website Development Pricing - FIRST */}
+                {/* Website / Web App Development Pricing - FIRST */}
                 <section className="px-6 py-20 bg-gray-50 dark:bg-synapse-black/50">
                     <motion.div
                         className="max-w-7xl mx-auto"
@@ -174,19 +242,69 @@ export default function PricingPage() {
                         viewport={viewportOnce}
                         variants={stagger}
                     >
-                        <motion.div className="text-center mb-12" variants={fadeInUp}>
-                            <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">Website Development</h2>
+                        {/* Dynamic Section Header */}
+                        <motion.div className="text-center mb-8" variants={fadeInUp}>
+                            <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">
+                                {categoryInfo[selectedCategory].title}
+                            </h2>
                             <p className="text-synapse-gray dark:text-gray-400 max-w-2xl mx-auto">
                                 One-time investment. Choose the package that fits your needs.
                             </p>
                         </motion.div>
 
-                        <motion.div className="grid md:grid-cols-3 gap-8" variants={stagger}>
-                            {websitePackages.map((pkg) => (
+                        {/* Category Toggle */}
+                        <motion.div className="flex justify-center mb-6" variants={fadeInUp}>
+                            <div className="inline-flex items-center bg-white dark:bg-synapse-slate rounded-full p-1.5 border-2 border-gray-200 dark:border-white/10 shadow-lg">
+                                <button
+                                    onClick={() => setSelectedCategory('websites')}
+                                    className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${selectedCategory === 'websites'
+                                        ? 'bg-synapse-main text-white shadow-lg shadow-synapse-main/30'
+                                        : 'text-synapse-gray dark:text-gray-400 hover:text-synapse-main'
+                                        }`}
+                                >
+                                    Websites
+                                </button>
+                                <button
+                                    onClick={() => setSelectedCategory('webapps')}
+                                    className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${selectedCategory === 'webapps'
+                                        ? 'bg-synapse-main text-white shadow-lg shadow-synapse-main/30'
+                                        : 'text-synapse-gray dark:text-gray-400 hover:text-synapse-main'
+                                        }`}
+                                >
+                                    Web Apps
+                                </button>
+                            </div>
+                        </motion.div>
+
+                        {/* Category Description */}
+                        <motion.div
+                            className="max-w-3xl mx-auto mb-12 p-4 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-2xl text-center"
+                            variants={fadeInUp}
+                            key={selectedCategory}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <p className="text-sm text-synapse-gray dark:text-gray-300">
+                                <span className="font-semibold text-synapse-main">{selectedCategory === 'websites' ? 'Brand Identity:' : 'Business Systems:'}</span>{' '}
+                                {categoryInfo[selectedCategory].description}
+                            </p>
+                        </motion.div>
+
+                        {/* Pricing Cards */}
+                        <motion.div
+                            className="grid md:grid-cols-3 gap-8"
+                            variants={stagger}
+                            key={`cards-${selectedCategory}`}
+                        >
+                            {currentPackages.map((pkg) => (
                                 <motion.div
                                     key={pkg.name}
                                     variants={scaleIn}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
                                     whileHover={{ y: -10, scale: 1.02 }}
+                                    transition={{ duration: 0.3 }}
                                     className={`relative bg-white dark:bg-synapse-slate rounded-3xl p-8 border-2 ${pkg.popular ? 'border-synapse-main shadow-2xl shadow-synapse-main/20' : 'border-gray-200 dark:border-white/10'}`}
                                 >
                                     {pkg.popular && (
@@ -195,12 +313,50 @@ export default function PricingPage() {
                                         </div>
                                     )}
 
-                                    <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
+                                    {/* Name with Subtitle */}
+                                    <div className="mb-2">
+                                        <h3 className="text-2xl font-bold">{pkg.name}</h3>
+                                        {'subtitle' in pkg && (
+                                            <p className="text-xs text-synapse-gray dark:text-gray-400 italic">{pkg.subtitle}</p>
+                                        )}
+                                    </div>
+
+                                    {/* Tech Stack for Web Apps */}
+                                    {'techStack' in pkg && (
+                                        <div className="mb-3">
+                                            <span className="inline-block px-2 py-1 text-xs bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full">
+                                                {pkg.techStack}
+                                            </span>
+                                        </div>
+                                    )}
+
+                                    {/* Price */}
                                     <div className="mb-6">
-                                        <span className="text-3xl font-bold text-synapse-main">GH₵{pkg.priceRange}</span>
+                                        <span className="text-3xl font-bold text-synapse-main">
+                                            {pkg.priceRange === 'Custom Quote' ? 'Custom Quote' : `GH₵${pkg.priceRange}`}
+                                        </span>
                                         <p className="text-sm text-synapse-gray dark:text-gray-400 mt-2">One-time payment</p>
                                     </div>
 
+                                    {/* Ideal Client for Websites */}
+                                    {'idealClient' in pkg && (
+                                        <div className="mb-4 pb-4 border-b border-gray-200 dark:border-white/10">
+                                            <p className="text-xs text-synapse-gray dark:text-gray-400">
+                                                <span className="font-medium">Ideal for:</span> {pkg.idealClient}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Delivery Format for Web Apps */}
+                                    {'deliveryFormat' in pkg && (
+                                        <div className="mb-4 pb-4 border-b border-gray-200 dark:border-white/10">
+                                            <p className="text-xs text-synapse-gray dark:text-gray-400">
+                                                <span className="font-medium">Delivery:</span> {pkg.deliveryFormat}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Features */}
                                     <ul className="space-y-3 mb-6">
                                         {pkg.features.map((feature, i) => (
                                             <li key={i} className="flex items-start gap-2">
@@ -210,13 +366,25 @@ export default function PricingPage() {
                                         ))}
                                     </ul>
 
+                                    {/* Maintenance */}
                                     <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl mb-6">
-                                        <p className="text-xs text-synapse-gray dark:text-gray-400">Optional maintenance:</p>
-                                        <p className="text-sm font-bold text-synapse-main">GH₵{pkg.maintenance}/month</p>
+                                        <p className="text-xs text-synapse-gray dark:text-gray-400">
+                                            {selectedCategory === 'websites' ? 'Optional maintenance:' : 'Monthly maintenance:'}
+                                        </p>
+                                        <p className="text-sm font-bold text-synapse-main">
+                                            {typeof pkg.maintenance === 'number' && pkg.maintenance >= 500
+                                                ? `GH₵${pkg.maintenance}+/month`
+                                                : `GH₵${pkg.maintenance}/month`
+                                            }
+                                        </p>
                                     </div>
 
-                                    <Button href={`/studio/contact?service=website-development&package=${pkg.name.toLowerCase()}`} variant={pkg.popular ? "primary" : "secondary"} className="w-full">
-                                        Get a Quote
+                                    <Button
+                                        href={`/studio/contact?service=${selectedCategory === 'websites' ? 'website-development' : 'web-application'}&package=${pkg.name.toLowerCase().replace(' ', '-')}`}
+                                        variant={pkg.popular ? "primary" : "secondary"}
+                                        className="w-full"
+                                    >
+                                        {pkg.priceRange === 'Custom Quote' ? 'Request Quote' : 'Get a Quote'}
                                     </Button>
                                 </motion.div>
                             ))}

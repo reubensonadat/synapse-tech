@@ -3,7 +3,7 @@
 import Navbar from '@/components/layout/Navbar';
 import StudioFooter from '@/components/layout/StudioFooter';
 import Link from 'next/link';
-import { CodeBracketIcon, PencilSquareIcon, SwatchIcon, PresentationChartLineIcon, Cog6ToothIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon, SwatchIcon, PresentationChartLineIcon, Cog6ToothIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 
@@ -14,6 +14,12 @@ export default function ServicesPage() {
             icon: CodeBracketIcon,
             title: 'Website Development',
             description: 'Custom websites built with modern technologies to ensure fast loading, responsive design, and excellent user experiences.',
+        },
+        {
+            id: 'web-applications',
+            icon: DevicePhoneMobileIcon,
+            title: 'Web Applications',
+            description: 'Custom business systems that automate operations, manage data, and enable direct customer transactions via installable PWAs.',
         },
         {
             id: 'content-creation',

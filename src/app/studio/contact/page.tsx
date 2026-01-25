@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 import { EnvelopeIcon, PhoneIcon, ChatBubbleLeftRightIcon, MapPinIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
-type ServiceType = '' | 'website-development' | 'content-creation' | 'graphic-design' | 'powerpoint' | 'maintenance' | 'general';
+type ServiceType = '' | 'website-development' | 'web-application' | 'content-creation' | 'graphic-design' | 'powerpoint' | 'maintenance' | 'general';
 
 export default function ContactPage() {
     return (
@@ -34,6 +34,11 @@ function ContactPageContent() {
         websitePages: '',
         websiteFeatures: [] as string[],
         businessDescription: '',
+
+        // Web Application
+        webAppPackage: '',
+        webAppBusinessType: '',
+        webAppFeatures: [] as string[],
 
         // Content Creation
         contentTier: '',
@@ -101,6 +106,10 @@ function ContactPageContent() {
 
             if (service === 'website-development' && packageParam) {
                 updates.websitePackage = packageParam;
+            }
+
+            if (service === 'web-application' && packageParam) {
+                updates.webAppPackage = packageParam;
             }
 
             if (service === 'content-creation') {
@@ -188,6 +197,7 @@ function ContactPageContent() {
                                     <div className="grid md:grid-cols-2 gap-4">
                                         {[
                                             { id: 'website-development', name: 'Website Development', desc: 'Build a new website or redesign' },
+                                            { id: 'web-application', name: 'Web Application', desc: 'Business systems, ordering apps, PWAs' },
                                             { id: 'content-creation', name: 'Content Creation', desc: 'Videos & photography packages' },
                                             { id: 'graphic-design', name: 'Graphic Design', desc: 'Logos, banners, social posts' },
                                             { id: 'powerpoint', name: 'PowerPoint Presentations', desc: 'Professional pitch decks' },
@@ -350,6 +360,71 @@ function ContactPageContent() {
                                                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none resize-none"
                                                             placeholder="What does your business do? Who are your customers?"
                                                         />
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        )}
+
+                                        {/* Web Application Specific Fields */}
+                                        {selectedService === 'web-application' && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                className="bg-white dark:bg-synapse-slate p-8 rounded-2xl border border-gray-200 dark:border-white/10"
+                                            >
+                                                <h3 className="text-2xl font-bold mb-6">Web Application Details</h3>
+
+                                                <div className="space-y-6">
+                                                    <div>
+                                                        <label className="block text-sm font-medium mb-2">Package Interest *</label>
+                                                        <select
+                                                            name="webAppPackage"
+                                                            required
+                                                            value={formData.webAppPackage}
+                                                            onChange={handleChange}
+                                                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none"
+                                                        >
+                                                            <option value="">Select a package</option>
+                                                            <option value="basic-app">Basic App - The Order Taker (GH₵4,500 - 5,500)</option>
+                                                            <option value="standard-app">Standard App - The Manager (GH₵6,500 - 8,500)</option>
+                                                            <option value="premium-app">Premium App - The Full System (Custom Quote)</option>
+                                                            <option value="custom">Not Sure / Need Consultation</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div>
+                                                        <label className="block text-sm font-medium mb-2">What type of business is this for? *</label>
+                                                        <select
+                                                            name="webAppBusinessType"
+                                                            required
+                                                            value={formData.webAppBusinessType}
+                                                            onChange={handleChange}
+                                                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none"
+                                                        >
+                                                            <option value="">Select business type</option>
+                                                            <option value="restaurant">Restaurant / Food Service</option>
+                                                            <option value="retail">Retail / Shop</option>
+                                                            <option value="booking">Booking / Appointments</option>
+                                                            <option value="service">Service Provider</option>
+                                                            <option value="other">Other</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div>
+                                                        <label className="block text-sm font-medium mb-3">Features Needed (select all that apply)</label>
+                                                        <div className="grid md:grid-cols-2 gap-3">
+                                                            {['Online Ordering', 'WhatsApp Integration', 'Admin Dashboard', 'User Accounts', 'Inventory Management', 'Payment Integration', 'Analytics & Reports', 'Real-time Notifications'].map((feature) => (
+                                                                <label key={feature} className="flex items-center gap-2 cursor-pointer">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        checked={formData.webAppFeatures.includes(feature)}
+                                                                        onChange={() => handleCheckboxChange('webAppFeatures', feature)}
+                                                                        className="w-4 h-4 text-synapse-main focus:ring-synapse-main"
+                                                                    />
+                                                                    <span className="text-sm">{feature}</span>
+                                                                </label>
+                                                            ))}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </motion.div>
@@ -665,10 +740,10 @@ function ContactPageContent() {
                             )}
                         </AnimatePresence>
                     </div>
-                </section>
+                </section >
 
                 {/* Contact Info */}
-                <section className="px-6 py-16 bg-gray-50 dark:bg-synapse-black/50">
+                < section className="px-6 py-16 bg-gray-50 dark:bg-synapse-black/50" >
                     <motion.div
                         className="max-w-4xl mx-auto text-center"
                         initial="hidden"
@@ -720,10 +795,10 @@ function ContactPageContent() {
                             </motion.a>
                         </motion.div>
                     </motion.div>
-                </section>
-            </main>
+                </section >
+            </main >
 
             <StudioFooter />
-        </div>
+        </div >
     );
 }

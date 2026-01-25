@@ -1,35 +1,28 @@
 {
   "..\\node_modules\\@react-three\\drei\\core\\VideoTexture.js -> hls.js": {
-    "id": null,
+    "id": "..\\node_modules\\@react-three\\drei\\core\\VideoTexture.js -> hls.js",
     "files": []
   },
   "..\\node_modules\\@react-three\\drei\\web\\FaceLandmarker.js -> @mediapipe/tasks-vision": {
-    "id": null,
+    "id": "..\\node_modules\\@react-three\\drei\\web\\FaceLandmarker.js -> @mediapipe/tasks-vision",
     "files": []
   },
   "app\\page.tsx -> @/components/3d/StudioShape": {
-    "id": 2984,
+    "id": "app\\page.tsx -> @/components/3d/StudioShape",
     "files": [
-      "static/chunks/b536a0f1.0f898456fa240614.js",
-      "static/chunks/119.1693e16a21cd0337.js",
-      "static/chunks/984.461906a6746f182b.js"
+      "static/chunks/_app-pages-browser_src_components_3d_StudioShape_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/3d/SystemsShape": {
-    "id": 4583,
+    "id": "app\\page.tsx -> @/components/3d/SystemsShape",
     "files": [
-      "static/chunks/b536a0f1.0f898456fa240614.js",
-      "static/chunks/119.1693e16a21cd0337.js",
-      "static/chunks/583.38baf0fcd7499d8a.js"
+      "static/chunks/_app-pages-browser_src_components_3d_SystemsShape_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/3d/ViewCanvas": {
-    "id": 6097,
+    "id": "app\\page.tsx -> @/components/3d/ViewCanvas",
     "files": [
-      "static/chunks/b536a0f1.0f898456fa240614.js",
-      "static/chunks/119.1693e16a21cd0337.js",
-      "static/chunks/632.0f7bd0972badb044.js",
-      "static/chunks/97.133148d9bc8d7320.js"
+      "static/chunks/_app-pages-browser_src_components_3d_ViewCanvas_tsx.js"
     ]
   }
 }

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 import {
     CodeBracketIcon,
+    DevicePhoneMobileIcon,
     PencilSquareIcon,
     PresentationChartLineIcon,
     XMarkIcon,
@@ -14,7 +15,7 @@ import {
 } from '@heroicons/react/24/outline';
 import portfolioData from '@/data/studio-portfolio.json';
 
-type Category = 'all' | 'website' | 'content' | 'powerpoint';
+type Category = 'all' | 'website' | 'webapp' | 'content' | 'powerpoint';
 
 interface PortfolioItem {
     id: string;
@@ -35,6 +36,7 @@ export default function PortfolioPage() {
     const categories = [
         { id: 'all' as Category, label: 'All Projects', icon: null },
         { id: 'website' as Category, label: 'Websites', icon: CodeBracketIcon },
+        { id: 'webapp' as Category, label: 'Web Apps', icon: DevicePhoneMobileIcon },
         { id: 'content' as Category, label: 'Content Creation', icon: PencilSquareIcon },
         { id: 'powerpoint' as Category, label: 'PowerPoint', icon: PresentationChartLineIcon },
     ];
@@ -46,6 +48,7 @@ export default function PortfolioPage() {
     const getCategoryBadge = (category: string) => {
         const badges = {
             website: { label: 'Website', color: 'bg-blue-500' },
+            webapp: { label: 'Web App', color: 'bg-indigo-500' },
             content: { label: 'Content', color: 'bg-purple-500' },
             powerpoint: { label: 'PowerPoint', color: 'bg-pink-500' },
         };
@@ -138,8 +141,8 @@ export default function PortfolioPage() {
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-full border-2 transition-all duration-300 ${selectedCategory === category.id
-                                            ? 'bg-synapse-main text-white border-synapse-main shadow-lg shadow-synapse-main/30'
-                                            : 'border-gray-300 dark:border-white/20 hover:border-synapse-main/50 hover:bg-synapse-main/5'
+                                        ? 'bg-synapse-main text-white border-synapse-main shadow-lg shadow-synapse-main/30'
+                                        : 'border-gray-300 dark:border-white/20 hover:border-synapse-main/50 hover:bg-synapse-main/5'
                                         }`}
                                     variants={scaleIn}
                                     whileHover={{ scale: 1.05 }}

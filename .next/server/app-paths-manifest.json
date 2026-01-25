@@ -1,21 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/page": "app/page.js",
-  "/studio/page": "app/studio/page.js",
-  "/about/page": "app/about/page.js",
-  "/studio/contact/page": "app/studio/contact/page.js",
-  "/studio/portfolio/page": "app/studio/portfolio/page.js",
-  "/studio/pricing/page": "app/studio/pricing/page.js",
-  "/studio/services/content-creation/page": "app/studio/services/content-creation/page.js",
-  "/studio/services/page": "app/studio/services/page.js",
-  "/studio/services/graphic-design/page": "app/studio/services/graphic-design/page.js",
-  "/systems/collaborate/page": "app/systems/collaborate/page.js",
-  "/systems/page": "app/systems/page.js",
-  "/systems/roadmap/page": "app/systems/roadmap/page.js",
-  "/studio/services/powerpoint-presentations/page": "app/studio/services/powerpoint-presentations/page.js",
-  "/terms/page": "app/terms/page.js",
+  "/studio/services/web-applications/page": "app/studio/services/web-applications/page.js",
   "/studio/services/website-development/page": "app/studio/services/website-development/page.js",
-  "/studio/services/website-maintenance/page": "app/studio/services/website-maintenance/page.js",
-  "/systems/impact/page": "app/systems/impact/page.js"
+  "/studio/contact/page": "app/studio/contact/page.js",
+  "/studio/pricing/page": "app/studio/pricing/page.js",
+  "/studio/services/page": "app/studio/services/page.js"
 }
