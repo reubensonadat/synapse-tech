@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import Navbar from "@/components/layout/Navbar";
 import MainFooter from "@/components/layout/MainFooter";
 import Link from "next/link";
@@ -13,10 +14,22 @@ import { fadeIn, fadeInUp, fadeInLeft, fadeInRight, stagger, viewportOnce } from
 const ViewCanvas = dynamic(() => import("@/components/3d/ViewCanvas"), { ssr: false });
 const StudioShape = dynamic(() => import("@/components/3d/StudioShape"), { ssr: false });
 const SystemsShape = dynamic(() => import("@/components/3d/SystemsShape"), { ssr: false });
+const OnboardingIntro = dynamic(() => import("@/components/onboarding/OnboardingIntro"), { ssr: false });
 
 export default function Home() {
+    const [showOnboarding, setShowOnboarding] = useState(true);
+
+    const handleOnboardingComplete = useCallback(() => {
+        setShowOnboarding(false);
+    }, []);
+
     return (
         <div className="min-h-screen bg-white dark:bg-synapse-black text-gray-900 dark:text-white selection:bg-synapse-main selection:text-white flex flex-col transition-colors duration-300">
+            {/* Premium Onboarding Experience */}
+            {showOnboarding && (
+                <OnboardingIntro onComplete={handleOnboardingComplete} />
+            )}
+
             <Navbar />
 
             <main className="flex-grow flex flex-col pt-24 pb-12 px-6 container mx-auto relative overflow-hidden">

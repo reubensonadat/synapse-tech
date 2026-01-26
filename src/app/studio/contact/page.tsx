@@ -313,9 +313,9 @@ function ContactPageContent() {
                                                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none"
                                                         >
                                                             <option value="">Select a package</option>
-                                                            <option value="starter">Starter (GH₵3,500 - 5,000)</option>
-                                                            <option value="business">Business (GH₵8,000 - 12,000)</option>
-                                                            <option value="ecommerce">E-Commerce (GH₵18,000 - 25,000)</option>
+                                                            <option value="basic">Basic - Starter (GH₵2,500 - 3,500)</option>
+                                                            <option value="standard">Standard - Professional (GH₵4,000 - 5,500)</option>
+                                                            <option value="premium">Premium - Enterprise (GH₵7,000+)</option>
                                                             <option value="custom">Custom/Not Sure</option>
                                                         </select>
                                                     </div>
@@ -385,8 +385,8 @@ function ContactPageContent() {
                                                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none"
                                                         >
                                                             <option value="">Select a package</option>
-                                                            <option value="basic-app">Basic App - The Order Taker (GH₵4,500 - 5,500)</option>
-                                                            <option value="standard-app">Standard App - The Manager (GH₵6,500 - 8,500)</option>
+                                                            <option value="basic-app">Basic App - The Order Taker (GH₵4,000 - 5,500)</option>
+                                                            <option value="standard-app">Standard App - The Manager (GH₵6,500 - 9,000)</option>
                                                             <option value="premium-app">Premium App - The Full System (Custom Quote)</option>
                                                             <option value="custom">Not Sure / Need Consultation</option>
                                                         </select>
@@ -450,9 +450,9 @@ function ContactPageContent() {
                                                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-white/10 bg-white dark:bg-synapse-black focus:border-synapse-main outline-none"
                                                         >
                                                             <option value="">Select a tier</option>
-                                                            <option value="basic">Basic (1 video, 3-4 photos/month)</option>
-                                                            <option value="standard">Standard (3 videos, 6-8 photos/month)</option>
-                                                            <option value="premium">Premium (5 videos, 10+ photos/month)</option>
+                                                            <option value="basic">Basic (3 videos, 10 flyers/month)</option>
+                                                            <option value="standard">Standard (5-6 videos, 10-20 flyers/month)</option>
+                                                            <option value="premium">Premium (10-12 videos, 25+ flyers/month)</option>
                                                         </select>
                                                     </div>
 

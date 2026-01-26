@@ -24,5 +24,11 @@
     "files": [
       "static/chunks/_app-pages-browser_src_components_3d_ViewCanvas_tsx.js"
     ]
+  },
+  "app\\page.tsx -> @/components/onboarding/OnboardingIntro": {
+    "id": "app\\page.tsx -> @/components/onboarding/OnboardingIntro",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_onboarding_OnboardingIntro_tsx.js"
+    ]
   }
 }

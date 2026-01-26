@@ -29,7 +29,10 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
                     {isHome ? (
                         <>
-                            {/* Minimal nav for home */}
+                            {/* Home navigation with Studio/Systems links */}
+                            <Link href="/studio" className="hover:text-synapse-main transition-colors">Studio</Link>
+                            <Link href="/systems" className="hover:text-synapse-main transition-colors">Systems</Link>
+                            <Link href="/about" className="hover:text-synapse-main transition-colors">About</Link>
                             <ThemeToggle />
                         </>
                     ) : isStudioWorld ? (
