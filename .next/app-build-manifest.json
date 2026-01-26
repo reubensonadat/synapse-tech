@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/studio/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/studio/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,11 +16,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/studio/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/page.js"
-    ],
     "/studio/pricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -31,30 +26,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/studio/services/page.js"
     ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/studio/portfolio/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/studio/portfolio/page.js"
     ],
-    "/studio/services/web-applications/page": [
+    "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/studio/services/web-applications/page.js"
-    ],
-    "/studio/services/website-development/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/services/website-development/page.js"
-    ],
-    "/studio/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/contact/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/about/page.js"
     ]
   }
 }

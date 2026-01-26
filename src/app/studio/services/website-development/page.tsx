@@ -156,7 +156,7 @@ export default function WebsiteDevelopmentPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact?service=website-development" variant="primary" className="text-lg px-8 py-4">Get a Quote</Button>
-                            <Button href="/studio/pricing" variant="secondary" className="text-lg px-8 py-4">
+                            <Button href="/studio/pricing?category=websites" variant="secondary" className="text-lg px-8 py-4">
                                 View Pricing
                                 <ArrowRightIcon className="w-5 h-5 ml-2" />
                             </Button>

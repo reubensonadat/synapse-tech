@@ -1,7 +1,4 @@
 {
-  "/studio/services/web-applications/page": "app/studio/services/web-applications/page.js",
-  "/studio/services/website-development/page": "app/studio/services/website-development/page.js",
-  "/studio/contact/page": "app/studio/contact/page.js",
-  "/studio/pricing/page": "app/studio/pricing/page.js",
-  "/studio/services/page": "app/studio/services/page.js"
+  "/studio/services/page": "app/studio/services/page.js",
+  "/studio/portfolio/page": "app/studio/portfolio/page.js"
 }

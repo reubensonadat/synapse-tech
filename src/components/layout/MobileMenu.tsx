@@ -35,6 +35,7 @@ export default function MobileMenu() {
             ];
         } else if (isStudioWorld) {
             return [
+                { href: '/studio', label: 'Studio Home', description: undefined },
                 { href: '/studio/services', label: 'Services', description: undefined },
                 { href: '/studio/portfolio', label: 'Portfolio', description: undefined },
                 { href: '/studio/pricing', label: 'Pricing', description: undefined },
@@ -121,7 +122,7 @@ export default function MobileMenu() {
                             >
                                 {/* Header */}
                                 <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-white/10">
-                                    <h2 className="text-xl font-bold font-heading">Menu</h2>
+                                    <h2 className="text-xl font-bold font-heading">{isStudioWorld ? 'Studio' : isSystemsWorld ? 'Systems' : 'Menu'}</h2>
                                     <motion.button
                                         onClick={closeMenu}
                                         className="p-2 hover:bg-red-50 dark:hover:bg-red-900/10 text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 rounded-lg transition-colors"

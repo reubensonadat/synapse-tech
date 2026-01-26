@@ -35,6 +35,7 @@ export default function Navbar() {
                     ) : isStudioWorld ? (
                         <>
                             {/* Studio navigation */}
+                            <Link href="/studio" className={`hover:text-synapse-main transition-colors ${pathname === '/studio' ? 'text-synapse-main' : ''}`}>Studio Home</Link>
                             <Link href="/studio/services" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/services' ? 'text-synapse-main' : ''}`}>Services</Link>
                             <Link href="/studio/portfolio" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/portfolio' ? 'text-synapse-main' : ''}`}>Portfolio</Link>
                             <Link href="/studio/pricing" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/pricing' ? 'text-synapse-main' : ''}`}>Pricing</Link>

@@ -64,7 +64,7 @@ export default function Home() {
                     <motion.div variants={fadeInLeft}>
                         <Link href="/studio" className="group relative block w-full h-full bg-[#111115] border border-white/10 rounded-3xl overflow-hidden hover:border-synapse-main/50 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(109,40,217,0.5)] hover:scale-[1.02]">
                             <motion.div
-                                className="absolute top-6 left-6 p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10"
+                                className="absolute top-6 left-6 p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white"
                                 whileHover={{ scale: 1.1, rotate: 15 }}
                                 transition={{ duration: 0.3 }}
                             >
@@ -95,7 +95,7 @@ export default function Home() {
                                 viewport={viewportOnce}
                                 transition={{ delay: 0.2, duration: 0.6 }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-2">Synapse Studio</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-2 text-white">Synapse Studio</h2>
                                 <p className="text-gray-400 text-lg">Bespoke Client Services & Digital Strategy.</p>
                             </motion.div>
                         </Link>
@@ -105,7 +105,7 @@ export default function Home() {
                     <motion.div variants={fadeInRight}>
                         <Link href="/systems" className="group relative block w-full h-full bg-[#111115] border border-white/10 rounded-3xl overflow-hidden hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)] hover:scale-[1.02]">
                             <motion.div
-                                className="absolute top-6 left-6 p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10"
+                                className="absolute top-6 left-6 p-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white"
                                 whileHover={{ scale: 1.1, rotate: -15 }}
                                 transition={{ duration: 0.3 }}
                             >
@@ -136,7 +136,7 @@ export default function Home() {
                                 viewport={viewportOnce}
                                 transition={{ delay: 0.2, duration: 0.6 }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-2">Synapse Systems</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-2 text-white">Synapse Systems</h2>
                                 <p className="text-gray-400 text-lg">Proprietary Product Suite & SaaS Solutions.</p>
                             </motion.div>
                         </Link>

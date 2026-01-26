@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceCard from './ServiceCard';
-import { CodeBracketIcon, SwatchIcon, PencilSquareIcon, PresentationChartLineIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp, stagger, viewportOnce } from '@/lib/animations';
@@ -11,26 +11,23 @@ export default function CuratedSolutions() {
         {
             icon: CodeBracketIcon,
             title: 'Website Development',
-            description: 'We design, develop, and launch fast, responsive websites that convert visitors into loyal customers and drive real business results.',
-            link: '/studio/services/website-development'
+            description: 'Custom websites built with modern technologies to ensure fast loading, responsive design, and excellent user experiences.',
+            link: '/studio/services/website-development',
+            pricingLink: '/studio/pricing?category=websites'
+        },
+        {
+            icon: DevicePhoneMobileIcon,
+            title: 'Web Applications',
+            description: 'Custom business systems that automate operations, manage data, and enable direct customer transactions via installable PWAs.',
+            link: '/studio/services/web-applications',
+            pricingLink: '/studio/pricing?category=webapps'
         },
         {
             icon: PencilSquareIcon,
             title: 'Content Creation',
             description: 'Short-form video, brand photography, and social assets for businesses to grow their online presence (Brand-focused, not influencer content).',
-            link: '/studio/services/content-creation'
-        },
-        {
-            icon: SwatchIcon,
-            title: 'Graphic Design',
-            description: 'Brand graphics, banners, and promotional assets that elevate your brand identity (GH₵100 per design).',
-            link: '/studio/services/graphic-design'
-        },
-        {
-            icon: PresentationChartLineIcon,
-            title: 'PowerPoint Presentations',
-            description: 'High-quality branded presentations that communicate your vision clearly and help you win deals and secure funding.',
-            link: '/studio/services/powerpoint-presentations'
+            link: '/studio/services/content-creation',
+            pricingLink: '/studio/pricing'
         }
     ];
 

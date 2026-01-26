@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import StudioFooter from '@/components/layout/StudioFooter';
 import Button from '@/components/ui/Button';
@@ -8,6 +9,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 import { CheckIcon, ChatBubbleLeftRightIcon, PaintBrushIcon, CreditCardIcon, BoltIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+
+// Inner component that safely uses useSearchParams
+function PricingContent({ onCategoryChange }: { onCategoryChange: (category: 'websites' | 'webapps') => void }) {
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        const categoryParam = searchParams.get('category');
+        if (categoryParam === 'webapps' || categoryParam === 'websites') {
+            onCategoryChange(categoryParam);
+        }
+    }, [searchParams, onCategoryChange]);
+
+    return null;
+}
 
 export default function PricingPage() {
     const [selectedTerm, setSelectedTerm] = useState<'3-month' | '6-month' | '12-month'>('12-month');
@@ -22,10 +37,11 @@ export default function PricingPage() {
                 '12-month': 1500
             },
             features: [
-                '1 short-form video/month',
-                '3-4 professional photos/month',
+                '3 short-form videos/month',
+                '10 flyers & graphics/month',
                 'Basic editing',
-                'Social media formats'
+                'Social media formats',
+                'Delivery only (no planning)'
             ]
         },
         {
@@ -37,11 +53,12 @@ export default function PricingPage() {
                 '12-month': 2600
             },
             features: [
-                '3 short-form videos/month',
-                '6-8 professional photos/month',
+                '5-6 short-form videos/month',
+                '10-20 flyers & carousels/month',
                 'Advanced editing',
-                'Multi-platform formats',
-                'Content calendar planning'
+                'Monthly content calendar',
+                'Hashtag & caption strategy',
+                'Basic performance report'
             ]
         },
         {
@@ -52,12 +69,14 @@ export default function PricingPage() {
                 '12-month': 3800
             },
             features: [
-                '5 short-form videos/month',
-                '10+ professional photos/month',
+                '10-12 short-form videos/month',
+                '25+ flyers & carousels/month',
                 'Premium editing & effects',
-                'Brand strategy session',
-                'Monthly content package',
-                'Priority support'
+                'Strategy discussions',
+                'Full social media management',
+                'Community management',
+                'Detailed analytics & reports',
+                'Content repurposing'
             ]
         }
     ];
@@ -174,6 +193,9 @@ export default function PricingPage() {
 
     return (
         <div className="min-h-screen bg-white dark:bg-synapse-black text-black dark:text-white transition-colors duration-200">
+            <Suspense fallback={null}>
+                <PricingContent onCategoryChange={setSelectedCategory} />
+            </Suspense>
             <Navbar />
 
             <main className="pt-16">
