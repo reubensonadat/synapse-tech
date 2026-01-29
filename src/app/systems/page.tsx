@@ -92,7 +92,7 @@ export default function SystemsPage() {
 
                         {/* Headline */}
                         <motion.h1
-                            className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-8 leading-tight"
+                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-8 leading-tight"
                             variants={fadeInUp}
                         >
                             <span className="text-slate-900 dark:text-white">We don't build software.</span>
@@ -150,8 +150,8 @@ export default function SystemsPage() {
                                 className="text-center mb-16"
                                 variants={fadeInUp}
                             >
-                                <motion.div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 flex items-center justify-center text-[#6D28D9]" variants={scaleIn}>
-                                    <IconCampusGuide />
+                                <motion.div className="w-20 h-20 mx-auto mb-6 rounded-2xl" variants={scaleIn}>
+                                    <img src='/campusguidelogo.png' />
                                 </motion.div>
                                 <p className="text-[#6D28D9] text-sm font-bold uppercase tracking-[0.3em] mb-4">Featured System</p>
                                 <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">Campus Guide</h2>
@@ -162,7 +162,7 @@ export default function SystemsPage() {
 
                             {/* Stats Row - Updated metrics */}
                             <motion.div
-                                className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
                                 variants={fadeInUp}
                             >
                                 <div className="bg-white dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 text-center shadow-sm">

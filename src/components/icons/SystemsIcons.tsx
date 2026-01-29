@@ -24,15 +24,15 @@ export const IconServer = () => (
     <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
         <rect x="2" y="2" width="20" height="8" rx="2" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.5" />
         <rect x="2" y="14" width="20" height="8" rx="2" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.5" />
-        <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
 );
 
 export const IconScholasticShield = () => (
     <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
         <path d="M24 4L6 12v12c0 11 8 18 18 22 10-4 18-11 18-22V12L24 4z" fill="#6D28D9" fillOpacity="0.08" stroke="#6D28D9" strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M16 24l6 6 10-12" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 24l6 6 10-12" stroke="#6D28D9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
@@ -213,7 +213,7 @@ export const IconInventory = () => (
 export const IconClinic = () => (
     <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
         <rect x="8" y="8" width="32" height="32" rx="4" fill="#6D28D9" fillOpacity="0.08" stroke="#6D28D9" strokeWidth="1.5" />
-        <path d="M24 16v16M16 24h16" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" />
+        <path d="M24 16v16M16 24h16" stroke="#6D28D9" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
 );
 
@@ -329,7 +329,7 @@ export const IconBarChart = () => (
 export const IconMessage = () => (
     <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
         <path d="M21 12c0 4.418-4.03 8-9 8-1.5 0-2.9-.3-4.15-.84L3 21l1.5-4.35C3.55 15.2 3 13.65 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" fill="#6D28D9" fillOpacity="0.08" stroke="#6D28D9" strokeWidth="1.5" />
-        <path d="M8 12h.01M12 12h.01M16 12h.01" stroke="#6D28D9" strokeWidth="2" strokeLinecap="round" />
+        <path d="M8 12h.01M12 12h.01M16 12h.01" stroke="#6D28D9" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
 );
 

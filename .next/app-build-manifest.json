@@ -16,95 +16,45 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/studio/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/page.js"
-    ],
-    "/studio/pricing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/pricing/page.js"
-    ],
-    "/terms/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/terms/page.js"
-    ],
-    "/studio/services/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/services/page.js"
-    ],
-    "/studio/services/content-creation/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/services/content-creation/page.js"
-    ],
-    "/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/about/page.js"
-    ],
     "/systems/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/systems/page.js"
-    ],
-    "/systems/impact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/impact/page.js"
-    ],
-    "/studio/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/studio/contact/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/systems/campus-guide/page": [
+    "/systems/impact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/campus-guide/page.js"
-    ],
-    "/systems/scholastic-shield/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/scholastic-shield/page.js"
-    ],
-    "/systems/hostel-connect/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/hostel-connect/page.js"
+      "static/chunks/app/systems/impact/page.js"
     ],
     "/systems/roommate-link/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/systems/roommate-link/page.js"
     ],
-    "/systems/job-pulse/page": [
+    "/systems/hostel-connect/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/job-pulse/page.js"
+      "static/chunks/app/systems/hostel-connect/page.js"
     ],
-    "/systems/roadmap/page": [
+    "/systems/scholastic-shield/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/roadmap/page.js"
-    ],
-    "/systems/collaborate/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/collaborate/page.js"
+      "static/chunks/app/systems/scholastic-shield/page.js"
     ],
     "/systems/products/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/systems/products/page.js"
+    ],
+    "/studio/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/studio/contact/page.js"
     ]
   }
 }

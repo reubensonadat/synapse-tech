@@ -44,11 +44,10 @@ export default function MobileMenu() {
             ];
         } else if (isSystemsWorld) {
             return [
-                { href: '/systems/products', label: 'Products', description: undefined },
+                { href: '/systems', label: 'Systems Home', description: undefined },
                 { href: '/systems/impact', label: 'Impact', description: undefined },
-                { href: '/systems/roadmap', label: 'Roadmap', description: undefined },
+                { href: '/systems/products', label: 'Products', description: undefined },
                 { href: '/systems/collaborate', label: 'Collaborate', description: undefined },
-                { href: '/about', label: 'About', description: undefined },
             ];
         } else {
             // About or other pages

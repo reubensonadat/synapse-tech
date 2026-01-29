@@ -54,7 +54,7 @@ export default function Home() {
                     </motion.div>
 
                     <motion.h1
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading leading-tight tracking-tight"
+                        className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading leading-tight tracking-tight"
                         variants={fadeInUp}
                     >
                         We create digital solutions <br className="hidden md:block" />

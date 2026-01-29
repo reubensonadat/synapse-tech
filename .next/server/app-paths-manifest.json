@@ -1,7 +1,8 @@
 {
-  "/systems/roommate-link/page": "app/systems/roommate-link/page.js",
-  "/systems/job-pulse/page": "app/systems/job-pulse/page.js",
   "/systems/page": "app/systems/page.js",
   "/systems/impact/page": "app/systems/impact/page.js",
-  "/systems/campus-guide/page": "app/systems/campus-guide/page.js"
+  "/systems/products/page": "app/systems/products/page.js",
+  "/systems/roommate-link/page": "app/systems/roommate-link/page.js",
+  "/studio/contact/page": "app/studio/contact/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
