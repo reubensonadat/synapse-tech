@@ -87,6 +87,8 @@ export default function ContentCreationPage() {
                         <motion.div className="grid md:grid-cols-2 gap-6" variants={stagger}>
                             {[
                                 { title: 'Short-Form Video', desc: 'Engaging videos optimized for social media and web.' },
+                                { title: 'Campaign Launches', desc: 'High-impact commercials and viral strategies for product launches.' },
+                                { title: 'Motion Graphics', desc: '3D animations and visual effects that elevate your brand perception.' },
                                 { title: 'Brand Photography', desc: 'Professional product and lifestyle shots that capture your brand essence.' },
                                 { title: 'Social Media Assets', desc: 'Graphics and content designed for maximum social impact.' },
                                 { title: 'Testimonial Videos', desc: 'Client stories that build trust and credibility.' }

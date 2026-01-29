@@ -31,6 +31,7 @@ export default function PricingPage() {
     const contentCreationTiers = [
         {
             name: 'Basic',
+            type: 'retainer',
             monthly: {
                 '3-month': 1875,
                 '6-month': 1725,
@@ -42,10 +43,12 @@ export default function PricingPage() {
                 'Basic editing',
                 'Social media formats',
                 'Delivery only (no planning)'
-            ]
+            ],
+            description: "Keep your page alive. Honest, professional updates to show customers you are open for business."
         },
         {
             name: 'Standard',
+            type: 'retainer',
             popular: true,
             monthly: {
                 '3-month': 3250,
@@ -59,25 +62,23 @@ export default function PricingPage() {
                 'Monthly content calendar',
                 'Hashtag & caption strategy',
                 'Basic performance report'
-            ]
+            ],
+            description: "Growth mode. Strategic content and higher production quality to turn followers into customers."
         },
         {
-            name: 'Premium',
-            monthly: {
-                '3-month': 4750,
-                '6-month': 4370,
-                '12-month': 3800
-            },
+            name: 'Campaign Launch',
+            type: 'project',
+            price: '4,000+',
             features: [
-                '10-12 short-form videos/month',
-                '25+ flyers & carousels/month',
-                'Premium editing & effects',
-                'Strategy discussions',
-                'Full social media management',
-                'Community management',
-                'Detailed analytics & reports',
-                'Content repurposing'
-            ]
+                'Cinematic Commercial Ad',
+                'Motion Graphics & 3D Effects',
+                'Viral Campaign Strategy',
+                'Ad Spend Management',
+                'Distribution Strategy',
+                'On-Location Production',
+                'High-end Production Value'
+            ],
+            description: "Go viral. High-end cinematic production for product launches and major promotions."
         }
     ];
 
@@ -447,6 +448,19 @@ export default function PricingPage() {
                             ))}
                         </motion.div>
 
+                        {/* Flexibility Note */}
+                        <motion.div
+                            className="flex justify-center mb-8"
+                            variants={fadeInUp}
+                        >
+                            <div className="bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-200 dark:border-indigo-800 rounded-xl px-4 py-3 text-sm text-center">
+                                <span className="font-semibold text-indigo-700 dark:text-indigo-300 block sm:inline">Need flexibility? </span>
+                                <span className="text-synapse-gray dark:text-gray-400">
+                                    All packages are adjustable. Swap <strong>1 Video → 2 Flyers</strong>. Need more videos? Swap <strong>3 Flyers → 1 Video</strong>.
+                                </span>
+                            </div>
+                        </motion.div>
+
                         <motion.div className="grid md:grid-cols-3 gap-8" variants={stagger}>
                             {contentCreationTiers.map((tier) => (
                                 <motion.div
@@ -462,10 +476,29 @@ export default function PricingPage() {
                                     )}
 
                                     <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                                    {'description' in tier && (
+                                        <p className="text-sm text-synapse-gray dark:text-gray-400 mb-4 min-h-[40px]">
+                                            {(tier as any).description}
+                                        </p>
+                                    )}
+
                                     <div className="mb-6">
-                                        <span className="text-4xl font-bold text-synapse-main">GH₵{tier.monthly[selectedTerm].toLocaleString()}</span>
-                                        <span className="text-synapse-gray dark:text-gray-400">/mo</span>
-                                        <p className="text-sm text-synapse-gray dark:text-gray-400 mt-1">{selectedTerm.replace('-', ' ')} term</p>
+                                        {tier.type === 'retainer' && 'monthly' in tier ? (
+                                            <>
+                                                <span className="text-4xl font-bold text-synapse-main">GH₵{(tier as any).monthly[selectedTerm].toLocaleString()}</span>
+                                                <span className="text-synapse-gray dark:text-gray-400">/mo</span>
+                                                <p className="text-sm text-synapse-gray dark:text-gray-400 mt-1">{selectedTerm.replace('-', ' ')} term</p>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span className="text-4xl font-bold text-synapse-main">
+                                                    {'price' in tier ? `GH₵${tier.price}` : 'Custom'}
+                                                </span>
+                                                <p className="text-sm text-synapse-gray dark:text-gray-400 mt-1">
+                                                    One-time payment
+                                                </p>
+                                            </>
+                                        )}
                                     </div>
 
                                     <ul className="space-y-3 mb-8">
@@ -477,7 +510,11 @@ export default function PricingPage() {
                                         ))}
                                     </ul>
 
-                                    <Button href={`/studio/contact?service=content-creation&tier=${tier.name.toLowerCase()}&term=${selectedTerm}`} variant={tier.popular ? "primary" : "secondary"} className="w-full">
+                                    <Button
+                                        href={`/studio/contact?service=content-creation&tier=${tier.name.toLowerCase().replace(' ', '-')}&term=${tier.type === 'retainer' ? selectedTerm : 'one-time'}`}
+                                        variant={tier.popular ? "primary" : "secondary"}
+                                        className="w-full"
+                                    >
                                         Get Started
                                     </Button>
                                 </motion.div>
@@ -499,7 +536,7 @@ export default function PricingPage() {
                             Additional Services
                         </motion.h2>
 
-                        <motion.div className="grid md:grid-cols-2 gap-6" variants={stagger}>
+                        <motion.div className="grid md:grid-cols-3 gap-6" variants={stagger}>
                             <motion.div
                                 className="bg-white dark:bg-synapse-slate rounded-2xl p-8 border border-gray-200 dark:border-white/10"
                                 variants={scaleIn}
@@ -507,7 +544,7 @@ export default function PricingPage() {
                             >
                                 <h3 className="text-2xl font-bold mb-2">Graphic Design</h3>
                                 <p className="text-4xl font-bold text-synapse-main mb-4">GH₵100</p>
-                                <p className="text-synapse-gray dark:text-gray-400">per design (logos, banners, social posts)</p>
+                                <p className="text-synapse-gray dark:text-gray-400">per design (banners, social posts)</p>
                             </motion.div>
 
                             <motion.div
@@ -515,8 +552,18 @@ export default function PricingPage() {
                                 variants={scaleIn}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <h3 className="text-2xl font-bold mb-2">PowerPoint Presentations</h3>
-                                <p className="text-2xl font-bold text-synapse-main mb-4">Custom Quote</p>
+                                <h3 className="text-2xl font-bold mb-2">Single Video</h3>
+                                <p className="text-4xl font-bold text-synapse-main mb-4">GH₵350</p>
+                                <p className="text-synapse-gray dark:text-gray-400">per video (reels, tiktok, shorts)</p>
+                            </motion.div>
+
+                            <motion.div
+                                className="bg-white dark:bg-synapse-slate rounded-2xl p-8 border border-gray-200 dark:border-white/10"
+                                variants={scaleIn}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <h3 className="text-2xl font-bold mb-2">Presentations</h3>
+                                <p className="text-2xl font-bold text-synapse-main mb-4">Custom</p>
                                 <p className="text-synapse-gray dark:text-gray-400">Pricing based on slide count and complexity</p>
                             </motion.div>
                         </motion.div>

@@ -49,11 +49,10 @@ export default function Navbar() {
                     ) : isSystemsWorld ? (
                         <>
                             {/* Systems navigation */}
-                            <Link href="/systems/products" className={`hover:text-synapse-main transition-colors ${pathname === '/systems/products' ? 'text-synapse-main' : ''}`}>Products</Link>
+                            <Link href="/systems" className={`hover:text-synapse-main transition-colors ${pathname === '/systems' ? 'text-synapse-main' : ''}`}>Systems Home</Link>
                             <Link href="/systems/impact" className={`hover:text-synapse-main transition-colors ${pathname === '/systems/impact' ? 'text-synapse-main' : ''}`}>Impact</Link>
-                            <Link href="/systems/roadmap" className={`hover:text-synapse-main transition-colors ${pathname === '/systems/roadmap' ? 'text-synapse-main' : ''}`}>Roadmap</Link>
+                            <Link href="/systems/products" className={`hover:text-synapse-main transition-colors ${pathname === '/systems/products' ? 'text-synapse-main' : ''}`}>Products</Link>
                             <Link href="/systems/collaborate" className={`hover:text-synapse-main transition-colors ${pathname === '/systems/collaborate' ? 'text-synapse-main' : ''}`}>Collaborate</Link>
-                            <Link href="/about" className={`hover:text-synapse-main transition-colors ${pathname === '/about' ? 'text-synapse-main' : ''}`}>About</Link>
                             <ThemeToggle />
                         </>
                     ) : (

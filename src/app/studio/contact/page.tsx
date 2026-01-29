@@ -92,12 +92,66 @@ function ContactPageContent() {
 
     // Read URL parameters and pre-fill form
     useEffect(() => {
+        const source = searchParams.get('source');
+        const systemId = searchParams.get('system');
         const service = searchParams.get('service') as ServiceType;
         const packageParam = searchParams.get('package');
         const tier = searchParams.get('tier');
         const term = searchParams.get('term');
 
-        if (service) {
+        // Handle Product Page redirects (Get This System)
+        if (source === 'products' && systemId) {
+            setSelectedService('web-application');
+            setFormStep(2);
+
+            // Map system IDs to business types and names
+            const systemConfigs: Record<string, { type: string, name: string }> = {
+                'school-lms': { type: 'other', name: 'School Management System' },
+                'restaurant': { type: 'restaurant', name: 'Restaurant Management System' },
+                'inventory': { type: 'retail', name: 'Inventory Management System' },
+                'clinic': { type: 'service', name: 'Clinic Management System' },
+                'hotel': { type: 'booking', name: 'Hotel Management System' },
+                'library': { type: 'other', name: 'Library Management System' },
+                'retail': { type: 'retail', name: 'Retail POS System' },
+                'logistics': { type: 'service', name: 'Logistics & Delivery System' },
+                'hr': { type: 'other', name: 'HR Management System' }
+            };
+
+            const config = systemConfigs[systemId];
+            if (config) {
+                setFormData(prev => ({
+                    ...prev,
+                    webAppPackage: 'standard-app', // Defaulting to standard
+                    webAppBusinessType: config.type,
+                    message: `I am interested in the ${config.name} template. Please tell me more about customization options.`
+                }));
+            }
+        }
+        // Handle Systems Impact redirects (Partner with Us)
+        else if (source === 'systems' || source === 'systems-impact' || source === 'scholastic-shield' || source === 'campus-guide') {
+            setSelectedService('general'); // Or maybe a new 'partnership' type if available, but general works for now
+            setFormStep(2);
+            let interestSystem = '';
+            if (source === 'scholastic-shield') interestSystem = 'Scholastic Shield';
+            if (source === 'campus-guide') interestSystem = 'Campus Guide';
+
+            setFormData(prev => ({
+                ...prev,
+                message: `I am interested in partnering with Synapse Systems${interestSystem ? ` on ${interestSystem}` : ''}.`
+            }));
+        }
+        // Handle custom system request
+        else if (source === 'custom-system') {
+            setSelectedService('web-application');
+            setFormStep(2);
+            setFormData(prev => ({
+                ...prev,
+                webAppPackage: 'premium-app',
+                message: "I need a custom system built from scratch."
+            }));
+        }
+        // Handle standard service params
+        else if (service) {
             setSelectedService(service);
             setFormStep(2);
 

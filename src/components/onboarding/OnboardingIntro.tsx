@@ -1,9 +1,21 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles, X, Server, Rocket, Users, Globe, Smartphone, Video } from 'lucide-react';
-import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
+import { X, Sparkles, ArrowRight } from 'lucide-react';
+import {
+    IconBrain,
+    IconCode,
+    IconServer,
+    IconRocket,
+    IconUsers,
+    IconMapPin,
+    IconCreditCard,
+    IconCamera
+} from '@/components/icons/SystemsIcons';
+
+// Helper for generic icons if needed, but we prefer custom ones now
+// We can create a simple wrapper if any icon is missing, but we have a good set in SystemsIcons
 
 interface OnboardingIntroProps {
     onComplete: () => void;
@@ -34,9 +46,9 @@ const contentSections: Section[] = [
         subtitle: 'Our Digital Agency Arm',
         heroDesc: 'We partner with visionary businesses to design, develop, and launch world-class digital experiences.',
         items: [
-            { icon: CodeBracketIcon, label: 'Website Development', desc: 'Custom websites built with modern technologies for speed and performance.' },
-            { icon: DevicePhoneMobileIcon, label: 'Web Applications', desc: 'Custom business systems that automate operations and transactions.' },
-            { icon: PencilSquareIcon, label: 'Content Creation', desc: 'Short-form video and brand assets to grow your online presence.' }
+            { icon: IconCode, label: 'Custom Development', desc: 'Websites and web applications built for speed, performance, and scale.' },
+            { icon: IconCamera, label: 'Content & Media', desc: 'Professional photography, videography, and brand assets.' },
+            { icon: IconUsers, label: 'Digital Strategy', desc: 'Consulting and design to grow your online presence.' }
         ]
     },
     {
@@ -45,15 +57,15 @@ const contentSections: Section[] = [
         subtitle: 'Our Product Innovation Lab',
         heroDesc: 'We engineer and deploy our own proprietary SaaS platforms to solve critical infrastructure challenges.',
         items: [
-            { icon: Server, label: 'Inventory Systems', desc: 'Smart stock management reducing waste and optimizing operations.' },
-            { icon: Rocket, label: 'EdTech Platform', desc: 'Modern learning experiences for students and institutions.' },
-            { icon: Users, label: 'R&D Labs', desc: 'Continuously identifying and solving real-world problems.' }
+            { icon: IconServer, label: 'Proprietary Tech', desc: 'Building complex systems that solve real-world problems.' },
+            { icon: IconRocket, label: 'Scalable Solutions', desc: 'From campus tools to national databases.' },
+            { icon: IconBrain, label: 'R&D Labs', desc: 'Continuously innovating and testing new ideas.' }
         ]
     },
     {
         type: 'cta',
         title: 'Two Worlds, One Vision',
-        subtitle: 'Explore our services or discover our products.',
+        subtitle: 'Explore our services or discover our systems.',
     }
 ];
 
@@ -95,9 +107,11 @@ function WelcomeSlide({ section }: { section: Section }) {
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", duration: 1, delay: 0.2 }}
-                className="mb-6 md:mb-8 relative z-10"
+                className="mb-8 md:mb-10 relative z-10 text-synapse-main bg-white/5 p-6 rounded-3xl backdrop-blur-sm border border-white/10"
             >
-                <Sparkles className="w-12 h-12 md:w-16 md:h-16 text-synapse-main" />
+                <div className="w-16 h-16 md:w-20 md:h-20">
+                    <IconBrain />
+                </div>
             </motion.div>
 
             <motion.h1
@@ -156,13 +170,13 @@ function DetailSlide({ section }: { section: Section }) {
                     return (
                         <motion.div
                             key={item.label}
-                            className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 text-left backdrop-blur-sm"
+                            className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 text-left backdrop-blur-sm hover:bg-white/10 transition-colors"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 + index * 0.15, type: "spring" }}
                         >
-                            <div className="w-10 h-10 md:w-12 md:h-12 bg-synapse-main/20 rounded-lg flex items-center justify-center mb-3 md:mb-4 text-synapse-main">
-                                <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-synapse-main/20 rounded-lg flex items-center justify-center mb-3 md:mb-4 text-synapse-main p-2">
+                                <Icon />
                             </div>
                             <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">{item.label}</h3>
                             <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>

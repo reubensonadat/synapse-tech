@@ -1,8 +1,7 @@
 {
-  "/studio/page": "app/studio/page.js",
-  "/studio/services/page": "app/studio/services/page.js",
-  "/studio/services/web-applications/page": "app/studio/services/web-applications/page.js",
-  "/studio/pricing/page": "app/studio/pricing/page.js",
-  "/page": "app/page.js",
-  "/studio/contact/page": "app/studio/contact/page.js"
+  "/systems/roommate-link/page": "app/systems/roommate-link/page.js",
+  "/systems/job-pulse/page": "app/systems/job-pulse/page.js",
+  "/systems/page": "app/systems/page.js",
+  "/systems/impact/page": "app/systems/impact/page.js",
+  "/systems/campus-guide/page": "app/systems/campus-guide/page.js"
 }
