@@ -157,7 +157,7 @@ export default function CampusGuidePage() {
                             <motion.div className="prose prose-lg dark:prose-invert max-w-none" variants={fadeInUp}>
                                 <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed">
                                     Every semester, thousands of new students arrive at UCC with no idea how to navigate campus life.
-                                    Where is the registrar's office? How do I register for courses? What's my GPA? Who do I contact
+                                    Where is the registrar&apos;s office? How do I register for courses? What&apos;s my GPA? Who do I contact
                                     for accommodation issues?
                                 </p>
                                 <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed mt-4">
@@ -189,7 +189,7 @@ export default function CampusGuidePage() {
                                 <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed">
                                     Campus Guide consolidates everything into a single, beautifully designed progressive web app.
                                     From interactive campus maps to GPA calculators, from registration guides to contact directories —
-                                    it's all here.
+                                    it&apos;s all here.
                                 </p>
                                 <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed mt-4">
                                     No downloads required. Works offline. Always updated. And designed specifically for UCC students,

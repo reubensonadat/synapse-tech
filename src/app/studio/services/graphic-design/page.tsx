@@ -80,7 +80,7 @@ export default function GraphicDesignPage() {
                     >
                         <motion.h2 className="text-3xl md:text-4xl font-bold font-heading mb-6" variants={fadeInUp}>What We Do</motion.h2>
                         <motion.p className="text-lg text-synapse-gray dark:text-gray-400 leading-relaxed mb-8" variants={fadeInUp}>
-                            We create stunning visual assets that communicate your brand's message clearly and effectively. From logos to social media graphics, every design is crafted with intention.
+                            We create stunning visual assets that communicate your brand&apos;s message clearly and effectively. From logos to social media graphics, every design is crafted with intention.
                         </motion.p>
 
                         <motion.div className="grid md:grid-cols-2 gap-6" variants={stagger}>
@@ -161,7 +161,7 @@ export default function GraphicDesignPage() {
                     <motion.div className="max-w-4xl mx-auto bg-synapse-main/10 dark:bg-synapse-main/20 border border-synapse-main/30 rounded-3xl p-12" variants={scaleIn}>
                         <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-center">Ready for Stunning Designs?</h2>
                         <p className="text-synapse-gray dark:text-gray-400 text-center mb-8">
-                            Let's create graphics that make your brand unforgettable.
+                            Let&apos;s create graphics that make your brand unforgettable.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact?service=graphic-design" variant="primary" className="text-lg px-8 py-4">Get a Quote</Button>

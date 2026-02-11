@@ -24,12 +24,12 @@ export default function CollaboratePage() {
                             <SectionBadge title="Join Us" variant="systems" />
 
                             <motion.h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight mb-6" variants={fadeInUp}>
-                                <span className="text-slate-900 dark:text-white">Let's Build </span>
+                                <span className="text-slate-900 dark:text-white">Let&apos;s Build </span>
                                 <span className="text-[#2563EB]">Together</span>
                             </motion.h1>
 
                             <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
-                                Whether you want to join our team or bring your idea to life, we're here to collaborate.
+                                Whether you want to join our team or bring your idea to life, we&apos;re here to collaborate.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -60,7 +60,7 @@ export default function CollaboratePage() {
                                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Join as an Intern</h2>
 
                                         <p className="text-slate-600 dark:text-[#A1A1AA] mb-6 leading-relaxed">
-                                            Want to learn and grow with us? We're looking for passionate individuals who want to gain real-world experience building impactful systems.
+                                            Want to learn and grow with us? We&apos;re looking for passionate individuals who want to gain real-world experience building impactful systems.
                                         </p>
 
                                         <div className="space-y-4 mb-8">
@@ -79,7 +79,7 @@ export default function CollaboratePage() {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold text-slate-900 dark:text-white">Interview</h4>
-                                                    <p className="text-sm text-slate-500 dark:text-[#A1A1AA]/80">We'll have a conversation about your skills and interests</p>
+                                                    <p className="text-sm text-slate-500 dark:text-[#A1A1AA]/80">We&apos;ll have a conversation about your skills and interests</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
@@ -176,7 +176,7 @@ export default function CollaboratePage() {
                                 Why Partner with Synapse?
                             </motion.h2>
                             <motion.p className="text-lg text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
-                                When you're under Synapse, you get the advantage of our reach and expertise.
+                                When you&apos;re under Synapse, you get the advantage of our reach and expertise.
                             </motion.p>
                         </motion.div>
 
@@ -211,7 +211,7 @@ export default function CollaboratePage() {
                                 Questions?
                             </motion.h2>
                             <motion.p className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8" variants={fadeInUp}>
-                                Not sure which path is right for you? Reach out and let's chat.
+                                Not sure which path is right for you? Reach out and let&apos;s chat.
                             </motion.p>
                             <motion.div variants={fadeInUp}>
                                 <Link href="/studio/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl hover:opacity-90 transition-all group">

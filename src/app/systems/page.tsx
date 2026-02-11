@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 import { IconMapPin, IconCalendar, IconCalculator, IconBookOpen, IconBuilding, IconSupport, IconArrowRight, IconExternalLink, IconCampusGuide, IconHostelConnect, IconScholasticShield, IconRoommateLink, IconJobPulse } from '@/components/icons/SystemsIcons';
+import SectionBadge from '@/components/ui/SectionBadge';
 
 // Animated Counter Component
 function AnimatedCounter({ target, suffix = "", duration = 2 }: { target: number; suffix?: string; duration?: number }) {
@@ -78,20 +79,14 @@ export default function SystemsPage() {
                         animate="visible"
                         variants={stagger}
                     >
-                        {/* About-style Header */}
-                        <motion.p
-                            className="text-sm font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent uppercase tracking-[0.2em] mb-6"
-                            variants={fadeInDown}
-                        >
-                            — SYSTEMS
-                        </motion.p>
+                        <SectionBadge title="Systems" variant="systems" animated={true} />
 
                         {/* Headline */}
                         <motion.h1
                             className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-10 leading-tight"
                             variants={fadeInUp}
                         >
-                            <span className="text-slate-900 dark:text-white">We don't build software.</span>
+                            <span className="text-slate-900 dark:text-white">We don&apos;t build software.</span>
                             <br />
                             <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">We build systems.</span>
                         </motion.h1>

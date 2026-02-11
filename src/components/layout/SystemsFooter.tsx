@@ -14,10 +14,10 @@ export default function SystemsFooter() {
                             Synapse Systems
                         </h3>
                         <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-4">
-                            We don't just build software, we build systems.
+                            We don&apos;t just build software, we build systems.
                         </p>
                         <p className="text-sm leading-relaxed mb-6">
-                            Building tomorrow's solutions, today. Platforms designed with vision and intention.
+                            Building tomorrow&apos;s solutions, today. Platforms designed with vision and intention.
                         </p>
                         <div className="flex gap-4">
                             <a

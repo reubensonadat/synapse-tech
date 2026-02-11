@@ -6,7 +6,7 @@ export default function CTASection() {
             <div className="max-w-4xl mx-auto text-center">
                 {/* Label */}
                 <p className="text-sm text-synapse-main uppercase tracking-[0.2em] font-bold mb-4">
-                    LET'S COLLABORATE
+                    LET&apos;S COLLABORATE
                 </p>
 
                 {/* Heading */}
@@ -16,13 +16,13 @@ export default function CTASection() {
 
                 {/* Subtext */}
                 <p className="text-lg md:text-xl text-synapse-gray dark:text-synapse-gray mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Let's discuss how we can help you reach every goal and get it built in a custom
+                    Let&apos;s discuss how we can help you reach every goal and get it built in a custom
                     digital strategy tailor-made for you.
                 </p>
 
                 {/* CTA Button */}
                 <Button href="/studio/contact" variant="primary" className="text-lg px-8 py-4">
-                    Let's build your idea
+                    Let&apos;s build your idea
                 </Button>
 
                 {/* Decorative Elements */}

@@ -64,7 +64,7 @@ export default function ScholasticShieldPage() {
                             <motion.p className="text-[#2563EB] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>The Problem</motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>Fee Evasion is Rampant</motion.h2>
                             <motion.p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed text-lg" variants={fadeInUp}>
-                                Across Ghana, students accumulate fees at one school, then simply transfer to another without paying. Schools have no way to verify a student's fee status at previous institutions, leading to millions in lost revenue and an unfair system for students who pay on time.
+                                Across Ghana, students accumulate fees at one school, then simply transfer to another without paying. Schools have no way to verify a student&apos;s fee status at previous institutions, leading to millions in lost revenue and an unfair system for students who pay on time.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -76,7 +76,7 @@ export default function ScholasticShieldPage() {
                             <motion.p className="text-[#2563EB] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>The Solution</motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>A Shared Verification Network</motion.h2>
                             <motion.p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed text-lg" variants={fadeInUp}>
-                                Scholastic Shield creates a secure, shared database where participating schools can verify a student's fee status before enrollment. Schools flag students with outstanding fees, and other schools can check this status instantly during registration.
+                                Scholastic Shield creates a secure, shared database where participating schools can verify a student&apos;s fee status before enrollment. Schools flag students with outstanding fees, and other schools can check this status instantly during registration.
                             </motion.p>
                         </motion.div>
                     </div>

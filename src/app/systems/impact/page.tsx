@@ -118,7 +118,7 @@ export default function ImpactPage() {
                                 className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]"
                                 variants={fadeInUp}
                             >
-                                The systems we've built to solve real problems and impact thousands.
+                                The systems we&apos;ve built to solve real problems and impact thousands.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -232,7 +232,7 @@ export default function ImpactPage() {
                                 className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8"
                                 variants={fadeInUp}
                             >
-                                We apply the same rigor to every project. Let's build systems that work.
+                                We apply the same rigor to every project. Let&apos;s build systems that work.
                             </motion.p>
                             <motion.div variants={fadeInUp}>
                                 <Link

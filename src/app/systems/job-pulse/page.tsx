@@ -54,7 +54,7 @@ export default function JobPulsePage() {
                             <motion.p className="text-[#2563EB] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>The Problem</motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>Broken Job Markets</motion.h2>
                             <motion.p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed text-lg" variants={fadeInUp}>
-                                Ghana's job market is fragmented. Talented candidates can't find opportunities, and companies can't find qualified talent.
+                                Ghana&apos;s job market is fragmented. Talented candidates can&apos;t find opportunities, and companies can&apos;t find qualified talent.
                             </motion.p>
                         </motion.div>
                     </div>

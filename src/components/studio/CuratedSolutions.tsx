@@ -50,7 +50,7 @@ export default function CuratedSolutions() {
                             Curated Solutions
                         </h2>
                         <p className="text-lg text-synapse-gray mt-4 max-w-2xl">
-                            We don't use cookie-cutter templates. Our services are tailored to fit your unique
+                            We don&apos;t use cookie-cutter templates. Our services are tailored to fit your unique
                             needs and business goals.
                         </p>
                     </motion.div>

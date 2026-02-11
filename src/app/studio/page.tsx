@@ -6,6 +6,7 @@ import CuratedSolutions from '@/components/studio/CuratedSolutions';
 import CTASection from '@/components/studio/CTASection';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, viewportOnce } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 
 export default function StudioPage() {
     return (
@@ -50,13 +51,7 @@ export default function StudioPage() {
                         variants={stagger}
                     >
 
-                        {/* About-style Header */}
-                        <motion.p
-                            className="text-sm font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent uppercase tracking-[0.2em] mb-6"
-                            variants={fadeInDown}
-                        >
-                            — STUDIO
-                        </motion.p>
+                        <SectionBadge title="Studio" variant="studio" animated={true} />
 
                         {/* Headline */}
                         <motion.h1

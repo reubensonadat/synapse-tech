@@ -218,7 +218,7 @@ function ContactPageContent() {
                             variants={fadeInUp}
                         >
                             <span className="bg-clip-text text-transparent bg-gradient-to-r dark:from-white dark:via-indigo-100 dark:to-purple-200 from-slate-900 via-indigo-800 to-slate-900">
-                                Let's Build Together
+                                Let&apos;s Build Together
                             </span>
                         </motion.h1>
 
@@ -226,7 +226,7 @@ function ContactPageContent() {
                             className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed dark:text-slate-400 text-slate-600"
                             variants={fadeInUp}
                         >
-                            Tell us about your project and we'll create a custom solution for you.
+                            Tell us about your project and we&apos;ll create a custom solution for you.
                         </motion.p>
                     </motion.div>
                 </section>
@@ -787,7 +787,7 @@ function ContactPageContent() {
                                         </motion.button>
 
                                         <p className="text-sm text-center text-synapse-gray dark:text-gray-400">
-                                            We'll review your request and get back to you within 24 hours.
+                                            We&apos;ll review your request and get back to you within 24 hours.
                                         </p>
                                     </form>
                                 </motion.div>
@@ -809,7 +809,7 @@ function ContactPageContent() {
                             Or reach us directly
                         </motion.h2>
                         <motion.p className="text-synapse-gray dark:text-gray-400 mb-12" variants={fadeInUp}>
-                            Prefer to chat? We're here to help!
+                            Prefer to chat? We&apos;re here to help!
                         </motion.p>
 
                         <motion.div className="grid md:grid-cols-3 gap-6" variants={stagger}>

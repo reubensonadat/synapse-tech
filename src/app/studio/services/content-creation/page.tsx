@@ -169,7 +169,7 @@ export default function ContentCreationPage() {
                             Ready to Tell Your Story?
                         </h2>
                         <p className="text-synapse-gray dark:text-gray-400 text-center mb-8">
-                            Let's create content that resonates with your audience and drives real results.
+                            Let&apos;s create content that resonates with your audience and drives real results.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact?service=content-creation" variant="primary" className="text-lg px-8 py-4">

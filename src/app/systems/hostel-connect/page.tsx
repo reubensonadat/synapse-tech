@@ -63,7 +63,7 @@ export default function HostelConnectPage() {
                             <motion.p className="text-[#2563EB] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>The Problem</motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>Finding Housing is Chaos</motion.h2>
                             <motion.p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed text-lg" variants={fadeInUp}>
-                                Students spend their first weeks walking from hostel to hostel, negotiating with managers, and often getting scammed. There's no central platform, no verified listings, and no transparency on availability or pricing.
+                                Students spend their first weeks walking from hostel to hostel, negotiating with managers, and often getting scammed. There&apos;s no central platform, no verified listings, and no transparency on availability or pricing.
                             </motion.p>
                         </motion.div>
                     </div>

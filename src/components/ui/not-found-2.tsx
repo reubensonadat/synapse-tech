@@ -20,8 +20,8 @@ export function NotFound() {
                         404
                     </EmptyTitle>
                     <EmptyDescription className="-mt-8 text-nowrap text-foreground/80 text-xl font-medium">
-                        The page you're looking for might have been <br />
-                        moved or doesn't exist.
+                        The page you&apos;re looking for might have been <br />
+                        moved or doesn&apos;t exist.
                     </EmptyDescription>
                 </EmptyHeader>
                 <EmptyContent>

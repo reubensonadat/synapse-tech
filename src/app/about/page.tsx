@@ -2,6 +2,7 @@ import Navbar from '@/components/layout/Navbar';
 import MainFooter from '@/components/layout/MainFooter';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import SectionBadge from '@/components/ui/SectionBadge';
 
 export default function AboutPage() {
     const values = [
@@ -52,9 +53,7 @@ export default function AboutPage() {
                 {/* Hero Section */}
                 <section className="px-6 py-20">
                     <div className="max-w-5xl mx-auto">
-                        <p className="text-sm font-bold bg-gradient-to-r from-synapse-main to-blue-600 bg-clip-text text-transparent uppercase tracking-[0.2em] mb-6">
-                            — OVERVIEW
-                        </p>
+                        <SectionBadge title="Overview" variant="neutral" animated={true} />
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading leading-tight mb-6">
                             Orchestrating <br />
                             <span className="bg-gradient-to-r from-synapse-main to-blue-500 bg-clip-text text-transparent">Intelligence.</span>
@@ -95,7 +94,7 @@ export default function AboutPage() {
                                 Connect disparate systems into a unified entity.
                             </h2>
                             <p className="text-synapse-gray leading-relaxed mb-8">
-                                We believe technology should breathe. It shouldn't just function;
+                                We believe technology should breathe. It shouldn&apos;t just function;
                                 it should anticipate, adapt, and move alongside its users.
                             </p>
 

@@ -631,7 +631,7 @@ export default function PricingPage() {
                     <motion.div className="max-w-4xl mx-auto bg-synapse-main/10 dark:bg-synapse-main/20 border border-synapse-main/30 rounded-3xl p-12 text-center" variants={scaleIn}>
                         <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Ready to Get Started?</h2>
                         <p className="text-synapse-gray dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                            Let's discuss your project and find the perfect package for your needs.
+                            Let&apos;s discuss your project and find the perfect package for your needs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact" variant="primary" className="text-lg px-8 py-4">

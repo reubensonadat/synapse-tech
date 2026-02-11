@@ -152,7 +152,7 @@ export default function WebsiteDevelopmentPage() {
                     <motion.div className="max-w-4xl mx-auto bg-synapse-main/10 dark:bg-synapse-main/20 border border-synapse-main/30 rounded-3xl p-12" variants={scaleIn}>
                         <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-center">Ready to Build Your Website?</h2>
                         <p className="text-synapse-gray dark:text-gray-400 text-center mb-8">
-                            Let's create a website that grows your business.
+                            Let&apos;s create a website that grows your business.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact?service=website-development" variant="primary" className="text-lg px-8 py-4">Get a Quote</Button>

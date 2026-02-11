@@ -79,7 +79,7 @@ export default function PowerPointPresentationsPage() {
                     >
                         <motion.h2 className="text-3xl md:text-4xl font-bold font-heading mb-6" variants={fadeInUp}>What We Do</motion.h2>
                         <motion.p className="text-lg text-synapse-gray dark:text-gray-400 leading-relaxed mb-8" variants={fadeInUp}>
-                            We design professional presentation decks that tell your story with clarity and impact. Whether you're pitching investors, presenting to clients, or delivering a keynote, we make sure your slides look amazing.
+                            We design professional presentation decks that tell your story with clarity and impact. Whether you&apos;re pitching investors, presenting to clients, or delivering a keynote, we make sure your slides look amazing.
                         </motion.p>
 
                         <motion.div className="grid md:grid-cols-2 gap-6" variants={stagger}>
@@ -160,7 +160,7 @@ export default function PowerPointPresentationsPage() {
                     <motion.div className="max-w-4xl mx-auto bg-synapse-main/10 dark:bg-synapse-main/20 border border-synapse-main/30 rounded-3xl p-12" variants={scaleIn}>
                         <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-center">Need a Winning Presentation?</h2>
                         <p className="text-synapse-gray dark:text-gray-400 text-center mb-8">
-                            Let's create slides that make your message impossible to ignore.
+                            Let&apos;s create slides that make your message impossible to ignore.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button href="/studio/contact?service=powerpoint" variant="primary" className="text-lg px-8 py-4">Get a Quote</Button>

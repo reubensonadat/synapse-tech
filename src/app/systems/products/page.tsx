@@ -97,7 +97,7 @@ export default function ProductsPage() {
                             </motion.h1>
 
                             <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
-                                Professional management systems tailored to your business. Choose a template and we'll customize it for you.
+                                Professional management systems tailored to your business. Choose a template and we&apos;ll customize it for you.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -152,7 +152,7 @@ export default function ProductsPage() {
                                 Need something different?
                             </motion.h2>
                             <motion.p className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8" variants={fadeInUp}>
-                                We build custom systems too. Tell us what you need and we'll make it happen.
+                                We build custom systems too. Tell us what you need and we&apos;ll make it happen.
                             </motion.p>
                             <motion.div variants={fadeInUp}>
                                 <Link href="/studio/contact?source=custom-system" className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all shadow-lg shadow-[#2563EB]/25 group">

@@ -52,7 +52,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">5. Client Responsibilities</h2>
                             <p>
-                                You agree to provide all necessary assets, credentials, and feedback in a timely manner to avoid project delays. Synapse Tech is not responsible for delays caused by the Client's failure to provide required information.
+                                You agree to provide all necessary assets, credentials, and feedback in a timely manner to avoid project delays. Synapse Tech is not responsible for delays caused by the Client&apos;s failure to provide required information.
                             </p>
                         </section>
 
