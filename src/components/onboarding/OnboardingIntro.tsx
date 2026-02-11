@@ -236,7 +236,7 @@ export default function OnboardingIntro({ onComplete }: OnboardingIntroProps) {
 
     // Check if already seen
     useEffect(() => {
-        const hasSeen = sessionStorage.getItem(STORAGE_KEY);
+        const hasSeen = localStorage.getItem(STORAGE_KEY);
         if (hasSeen === 'true') {
             setIsVisible(false);
             onComplete();
@@ -270,7 +270,7 @@ export default function OnboardingIntro({ onComplete }: OnboardingIntroProps) {
     }, [currentSection, isVisible, isPaused]);
 
     const handleComplete = useCallback(() => {
-        sessionStorage.setItem(STORAGE_KEY, 'true');
+        localStorage.setItem(STORAGE_KEY, 'true');
         setIsVisible(false);
         // Small delay to let animation finish before unlocking parent
         setTimeout(onComplete, 500);

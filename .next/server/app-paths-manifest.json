@@ -1,8 +1,10 @@
 {
   "/systems/page": "app/systems/page.js",
-  "/systems/impact/page": "app/systems/impact/page.js",
-  "/systems/products/page": "app/systems/products/page.js",
-  "/systems/roommate-link/page": "app/systems/roommate-link/page.js",
+  "/studio/page": "app/studio/page.js",
+  "/page": "app/page.js",
+  "/studio/services/page": "app/studio/services/page.js",
+  "/studio/portfolio/page": "app/studio/portfolio/page.js",
+  "/studio/pricing/page": "app/studio/pricing/page.js",
   "/studio/contact/page": "app/studio/contact/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/about/page": "app/about/page.js"
 }

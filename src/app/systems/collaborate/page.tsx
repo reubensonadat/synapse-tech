@@ -2,8 +2,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
+import SystemsFooter from '@/components/layout/SystemsFooter';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 import { IconUsers, IconLightbulb, IconHandshake, IconRocket, IconFileText, IconMail, IconArrowRight } from '@/components/icons/SystemsIcons';
 
 export default function CollaboratePage() {
@@ -15,20 +17,15 @@ export default function CollaboratePage() {
                 {/* Hero */}
                 <section className="relative w-full py-20 md:py-28 overflow-hidden">
                     <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
-                    <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#6D28D9]/5 dark:bg-[#6D28D9]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
                         <motion.div initial="hidden" animate="visible" variants={stagger}>
-                            <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 border border-[#6D28D9]/30 mb-8" variants={fadeInDown}>
-                                <div className="w-4 h-4 text-[#6D28D9]">
-                                    <IconHandshake />
-                                </div>
-                                <span className="text-xs font-semibold tracking-widest uppercase text-[#6D28D9]">Join Us</span>
-                            </motion.div>
+                            <SectionBadge title="Join Us" variant="systems" />
 
                             <motion.h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight mb-6" variants={fadeInUp}>
                                 <span className="text-slate-900 dark:text-white">Let's Build </span>
-                                <span className="text-[#6D28D9]">Together</span>
+                                <span className="text-[#2563EB]">Together</span>
                             </motion.h1>
 
                             <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
@@ -51,10 +48,10 @@ export default function CollaboratePage() {
                             {/* Internship Path */}
                             <motion.div variants={scaleIn}>
                                 <div className="h-full bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#151521] dark:to-[#1a1a2e] rounded-3xl p-8 border border-slate-200 dark:border-white/5 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#6D28D9]/10 rounded-full blur-[60px]" />
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563EB]/10 rounded-full blur-[60px]" />
 
                                     <div className="relative z-10">
-                                        <div className="w-16 h-16 rounded-2xl bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 flex items-center justify-center text-[#6D28D9] mb-6">
+                                        <div className="w-16 h-16 rounded-2xl bg-[#2563EB]/10 dark:bg-[#2563EB]/20 flex items-center justify-center text-[#2563EB] mb-6">
                                             <div className="w-8 h-8">
                                                 <IconUsers />
                                             </div>
@@ -68,8 +65,8 @@ export default function CollaboratePage() {
 
                                         <div className="space-y-4 mb-8">
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                    <span className="text-[#6D28D9] text-xs font-bold">1</span>
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <span className="text-[#2563EB] text-xs font-bold">1</span>
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold text-slate-900 dark:text-white">Apply</h4>
@@ -77,8 +74,8 @@ export default function CollaboratePage() {
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                    <span className="text-[#6D28D9] text-xs font-bold">2</span>
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <span className="text-[#2563EB] text-xs font-bold">2</span>
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold text-slate-900 dark:text-white">Interview</h4>
@@ -86,8 +83,8 @@ export default function CollaboratePage() {
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                    <span className="text-[#6D28D9] text-xs font-bold">3</span>
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <span className="text-[#2563EB] text-xs font-bold">3</span>
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold text-slate-900 dark:text-white">Join the Team</h4>
@@ -96,7 +93,7 @@ export default function CollaboratePage() {
                                             </div>
                                         </div>
 
-                                        <Link href="mailto:internships@synapsetech.dev?subject=Internship Application" className="inline-flex items-center gap-2 px-6 py-3 bg-[#6D28D9] text-white font-bold rounded-xl hover:bg-[#6D28D9]/90 transition-all group">
+                                        <Link href="mailto:internships@synapsetech.dev?subject=Internship Application" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all group">
                                             Apply for Internship
                                             <div className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                                                 <IconMail />
@@ -108,11 +105,11 @@ export default function CollaboratePage() {
 
                             {/* Bring Your Idea Path */}
                             <motion.div variants={scaleIn}>
-                                <div className="h-full bg-gradient-to-br from-[#6D28D9]/5 to-[#6D28D9]/10 dark:from-[#6D28D9]/10 dark:to-[#6D28D9]/20 rounded-3xl p-8 border border-[#6D28D9]/20 relative overflow-hidden">
-                                    <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#6D28D9]/20 rounded-full blur-[80px]" />
+                                <div className="h-full bg-gradient-to-br from-[#2563EB]/5 to-[#2563EB]/10 dark:from-[#2563EB]/10 dark:to-[#2563EB]/20 rounded-3xl p-8 border border-[#2563EB]/20 relative overflow-hidden">
+                                    <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#2563EB]/20 rounded-full blur-[80px]" />
 
                                     <div className="relative z-10">
-                                        <div className="w-16 h-16 rounded-2xl bg-[#6D28D9] flex items-center justify-center text-white mb-6">
+                                        <div className="w-16 h-16 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white mb-6">
                                             <div className="w-8 h-8 text-white">
                                                 <IconLightbulb />
                                             </div>
@@ -126,7 +123,7 @@ export default function CollaboratePage() {
 
                                         <div className="space-y-4 mb-8">
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
                                                     <div className="w-3 h-3 text-white">
                                                         <IconLightbulb />
                                                     </div>
@@ -137,7 +134,7 @@ export default function CollaboratePage() {
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
                                                     <div className="w-3 h-3 text-white">
                                                         <IconFileText />
                                                     </div>
@@ -148,7 +145,7 @@ export default function CollaboratePage() {
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-[#6D28D9] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <div className="w-6 h-6 rounded-full bg-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
                                                     <div className="w-3 h-3 text-white">
                                                         <IconRocket />
                                                     </div>
@@ -160,7 +157,7 @@ export default function CollaboratePage() {
                                             </div>
                                         </div>
 
-                                        <Link href="mailto:partnerships@synapsetech.dev?subject=Partnership Idea" className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-[#0B0B0F] text-[#6D28D9] font-bold rounded-xl border-2 border-[#6D28D9] hover:bg-[#6D28D9] hover:text-white transition-all group">
+                                        <Link href="mailto:partnerships@synapsetech.dev?subject=Partnership Idea" className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-[#0B0B0F] text-[#2563EB] font-bold rounded-xl border-2 border-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all group">
                                             Submit Your Idea
                                             <div className="w-4 h-4 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>
                                         </Link>
@@ -191,15 +188,15 @@ export default function CollaboratePage() {
                             variants={stagger}
                         >
                             <motion.div variants={fadeInUp} className="text-center p-6">
-                                <div className="text-4xl font-bold text-[#6D28D9] mb-2">20,000+</div>
+                                <div className="text-4xl font-bold text-[#2563EB] mb-2">20,000+</div>
                                 <p className="text-slate-600 dark:text-[#A1A1AA]">Students using our systems</p>
                             </motion.div>
                             <motion.div variants={fadeInUp} className="text-center p-6">
-                                <div className="text-4xl font-bold text-[#6D28D9] mb-2">5+</div>
+                                <div className="text-4xl font-bold text-[#2563EB] mb-2">5+</div>
                                 <p className="text-slate-600 dark:text-[#A1A1AA]">Systems in development</p>
                             </motion.div>
                             <motion.div variants={fadeInUp} className="text-center p-6">
-                                <div className="text-4xl font-bold text-[#6D28D9] mb-2">Proven</div>
+                                <div className="text-4xl font-bold text-[#2563EB] mb-2">Proven</div>
                                 <p className="text-slate-600 dark:text-[#A1A1AA]">Track record of delivery</p>
                             </motion.div>
                         </motion.div>
@@ -227,26 +224,7 @@ export default function CollaboratePage() {
                 </section>
             </main>
 
-            <footer className="bg-slate-100 dark:bg-[#0B0B0F] border-t border-slate-200 dark:border-white/5 text-slate-600 dark:text-[#A1A1AA] transition-colors duration-200">
-                <div className="max-w-5xl mx-auto px-6 py-12">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Synapse Systems</h3>
-                            <p className="text-sm">Building systems that work.</p>
-                        </div>
-                        <div className="flex items-center gap-6 text-sm">
-                            <Link href="/systems" className="hover:text-[#6D28D9] transition-colors">Systems Home</Link>
-                            <Link href="/systems/impact" className="hover:text-[#6D28D9] transition-colors">Impact</Link>
-                            <Link href="/systems/products" className="hover:text-[#6D28D9] transition-colors">Products</Link>
-                            <span className="text-slate-300 dark:text-white/20">|</span>
-                            <Link href="/studio" className="hover:text-[#6D28D9] transition-colors">Studio</Link>
-                        </div>
-                    </div>
-                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 text-center text-sm text-slate-500 dark:text-[#A1A1AA]/60">
-                        © {new Date().getFullYear()} Synapse Tech. All rights reserved.
-                    </div>
-                </div>
-            </footer>
+            <SystemsFooter />
         </div>
     );
 }

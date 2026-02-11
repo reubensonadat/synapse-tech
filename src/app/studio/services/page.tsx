@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon, SwatchIcon, PresentationChartLineIcon, Cog6ToothIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 
 export default function ServicesPage() {
     const services = [
@@ -90,18 +91,7 @@ export default function ServicesPage() {
                     >
 
                         {/* Badge / Pill */}
-                        <motion.div
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 dark:bg-white/5 border border-purple-200 dark:border-white/10 backdrop-blur-sm mb-8 shadow-sm transition-all duration-300 hover:scale-105 cursor-default"
-                            variants={fadeInDown}
-                        >
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                            </span>
-                            <span className="text-xs font-medium tracking-wide uppercase text-purple-700 dark:text-purple-300">
-                                Studio Services
-                            </span>
-                        </motion.div>
+                        <SectionBadge title="Studio Services" variant="studio" />
 
                         {/* Headline */}
                         <motion.h1

@@ -50,29 +50,20 @@ export default function StudioPage() {
                         variants={stagger}
                     >
 
-                        {/* Badge / Pill */}
-                        <motion.div
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 dark:bg-white/5 border border-purple-200 dark:border-white/10 backdrop-blur-sm mb-8 shadow-sm transition-all duration-300 hover:scale-105 cursor-default"
+                        {/* About-style Header */}
+                        <motion.p
+                            className="text-sm font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent uppercase tracking-[0.2em] mb-6"
                             variants={fadeInDown}
-                            whileHover={{ scale: 1.05 }}
                         >
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                            </span>
-                            <span className="text-xs font-medium tracking-wide uppercase text-purple-700 dark:text-purple-300">
-                                Synapse Studio
-                            </span>
-                        </motion.div>
+                            — STUDIO
+                        </motion.p>
 
                         {/* Headline */}
                         <motion.h1
                             className="text-5xl md:text-7xl font-bold font-heading tracking-tight mb-6 transition-colors duration-300"
                             variants={fadeInUp}
                         >
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r dark:from-white dark:via-indigo-100 dark:to-purple-200 from-slate-900 via-indigo-800 to-slate-900">
-                                Creating Digital Experiences That Drive Growth
-                            </span>
+                            Creating Digital Experiences That <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Drive Growth.</span>
                         </motion.h1>
 
                         {/* Subtext */}

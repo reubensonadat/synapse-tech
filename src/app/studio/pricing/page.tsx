@@ -9,6 +9,17 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
 import { CheckIcon, ChatBubbleLeftRightIcon, PaintBrushIcon, CreditCardIcon, BoltIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import SectionBadge from '@/components/ui/SectionBadge';
+
+interface ContentTier {
+    name: string;
+    type: 'retainer' | 'project';
+    popular?: boolean;
+    monthly?: Record<string, number>;
+    price?: string;
+    features: string[];
+    description: string;
+}
 
 // Inner component that safely uses useSearchParams
 function PricingContent({ onCategoryChange }: { onCategoryChange: (category: 'websites' | 'webapps') => void }) {
@@ -28,7 +39,7 @@ export default function PricingPage() {
     const [selectedTerm, setSelectedTerm] = useState<'3-month' | '6-month' | '12-month'>('12-month');
     const [selectedCategory, setSelectedCategory] = useState<'websites' | 'webapps'>('websites');
 
-    const contentCreationTiers = [
+    const contentCreationTiers: ContentTier[] = [
         {
             name: 'Basic',
             type: 'retainer',
@@ -225,18 +236,7 @@ export default function PricingPage() {
                         animate="visible"
                         variants={stagger}
                     >
-                        <motion.div
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 dark:bg-white/5 border border-purple-200 dark:border-white/10 backdrop-blur-sm mb-8 shadow-sm"
-                            variants={fadeInDown}
-                        >
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                            </span>
-                            <span className="text-xs font-medium tracking-wide uppercase text-purple-700 dark:text-purple-300">
-                                Transparent Pricing
-                            </span>
-                        </motion.div>
+                        <SectionBadge title="Transparent Pricing" variant="studio" />
 
                         <motion.h1
                             className="text-5xl md:text-7xl font-bold font-heading tracking-tight mb-6"
@@ -485,7 +485,7 @@ export default function PricingPage() {
                                     <div className="mb-6">
                                         {tier.type === 'retainer' && 'monthly' in tier ? (
                                             <>
-                                                <span className="text-4xl font-bold text-synapse-main">GH₵{(tier as any).monthly[selectedTerm].toLocaleString()}</span>
+                                                <span className="text-4xl font-bold text-synapse-main">GH₵{tier.monthly?.[selectedTerm]?.toLocaleString()}</span>
                                                 <span className="text-synapse-gray dark:text-gray-400">/mo</span>
                                                 <p className="text-sm text-synapse-gray dark:text-gray-400 mt-1">{selectedTerm.replace('-', ' ')} term</p>
                                             </>
@@ -502,7 +502,7 @@ export default function PricingPage() {
                                     </div>
 
                                     <ul className="space-y-3 mb-8">
-                                        {tier.features.map((feature, i) => (
+                                        {tier.features.map((feature: string, i: number) => (
                                             <li key={i} className="flex items-start gap-2">
                                                 <CheckIcon className="w-5 h-5 text-synapse-main flex-shrink-0 mt-0.5" />
                                                 <span className="text-sm">{feature}</span>
@@ -511,7 +511,7 @@ export default function PricingPage() {
                                     </ul>
 
                                     <Button
-                                        href={`/studio/contact?service=content-creation&tier=${tier.name.toLowerCase().replace(' ', '-')}&term=${tier.type === 'retainer' ? selectedTerm : 'one-time'}`}
+                                        href={`/studio/contact?service=content-creation&tier=${tier.name.toLowerCase().replace(' ', '-')}&term=${'type' in tier && tier.type === 'retainer' ? selectedTerm : 'one-time'}`}
                                         variant={tier.popular ? "primary" : "secondary"}
                                         className="w-full"
                                     >

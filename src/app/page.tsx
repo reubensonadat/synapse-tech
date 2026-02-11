@@ -59,7 +59,7 @@ export default function Home() {
                     >
                         We create digital solutions <br className="hidden md:block" />
                         that <span className="text-synapse-main">drive growth</span> and <br className="hidden md:block" />
-                        build systems for <br className="hidden md:block" />
+                        <span className="text-blue-600">build systems</span> for <br className="hidden md:block" />
                         tomorrow.
                     </motion.h1>
                 </motion.div>
@@ -93,7 +93,7 @@ export default function Home() {
                             </motion.div>
 
                             {/* 3D Scene */}
-                            <div className="absolute inset-0 top-12 bottom-24 pointer-events-none transition-transform duration-700 md:group-hover:scale-110">
+                            <div className="hidden md:block absolute inset-0 top-12 bottom-24 pointer-events-none transition-transform duration-700 md:group-hover:scale-110">
                                 <Suspense fallback={null}>
                                     <ViewCanvas>
                                         <StudioShape />
@@ -134,7 +134,7 @@ export default function Home() {
                             </motion.div>
 
                             {/* 3D Scene */}
-                            <div className="absolute inset-0 top-12 bottom-24 pointer-events-none transition-transform duration-700 md:group-hover:scale-110">
+                            <div className="hidden md:block absolute inset-0 top-12 bottom-24 pointer-events-none transition-transform duration-700 md:group-hover:scale-110">
                                 <Suspense fallback={null}>
                                     <ViewCanvas>
                                         <SystemsShape />

@@ -48,6 +48,7 @@ export default function MobileMenu() {
                 { href: '/systems/impact', label: 'Impact', description: undefined },
                 { href: '/systems/products', label: 'Products', description: undefined },
                 { href: '/systems/collaborate', label: 'Collaborate', description: undefined },
+                { href: '/about', label: 'About', description: undefined },
             ];
         } else {
             // About or other pages
@@ -55,6 +56,7 @@ export default function MobileMenu() {
                 { href: '/', label: 'Home', description: undefined },
                 { href: '/studio', label: 'Studio', description: undefined },
                 { href: '/systems', label: 'Systems', description: undefined },
+                { href: '/about', label: 'About', description: undefined },
             ];
         }
     };
@@ -145,8 +147,8 @@ export default function MobileMenu() {
                                             href={link.href}
                                             onClick={closeMenu}
                                             className={`block px-4 py-3 rounded-xl font-medium transition-all ${pathname === link.href
-                                                ? 'bg-synapse-main text-white'
-                                                : 'text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-white/5'
+                                                ? (isSystemsWorld ? 'bg-blue-600 text-white' : 'bg-synapse-main text-white')
+                                                : `text-gray-700 dark:text-gray-300 ${isSystemsWorld ? 'hover:bg-blue-50' : 'hover:bg-purple-50'} dark:hover:bg-white/5`
                                                 }`}
                                         >
                                             <div>
@@ -213,7 +215,10 @@ export default function MobileMenu() {
                                         <Link
                                             href={isStudioWorld ? '/studio/contact' : isSystemsWorld ? '/systems/collaborate' : '/studio/contact'}
                                             onClick={closeMenu}
-                                            className="block w-full px-6 py-3 text-center font-bold text-white bg-synapse-main rounded-xl hover:bg-synapse-main/90 hover:shadow-lg hover:shadow-synapse-main/30 transition-all"
+                                            className={`block w-full px-6 py-3 text-center font-bold text-white rounded-xl hover:shadow-lg transition-all ${isSystemsWorld
+                                                ? 'bg-blue-600 hover:bg-blue-500 hover:shadow-blue-600/30'
+                                                : 'bg-synapse-main hover:bg-synapse-main/90 hover:shadow-synapse-main/30'
+                                                }`}
                                         >
                                             {isStudioWorld ? 'Get Started' : isSystemsWorld ? 'Join Us' : 'Get Started'}
                                         </Link>

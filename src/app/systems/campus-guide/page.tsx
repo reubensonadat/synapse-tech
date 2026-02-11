@@ -2,8 +2,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
+import SystemsFooter from '@/components/layout/SystemsFooter';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 import { IconMapPin, IconCalendar, IconCalculator, IconBookOpen, IconBuilding, IconSupport, IconArrowLeft, IconArrowRight, IconExternalLink, IconCampusGuide } from '@/components/icons/SystemsIcons';
 
 const features = [
@@ -35,7 +37,7 @@ export default function CampusGuidePage() {
                     <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
 
                     {/* Ambient Glow */}
-                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#6D28D9]/5 dark:bg-[#6D28D9]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6">
                         <motion.div
@@ -44,15 +46,7 @@ export default function CampusGuidePage() {
                             variants={stagger}
                         >
                             {/* Badge */}
-                            <motion.div
-                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-500/20 mb-6"
-                                variants={fadeInDown}
-                            >
-                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                <span className="text-xs font-semibold uppercase tracking-wider text-green-700 dark:text-green-400">
-                                    Live
-                                </span>
-                            </motion.div>
+                            <SectionBadge title="Live" variant="success" />
 
                             {/* Logo */}
                             <motion.div className="w-20 h-20 md:w-32 md:h-32 mb-6" variants={scaleIn}>
@@ -68,7 +62,7 @@ export default function CampusGuidePage() {
                                 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight mb-4"
                                 variants={fadeInUp}
                             >
-                                <span className="text-[#6D28D9]">Campus Guide</span>
+                                <span className="text-blue-600">Campus Guide</span>
                             </motion.h1>
 
                             {/* Tagline */}
@@ -94,7 +88,7 @@ export default function CampusGuidePage() {
                                     href="https://campusguide.pages.dev"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#6D28D9] text-white font-bold rounded-xl hover:bg-[#6D28D9]/90 transition-all shadow-lg shadow-[#6D28D9]/25 group"
+                                    className="inline-flex items-center gap-2 px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/25 group"
                                 >
                                     Launch Campus Guide
                                     <div className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><IconExternalLink /></div>
@@ -108,7 +102,7 @@ export default function CampusGuidePage() {
                 <div className="max-w-5xl mx-auto px-6 py-6">
                     <Link
                         href="/systems/impact"
-                        className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-[#A1A1AA] hover:text-[#6D28D9] transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-[#A1A1AA] hover:text-blue-600 transition-colors"
                     >
                         <div className="w-4 h-4"><IconArrowLeft /></div>
                         Back to All Systems
@@ -119,7 +113,7 @@ export default function CampusGuidePage() {
                 <section className="py-12 bg-white dark:bg-[#151521]/50 border-y border-slate-200 dark:border-white/5 transition-colors duration-200">
                     <div className="max-w-5xl mx-auto px-6">
                         <motion.div
-                            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+                            className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -130,7 +124,7 @@ export default function CampusGuidePage() {
                                 <p className="text-sm text-slate-500 dark:text-[#A1A1AA] uppercase tracking-wider mt-1">Students Reached</p>
                             </motion.div>
                             <motion.div variants={scaleIn}>
-                                <p className="text-3xl md:text-4xl font-bold text-[#6D28D9]">1</p>
+                                <p className="text-3xl md:text-4xl font-bold text-blue-600">1</p>
                                 <p className="text-sm text-slate-500 dark:text-[#A1A1AA] uppercase tracking-wider mt-1">Semester</p>
                             </motion.div>
                             <motion.div variants={scaleIn}>
@@ -138,7 +132,7 @@ export default function CampusGuidePage() {
                                 <p className="text-sm text-slate-500 dark:text-[#A1A1AA] uppercase tracking-wider mt-1">Paid Conversion</p>
                             </motion.div>
                             <motion.div variants={scaleIn}>
-                                <p className="text-3xl md:text-4xl font-bold text-[#6D28D9]">#1</p>
+                                <p className="text-3xl md:text-4xl font-bold text-blue-600">#1</p>
                                 <p className="text-sm text-slate-500 dark:text-[#A1A1AA] uppercase tracking-wider mt-1">Campus App</p>
                             </motion.div>
                         </motion.div>
@@ -154,7 +148,7 @@ export default function CampusGuidePage() {
                             viewport={{ once: true }}
                             variants={stagger}
                         >
-                            <motion.p className="text-[#6D28D9] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
+                            <motion.p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
                                 The Problem
                             </motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>
@@ -185,7 +179,7 @@ export default function CampusGuidePage() {
                             viewport={{ once: true }}
                             variants={stagger}
                         >
-                            <motion.p className="text-[#6D28D9] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
+                            <motion.p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
                                 The Solution
                             </motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6" variants={fadeInUp}>
@@ -215,7 +209,7 @@ export default function CampusGuidePage() {
                             viewport={{ once: true }}
                             variants={stagger}
                         >
-                            <motion.p className="text-[#6D28D9] text-sm font-bold uppercase tracking-[0.3em] mb-4 text-center" variants={fadeInUp}>
+                            <motion.p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4 text-center" variants={fadeInUp}>
                                 Features
                             </motion.p>
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center" variants={fadeInUp}>
@@ -229,10 +223,10 @@ export default function CampusGuidePage() {
                                 {features.map((feature, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 group hover:border-[#6D28D9]/30 transition-all"
+                                        className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all"
                                         variants={scaleIn}
                                     >
-                                        <div className="w-12 h-12 rounded-xl bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <div className="w-10 h-10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                             <feature.Icon />
                                         </div>
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
@@ -253,7 +247,7 @@ export default function CampusGuidePage() {
                             viewport={{ once: true }}
                             variants={stagger}
                         >
-                            <motion.p className="text-[#6D28D9] text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
+                            <motion.p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4" variants={fadeInUp}>
                                 Built With
                             </motion.p>
                             <motion.div
@@ -289,7 +283,7 @@ export default function CampusGuidePage() {
                                 Ready to explore?
                             </motion.h2>
                             <motion.p
-                                className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8"
+                                className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-10"
                                 variants={fadeInUp}
                             >
                                 Join 20,000+ UCC students already using Campus Guide.
@@ -299,14 +293,14 @@ export default function CampusGuidePage() {
                                     href="https://campusguide.pages.dev"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#6D28D9] text-white font-bold rounded-xl hover:bg-[#6D28D9]/90 transition-all shadow-lg shadow-[#6D28D9]/25 group"
+                                    className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/25 group"
                                 >
                                     Launch Campus Guide
                                     <div className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><IconExternalLink /></div>
                                 </a>
                                 <Link
                                     href="/studio/contact?source=campus-guide"
-                                    className="inline-flex items-center gap-2 px-8 py-4 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-semibold rounded-xl hover:border-[#6D28D9] hover:text-[#6D28D9] transition-all"
+                                    className="inline-flex items-center gap-2 px-8 py-4 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-semibold rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all"
                                 >
                                     Build Something Similar
                                     <div className="w-5 h-5"><IconArrowRight /></div>
@@ -318,27 +312,7 @@ export default function CampusGuidePage() {
             </main>
 
             {/* ==================== FOOTER ==================== */}
-            <footer className="bg-slate-100 dark:bg-[#0B0B0F] border-t border-slate-200 dark:border-white/5 text-slate-600 dark:text-[#A1A1AA] transition-colors duration-200">
-                <div className="max-w-5xl mx-auto px-6 py-12">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Synapse Systems</h3>
-                            <p className="text-sm">Building proprietary solutions that matter.</p>
-                        </div>
-                        <div className="flex items-center gap-6 text-sm">
-                            <Link href="/systems" className="hover:text-[#6D28D9] transition-colors">Systems Home</Link>
-                            <Link href="/systems/impact" className="hover:text-[#6D28D9] transition-colors">Impact</Link>
-                            <Link href="/systems/products" className="hover:text-[#6D28D9] transition-colors">Products</Link>
-                            <Link href="/systems/collaborate" className="hover:text-[#6D28D9] transition-colors">Collaborate</Link>
-                            <span className="text-slate-300 dark:text-white/20">|</span>
-                            <Link href="/studio" className="hover:text-[#6D28D9] transition-colors">Studio</Link>
-                        </div>
-                    </div>
-                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 text-center text-sm text-slate-500 dark:text-[#A1A1AA]/60">
-                        © {new Date().getFullYear()} Synapse Tech. All rights reserved.
-                    </div>
-                </div>
-            </footer>
+            <SystemsFooter />
         </div>
     );
 }

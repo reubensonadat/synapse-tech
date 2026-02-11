@@ -2,8 +2,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
+import SystemsFooter from '@/components/layout/SystemsFooter';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 import { IconCampusGuide, IconScholasticShield, IconHostelConnect, IconRoommateLink, IconJobPulse, IconArrowRight, IconExternalLink } from '@/components/icons/SystemsIcons';
 
 // Systems data with custom icons
@@ -83,8 +85,8 @@ export default function ImpactPage() {
                         className="absolute inset-0 bg-[size:3rem_3rem] opacity-[0.15] dark:opacity-[0.08]"
                         style={{
                             backgroundImage: `
-                                linear-gradient(to right, #6D28D9 1px, transparent 1px),
-                                linear-gradient(to bottom, #6D28D9 1px, transparent 1px)
+                                linear-gradient(to right, #2563EB 1px, transparent 1px),
+                                linear-gradient(to bottom, #2563EB 1px, transparent 1px)
                             `,
                             maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 100%)',
                             WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 100%)'
@@ -92,7 +94,7 @@ export default function ImpactPage() {
                     />
 
                     {/* Ambient Glow */}
-                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#6D28D9]/5 dark:bg-[#6D28D9]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
                         <motion.div
@@ -100,15 +102,7 @@ export default function ImpactPage() {
                             animate="visible"
                             variants={stagger}
                         >
-                            {/* Badge */}
-                            <motion.div
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 border border-[#6D28D9]/30 dark:border-[#6D28D9]/40 mb-8"
-                                variants={fadeInDown}
-                            >
-                                <span className="text-xs font-semibold tracking-widest uppercase text-[#6D28D9] dark:text-[#A78BFA]">
-                                    Synapse Systems
-                                </span>
-                            </motion.div>
+                            <SectionBadge title="Synapse Systems" variant="systems" />
 
                             {/* Title */}
                             <motion.h1
@@ -116,7 +110,7 @@ export default function ImpactPage() {
                                 variants={fadeInUp}
                             >
                                 <span className="text-slate-900 dark:text-white">Our </span>
-                                <span className="text-[#6D28D9]">Impact</span>
+                                <span className="text-[#2563EB]">Impact</span>
                             </motion.h1>
 
                             {/* Subtext */}
@@ -147,11 +141,11 @@ export default function ImpactPage() {
                                     className="group"
                                 >
                                     <Link href={system.link}>
-                                        <div className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-8 border border-slate-200 dark:border-white/5 hover:border-[#6D28D9]/30 transition-all shadow-sm hover:shadow-lg">
+                                        <div className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-8 border border-slate-200 dark:border-white/5 hover:border-[#2563EB]/30 transition-all shadow-sm hover:shadow-lg">
                                             <div className="flex flex-col md:flex-row md:items-center gap-6">
                                                 {/* Icon */}
                                                 {/* Icon or Image */}
-                                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform ${system.image ? 'bg-white p-2 border border-slate-100 dark:border-white/10 dark:bg-white/5' : 'bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 p-3'}`}>
+                                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform ${system.image ? 'bg-white p-2 border border-slate-100 dark:border-white/10 dark:bg-white/5' : 'bg-[#2563EB]/10 dark:bg-[#2563EB]/20 p-3'}`}>
                                                     {system.image ? (
                                                         <img src={system.image} alt={`${system.name} Logo`} className="w-full h-full object-contain" />
                                                     ) : (
@@ -175,14 +169,14 @@ export default function ImpactPage() {
                                                             </span>
                                                         )}
                                                     </div>
-                                                    <p className="text-sm font-medium text-[#6D28D9] mb-2">{system.tagline}</p>
+                                                    <p className="text-sm font-medium text-[#2563EB] mb-2">{system.tagline}</p>
                                                     <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed">{system.description}</p>
 
                                                     {/* Stats for live systems */}
                                                     {system.stats && (
                                                         <div className="flex items-center gap-6 mt-4 pt-4 border-t border-slate-200 dark:border-white/5">
                                                             <div>
-                                                                <span className="text-2xl font-bold text-[#6D28D9]">{system.stats.users}</span>
+                                                                <span className="text-2xl font-bold text-[#2563EB]">{system.stats.users}</span>
                                                                 <span className="text-sm text-slate-500 dark:text-[#A1A1AA]/60 ml-2">students</span>
                                                             </div>
                                                             <div>
@@ -201,12 +195,12 @@ export default function ImpactPage() {
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             onClick={(e) => e.stopPropagation()}
-                                                            className="p-3 rounded-xl bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 text-[#6D28D9] hover:bg-[#6D28D9] hover:text-white transition-colors"
+                                                            className="p-3 rounded-xl bg-[#2563EB]/10 dark:bg-[#2563EB]/20 text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors"
                                                         >
                                                             <div className="w-5 h-5"><IconExternalLink /></div>
                                                         </a>
                                                     )}
-                                                    <div className="p-3 rounded-xl bg-slate-200 dark:bg-white/5 text-slate-400 dark:text-[#A1A1AA]/40 group-hover:bg-[#6D28D9] group-hover:text-white transition-colors">
+                                                    <div className="p-3 rounded-xl bg-slate-200 dark:bg-white/5 text-slate-400 dark:text-[#A1A1AA]/40 group-hover:bg-[#2563EB] group-hover:text-white transition-colors">
                                                         <div className="w-5 h-5"><IconArrowRight /></div>
                                                     </div>
                                                 </div>
@@ -243,7 +237,7 @@ export default function ImpactPage() {
                             <motion.div variants={fadeInUp}>
                                 <Link
                                     href="/studio/contact?source=systems-impact"
-                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#6D28D9] text-white font-bold rounded-xl hover:bg-[#6D28D9]/90 transition-all shadow-lg shadow-[#6D28D9]/25 group"
+                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all shadow-lg shadow-[#2563EB]/25 group"
                                 >
                                     Contact Us
                                     <div className="w-5 h-5 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>
@@ -255,26 +249,7 @@ export default function ImpactPage() {
             </main>
 
             {/* ==================== FOOTER ==================== */}
-            <footer className="bg-slate-100 dark:bg-[#0B0B0F] border-t border-slate-200 dark:border-white/5 text-slate-600 dark:text-[#A1A1AA] transition-colors duration-200">
-                <div className="max-w-5xl mx-auto px-6 py-12">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Synapse Systems</h3>
-                            <p className="text-sm">Building proprietary solutions that matter.</p>
-                        </div>
-                        <div className="flex items-center gap-6 text-sm">
-                            <Link href="/systems" className="hover:text-[#6D28D9] transition-colors">Systems Home</Link>
-                            <Link href="/systems/products" className="hover:text-[#6D28D9] transition-colors">Products</Link>
-                            <Link href="/systems/collaborate" className="hover:text-[#6D28D9] transition-colors">Collaborate</Link>
-                            <span className="text-slate-300 dark:text-white/20">|</span>
-                            <Link href="/studio" className="hover:text-[#6D28D9] transition-colors">Studio</Link>
-                        </div>
-                    </div>
-                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 text-center text-sm text-slate-500 dark:text-[#A1A1AA]/60">
-                        © {new Date().getFullYear()} Synapse Tech. All rights reserved.
-                    </div>
-                </div>
-            </footer>
+            <SystemsFooter />
         </div>
     );
 }

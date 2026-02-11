@@ -2,8 +2,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
+import SystemsFooter from '@/components/layout/SystemsFooter';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, stagger, scaleIn } from '@/lib/animations';
+import SectionBadge from '@/components/ui/SectionBadge';
 
 
 import { IconSchoolLMS, IconRestaurant, IconInventory, IconClinic, IconHotel, IconLibrary, IconRetail, IconLogistics, IconHR, IconArrowRight } from '@/components/icons/SystemsIcons';
@@ -83,17 +85,15 @@ export default function ProductsPage() {
                 {/* Hero */}
                 <section className="relative w-full py-20 md:py-28 overflow-hidden">
                     <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
-                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#6D28D9]/5 dark:bg-[#6D28D9]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
                         <motion.div initial="hidden" animate="visible" variants={stagger}>
-                            <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6D28D9]/10 dark:bg-[#6D28D9]/20 border border-[#6D28D9]/30 mb-8" variants={fadeInDown}>
-                                <span className="text-xs font-semibold tracking-widest uppercase text-[#6D28D9]">For Clients</span>
-                            </motion.div>
+                            <SectionBadge title="For Clients" variant="systems" />
 
                             <motion.h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight mb-6" variants={fadeInUp}>
                                 <span className="text-slate-900 dark:text-white">Systems We </span>
-                                <span className="text-[#6D28D9]">Build</span>
+                                <span className="text-[#2563EB]">Build</span>
                             </motion.h1>
 
                             <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
@@ -116,7 +116,7 @@ export default function ProductsPage() {
                             {products.map((product) => (
                                 <motion.div key={product.id} variants={scaleIn}>
                                     <Link href={`/studio/contact?source=products&system=${product.id}`}>
-                                        <div className="h-full bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 hover:border-[#6D28D9]/40 transition-all group cursor-pointer">
+                                        <div className="h-full bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 hover:border-[#2563EB]/40 transition-all group cursor-pointer">
                                             <div className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform">
                                                 <product.Icon />
                                             </div>
@@ -132,7 +132,7 @@ export default function ProductsPage() {
                                                 ))}
                                             </div>
 
-                                            <div className="flex items-center gap-2 text-[#6D28D9] text-sm font-medium group-hover:gap-3 transition-all">
+                                            <div className="flex items-center gap-2 text-[#2563EB] text-sm font-medium group-hover:gap-3 transition-all">
                                                 Get This System
                                                 <div className="w-4 h-4"><IconArrowRight /></div>
                                             </div>
@@ -155,7 +155,7 @@ export default function ProductsPage() {
                                 We build custom systems too. Tell us what you need and we'll make it happen.
                             </motion.p>
                             <motion.div variants={fadeInUp}>
-                                <Link href="/studio/contact?source=custom-system" className="inline-flex items-center gap-2 px-8 py-4 bg-[#6D28D9] text-white font-bold rounded-xl hover:bg-[#6D28D9]/90 transition-all shadow-lg shadow-[#6D28D9]/25 group">
+                                <Link href="/studio/contact?source=custom-system" className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all shadow-lg shadow-[#2563EB]/25 group">
                                     Request Custom System
                                     <div className="w-5 h-5 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>
                                 </Link>
@@ -165,26 +165,7 @@ export default function ProductsPage() {
                 </section>
             </main>
 
-            <footer className="bg-slate-100 dark:bg-[#0B0B0F] border-t border-slate-200 dark:border-white/5 text-slate-600 dark:text-[#A1A1AA] transition-colors duration-200">
-                <div className="max-w-5xl mx-auto px-6 py-12">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Synapse Systems</h3>
-                            <p className="text-sm">Building systems that work.</p>
-                        </div>
-                        <div className="flex items-center gap-6 text-sm">
-                            <Link href="/systems" className="hover:text-[#6D28D9] transition-colors">Systems Home</Link>
-                            <Link href="/systems/impact" className="hover:text-[#6D28D9] transition-colors">Impact</Link>
-                            <Link href="/systems/collaborate" className="hover:text-[#6D28D9] transition-colors">Collaborate</Link>
-                            <span className="text-slate-300 dark:text-white/20">|</span>
-                            <Link href="/studio" className="hover:text-[#6D28D9] transition-colors">Studio</Link>
-                        </div>
-                    </div>
-                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 text-center text-sm text-slate-500 dark:text-[#A1A1AA]/60">
-                        © {new Date().getFullYear()} Synapse Tech. All rights reserved.
-                    </div>
-                </div>
-            </footer>
+            <SystemsFooter />
         </div>
     );
 }

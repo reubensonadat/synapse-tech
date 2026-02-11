@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/systems/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/systems/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,45 +16,40 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/systems/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/page.js"
+      "static/chunks/app/page.js"
     ],
-    "/_not-found/page": [
+    "/studio/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/studio/page.js"
     ],
-    "/systems/impact/page": [
+    "/studio/services/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/impact/page.js"
+      "static/chunks/app/studio/services/page.js"
     ],
-    "/systems/roommate-link/page": [
+    "/studio/portfolio/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/roommate-link/page.js"
+      "static/chunks/app/studio/portfolio/page.js"
     ],
-    "/systems/hostel-connect/page": [
+    "/studio/pricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/systems/hostel-connect/page.js"
-    ],
-    "/systems/scholastic-shield/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/scholastic-shield/page.js"
-    ],
-    "/systems/products/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/systems/products/page.js"
+      "static/chunks/app/studio/pricing/page.js"
     ],
     "/studio/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/studio/contact/page.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
     ]
   }
 }
