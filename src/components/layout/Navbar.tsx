@@ -4,14 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import MobileMenu from '@/components/layout/MobileMenu';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function Navbar() {
+function NavbarContent() {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const source = searchParams.get('source');
 
     //Determine which world we're in
-    const isStudioWorld = pathname?.startsWith('/studio');
-    const isSystemsWorld = pathname?.startsWith('/systems');
+    const isStudioWorld = pathname?.startsWith('/studio') || source === 'studio';
+    const isSystemsWorld = pathname?.startsWith('/systems') || source === 'systems';
     const isHome = pathname === '/';
 
     return (
@@ -43,7 +46,7 @@ export default function Navbar() {
                             <Link href="/studio/portfolio" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/portfolio' ? 'text-synapse-main' : ''}`}>Portfolio</Link>
                             <Link href="/studio/pricing" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/pricing' ? 'text-synapse-main' : ''}`}>Pricing</Link>
                             <Link href="/studio/contact" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/contact' ? 'text-synapse-main' : ''}`}>Contact</Link>
-                            <Link href="/about" className={`hover:text-synapse-main transition-colors ${pathname === '/about' ? 'text-synapse-main' : ''}`}>About</Link>
+                            <Link href="/about?source=studio" className={`hover:text-synapse-main transition-colors ${pathname === '/about' ? 'text-synapse-main' : ''}`}>About</Link>
                             <ThemeToggle />
                         </>
                     ) : isSystemsWorld ? (
@@ -53,7 +56,7 @@ export default function Navbar() {
                             <Link href="/systems/impact" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/impact' ? 'text-blue-600' : ''}`}>Impact</Link>
                             <Link href="/systems/products" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/products' ? 'text-blue-600' : ''}`}>Products</Link>
                             <Link href="/systems/collaborate" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/collaborate' ? 'text-blue-600' : ''}`}>Collaborate</Link>
-                            <Link href="/about" className={`hover:text-blue-600 transition-colors ${pathname === '/about' ? 'text-blue-600' : ''}`}>About</Link>
+                            <Link href="/about?source=systems" className={`hover:text-blue-600 transition-colors ${pathname === '/about' ? 'text-blue-600' : ''}`}>About</Link>
                             <ThemeToggle />
                         </>
                     ) : (
@@ -83,6 +86,14 @@ export default function Navbar() {
                 <MobileMenu />
             </nav>
         </>
+    );
+}
+
+export default function Navbar() {
+    return (
+        <Suspense fallback={null}>
+            <NavbarContent />
+        </Suspense>
     );
 }
 

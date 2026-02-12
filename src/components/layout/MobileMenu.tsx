@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -11,10 +11,12 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const source = searchParams.get('source');
 
     // Determine which world we're in
-    const isStudioWorld = pathname?.startsWith('/studio');
-    const isSystemsWorld = pathname?.startsWith('/systems');
+    const isStudioWorld = pathname?.startsWith('/studio') || source === 'studio';
+    const isSystemsWorld = pathname?.startsWith('/systems') || source === 'systems';
     const isHome = pathname === '/';
 
     const [mounted, setMounted] = useState(false);
@@ -40,7 +42,7 @@ export default function MobileMenu() {
                 { href: '/studio/portfolio', label: 'Portfolio', description: undefined },
                 { href: '/studio/pricing', label: 'Pricing', description: undefined },
                 { href: '/studio/contact', label: 'Contact', description: undefined },
-                { href: '/about', label: 'About', description: undefined },
+                { href: '/about?source=studio', label: 'About', description: undefined },
             ];
         } else if (isSystemsWorld) {
             return [
@@ -48,7 +50,7 @@ export default function MobileMenu() {
                 { href: '/systems/impact', label: 'Impact', description: undefined },
                 { href: '/systems/products', label: 'Products', description: undefined },
                 { href: '/systems/collaborate', label: 'Collaborate', description: undefined },
-                { href: '/about', label: 'About', description: undefined },
+                { href: '/about?source=systems', label: 'About', description: undefined },
             ];
         } else {
             // About or other pages
@@ -171,21 +173,21 @@ export default function MobileMenu() {
                                             <Link
                                                 href="/systems"
                                                 onClick={closeMenu}
-                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-xl hover:shadow-lg transition-all group"
+                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-xl hover:shadow-lg transition-all group"
                                             >
                                                 <div>
-                                                    <div className="font-bold text-purple-900 dark:text-purple-100">Synapse Systems</div>
-                                                    <div className="text-xs text-purple-700 dark:text-purple-300 mt-1">
+                                                    <div className="font-bold text-blue-900 dark:text-blue-100">Synapse Systems</div>
+                                                    <div className="text-xs text-blue-700 dark:text-blue-300 mt-1">
                                                         Explore our products
                                                     </div>
                                                 </div>
-                                                <ArrowRight className="w-5 h-5 text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform stroke-[2]" />
+                                                <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform stroke-[2]" />
                                             </Link>
                                         ) : isSystemsWorld ? (
                                             <Link
                                                 href="/studio"
                                                 onClick={closeMenu}
-                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-xl hover:shadow-lg transition-all group"
+                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-purple-50 to-fuchsia-50 dark:from-purple-900/20 dark:to-fuchsia-900/20 border border-purple-200 dark:border-purple-800 rounded-xl hover:shadow-lg transition-all group"
                                             >
                                                 <div>
                                                     <div className="font-bold text-purple-900 dark:text-purple-100">Synapse Studio</div>

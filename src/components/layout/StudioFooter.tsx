@@ -101,7 +101,7 @@ export default function StudioFooter() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="hover:text-synapse-main transition-colors">
+                                <Link href="/about?source=studio" className="hover:text-synapse-main transition-colors">
                                     About Us
                                 </Link>
                             </li>

@@ -31,7 +31,7 @@ export default function ScholasticShieldPage() {
                         <motion.div initial="hidden" animate="visible" variants={stagger}>
                             <SectionBadge title="Coming Soon" variant="neutral" />
 
-                            <motion.div className="w-20 h-20 rounded-2xl bg-[#2563EB]/10 dark:bg-[#2563EB]/20 flex items-center justify-center mb-6" variants={scaleIn}>
+                            <motion.div className="w-16 h-16 flex items-center justify-center mb-6 text-[#2563EB]" variants={scaleIn}>
                                 <IconScholasticShield />
                             </motion.div>
 
@@ -89,11 +89,11 @@ export default function ScholasticShieldPage() {
                             <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center" variants={fadeInUp}>How It Will Work</motion.h2>
                             <motion.div className="grid md:grid-cols-2 gap-6" variants={stagger}>
                                 {features.map((feature, index) => (
-                                    <motion.div key={index} className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 group hover:border-[#2563EB]/30 transition-all" variants={scaleIn}>
-                                        <div className="w-12 h-12 rounded-xl bg-[#2563EB]/10 dark:bg-[#2563EB]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                    <motion.div key={index} className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm" variants={scaleIn}>
+                                        <div className="w-10 h-10 flex items-center justify-center mb-6 text-[#2563EB] group-hover:scale-110 transition-transform">
                                             <feature.Icon />
                                         </div>
-                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
+                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
                                         <p className="text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed">{feature.description}</p>
                                     </motion.div>
                                 ))}

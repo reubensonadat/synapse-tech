@@ -79,16 +79,15 @@ export default function SystemsFooter() {
                         </ul>
                     </div>
 
-                    {/* Resources */}
+                    {/* Support & Legal */}
                     <div>
                         <h4 className="font-bold font-heading text-black dark:text-white mb-4">
-                            Resources
+                            Support & Legal
                         </h4>
                         <ul className="space-y-3 text-sm">
-
                             <li>
-                                <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                    About Us
+                                <Link href="/systems/collaborate" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    Contact Support
                                 </Link>
                             </li>
                             <li className="pt-2 border-t border-gray-200 dark:border-white/10">

@@ -29,7 +29,7 @@ export default function SectionBadge({ title, variant = 'neutral', className = "
             variants={animated ? fadeInDown : {}}
         >
             {/* Title with Gradient Spaced Caps */}
-            <span className={`text-[10px] md:text-xs font-bold tracking-[0.35em] uppercase bg-gradient-to-r ${colorClass} bg-clip-text text-transparent`}>
+            <span className={`text-sm md:text-base font-bold tracking-[0.35em] uppercase bg-gradient-to-r ${colorClass} bg-clip-text text-transparent`}>
                 {title}
             </span>
 
