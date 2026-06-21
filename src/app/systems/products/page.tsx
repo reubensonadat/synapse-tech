@@ -78,25 +78,25 @@ const products = [
 
 export default function ProductsPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-[#0B0B0F] text-slate-900 dark:text-white transition-colors duration-200">
+        <div className="min-h-screen bg-white dark:bg-background text-foreground dark:text-white transition-colors duration-200">
             <Navbar />
 
             <main className="pt-16">
                 {/* Hero */}
                 <section className="relative w-full py-20 md:py-28 overflow-hidden">
-                    <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
-                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute inset-0 bg-background-subtle dark:bg-background transition-colors duration-200" />
+                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-systems/5 dark:bg-systems/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
                         <motion.div initial="hidden" animate="visible" variants={stagger}>
                             <SectionBadge title="For Clients" variant="systems" />
 
                             <motion.h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight mb-6" variants={fadeInUp}>
-                                <span className="text-slate-900 dark:text-white">Systems We </span>
-                                <span className="text-[#2563EB]">Build</span>
+                                <span className="text-foreground dark:text-white">Systems We </span>
+                                <span className="text-systems">Build</span>
                             </motion.h1>
 
-                            <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]" variants={fadeInUp}>
+                            <motion.p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-muted-foreground dark:text-muted-foreground" variants={fadeInUp}>
                                 Professional management systems tailored to your business. Choose a template and we&apos;ll customize it for you.
                             </motion.p>
                         </motion.div>
@@ -104,7 +104,7 @@ export default function ProductsPage() {
                 </section>
 
                 {/* Products Grid */}
-                <section className="py-20 bg-white dark:bg-[#0B0B0F] transition-colors duration-200">
+                <section className="py-20 bg-white dark:bg-background transition-colors duration-200">
                     <div className="max-w-6xl mx-auto px-6">
                         <motion.div
                             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -116,23 +116,23 @@ export default function ProductsPage() {
                             {products.map((product) => (
                                 <motion.div key={product.id} variants={scaleIn}>
                                     <Link href={`/studio/contact?source=products&system=${product.id}`}>
-                                        <div className="h-full bg-slate-50 dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 hover:border-[#2563EB]/40 transition-all group cursor-pointer">
+                                        <div className="h-full bg-background-subtle dark:bg-background rounded-2xl p-6 border border-border dark:border-white/5 hover:border-systems/40 transition-all group cursor-pointer">
                                             <div className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform">
                                                 <product.Icon />
                                             </div>
 
-                                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{product.name}</h3>
-                                            <p className="text-sm text-slate-600 dark:text-[#A1A1AA] mb-4 leading-relaxed">{product.description}</p>
+                                            <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">{product.name}</h3>
+                                            <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4 leading-relaxed">{product.description}</p>
 
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {product.features.map((feature, i) => (
-                                                    <span key={i} className="px-2 py-1 text-xs bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-[#A1A1AA] rounded-full">
+                                                    <span key={i} className="px-2 py-1 text-xs bg-muted dark:bg-white/10 text-muted-foreground dark:text-muted-foreground rounded-full">
                                                         {feature}
                                                     </span>
                                                 ))}
                                             </div>
 
-                                            <div className="flex items-center gap-2 text-[#2563EB] text-sm font-medium group-hover:gap-3 transition-all">
+                                            <div className="flex items-center gap-2 text-systems text-sm font-medium group-hover:gap-3 transition-all">
                                                 Get This System
                                                 <div className="w-4 h-4"><IconArrowRight /></div>
                                             </div>
@@ -145,17 +145,17 @@ export default function ProductsPage() {
                 </section>
 
                 {/* CTA */}
-                <section className="py-20 bg-slate-50 dark:bg-[#151521]/50 transition-colors duration-200">
+                <section className="py-20 bg-background-subtle dark:bg-background/50 transition-colors duration-200">
                     <div className="max-w-3xl mx-auto px-6 text-center">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-                            <motion.h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4" variants={fadeInUp}>
+                            <motion.h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4" variants={fadeInUp}>
                                 Need something different?
                             </motion.h2>
-                            <motion.p className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8" variants={fadeInUp}>
+                            <motion.p className="text-lg text-muted-foreground dark:text-muted-foreground mb-8" variants={fadeInUp}>
                                 We build custom systems too. Tell us what you need and we&apos;ll make it happen.
                             </motion.p>
                             <motion.div variants={fadeInUp}>
-                                <Link href="/studio/contact?source=custom-system" className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all shadow-lg shadow-[#2563EB]/25 group">
+                                <Link href="/studio/contact?source=custom-system" className="inline-flex items-center gap-2 px-8 py-4 bg-systems text-white font-bold rounded-xl hover:bg-systems/90 transition-all shadow-lg shadow-systems/25 group">
                                     Request Custom System
                                     <div className="w-5 h-5 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>
                                 </Link>

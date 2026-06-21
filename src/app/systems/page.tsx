@@ -5,9 +5,28 @@ import Link from 'next/link';
 import SystemsFooter from '@/components/layout/SystemsFooter';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import { fadeInUp, fadeInDown, stagger, scaleIn, viewportOnce } from '@/lib/animations';
-import { IconMapPin, IconCalendar, IconCalculator, IconBookOpen, IconBuilding, IconSupport, IconArrowRight, IconExternalLink, IconCampusGuide, IconHostelConnect, IconScholasticShield, IconRoommateLink, IconJobPulse } from '@/components/icons/SystemsIcons';
+import { fadeInUp, stagger, viewportOnce } from '@/lib/animations';
 import SectionBadge from '@/components/ui/SectionBadge';
+import {
+    MapPinIcon,
+    CalendarDaysIcon,
+    CalculatorIcon,
+    BookOpenIcon,
+    BuildingOffice2Icon,
+    LifebuoyIcon,
+    ArrowRightIcon,
+    ArrowTopRightOnSquareIcon,
+    ArrowTrendingUpIcon,
+    ChevronRightIcon,
+} from '@heroicons/react/24/outline';
+import {
+    IconCampusGuide,
+    IconHostelConnect,
+    IconScholasticShield,
+    IconRoommateLink,
+    IconJobPulse,
+    IconRetail,
+} from '@/components/icons/SystemsIcons';
 
 // Animated Counter Component
 function AnimatedCounter({ target, suffix = "", duration = 2 }: { target: number; suffix?: string; duration?: number }) {
@@ -44,309 +63,269 @@ function AnimatedCounter({ target, suffix = "", duration = 2 }: { target: number
 }
 
 export default function SystemsPage() {
+    const flagshipStats = [
+        { value: <AnimatedCounter target={20000} suffix="+" />, label: "Students Reached", accent: false },
+        { value: "1", label: "Semester Live", accent: true },
+        { value: <AnimatedCounter target={10} suffix="%" />, label: "Paid Conversion", accent: false },
+        { value: "#1", label: "Campus App", accent: true },
+    ];
+
+    const flagshipFeatures = [
+        { icon: MapPinIcon, title: "Interactive Campus Map", desc: "Navigate campus with ease. Find buildings, lecture halls, and facilities instantly." },
+        { icon: CalendarDaysIcon, title: "Timetable Builder", desc: "Create and manage your class schedule effortlessly. Never miss a lecture again." },
+        { icon: CalculatorIcon, title: "GPA Calculator", desc: "Track grades and calculate your GPA instantly. Monitor academic progress over time." },
+        { icon: BookOpenIcon, title: "Registration Guides", desc: "Step-by-step course registration and enrollment help, from admission to matriculation." },
+        { icon: BuildingOffice2Icon, title: "Contact Directory", desc: "Quick access to university departments, faculty offices, and essential services." },
+        { icon: LifebuoyIcon, title: "24/7 Support", desc: "Always-on resources and support to help you succeed throughout your academic journey." },
+    ];
+
+    const productSuite = [
+        {
+            icon: IconRetail,
+            name: "Vendly",
+            tag: "B2B Commerce",
+            desc: "A multi-tenant point-of-sale & inventory platform for Ghanaian small businesses. Each merchant gets a storefront, product management, order tracking, delivery maps, and analytics.",
+            tech: ["React", "Supabase", "Paystack", "R2"],
+            link: "/systems/products",
+            linkLabel: "Learn more",
+            external: false,
+        },
+        {
+            icon: IconRoommateLink,
+            name: "Roomate Link",
+            tag: "Social Matching",
+            desc: "A roommate matching platform for UCC students. Uses a dual-scoring algorithm (70% similarity + 30% preference), real-time chat over WebSocket, and FCM push notifications.",
+            tech: ["React 19", "TypeScript", "Supabase", "Firebase"],
+            link: "/systems/roommate-link",
+            linkLabel: "Learn more",
+            external: false,
+        },
+        {
+            icon: IconCampusGuide,
+            name: "Campus Guide",
+            tag: "Student PWA",
+            desc: "A student companion PWA with a widget dashboard, productivity tools (GPA, focus timer, budget), community features, and 12 minigames. Local-first with cloud sync.",
+            tech: ["React 18", "Supabase", "Paystack", "OneSignal"],
+            link: "https://campusguide.pages.dev",
+            linkLabel: "Open app",
+            external: true,
+        },
+    ];
+
+    const moreSystems = [
+        { id: 'hostel-connect', name: 'Hostel Connect', icon: IconHostelConnect, link: '/systems/hostel-connect', desc: 'Accommodation management.' },
+        { id: 'scholastic-shield', name: 'Scholastic Shield', icon: IconScholasticShield, link: '/systems/scholastic-shield', desc: 'Campus security & safety.' },
+        { id: 'roommate-link', name: 'Roommate Link', icon: IconRoommateLink, link: '/systems/roommate-link', desc: 'Find your perfect roommate.' },
+        { id: 'job-pulse', name: 'Job Pulse', icon: IconJobPulse, link: '/systems/job-pulse', desc: 'Student career opportunities.' },
+    ];
+
     return (
-        <div className="min-h-screen bg-white dark:bg-[#0B0B0F] text-slate-900 dark:text-white transition-colors duration-200">
+        <div className="min-h-screen bg-white dark:bg-background text-black dark:text-white transition-colors duration-200 overflow-hidden">
             <Navbar />
 
-            <main className="pt-16">
-                {/* ==================== HERO SECTION ==================== */}
-                {/* ==================== HERO SECTION ==================== */}
-                <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
-                    {/* Background */}
-                    <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
+            {/* Background Gradient Blend — same depth system, systems-leaning */}
+            <div className="fixed inset-0 pointer-events-none z-0 opacity-30 dark:opacity-20">
+                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-systems rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-primary rounded-full blur-[120px]" />
+            </div>
 
-                    {/* Grid Overlay */}
-                    <div
-                        className="absolute inset-0 bg-[size:3rem_3rem] opacity-[0.15] dark:opacity-[0.08]"
-                        style={{
-                            backgroundImage: `
-                                linear-gradient(to right, #2563EB 1px, transparent 1px),
-                                linear-gradient(to bottom, #2563EB 1px, transparent 1px)
-                            `,
-                            maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 100%)',
-                            WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000 20%, transparent 100%)'
-                        }}
-                    />
-
-                    {/* Ambient Glow */}
-                    <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
-                    <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-blue-400/5 dark:bg-blue-400/5 rounded-full blur-[120px] pointer-events-none" />
-
-                    {/* Content */}
-                    <motion.div
-                        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
-                        initial="hidden"
-                        animate="visible"
-                        variants={stagger}
-                    >
+            <main className="relative pt-24 z-10">
+                {/* ─────────── HERO — left-aligned editorial ─────────── */}
+                <section className="px-6 py-20">
+                    <div className="max-w-5xl mx-auto">
                         <SectionBadge title="Systems" variant="systems" animated={true} />
-
-                        {/* Headline */}
-                        <motion.h1
-                            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-10 leading-tight"
-                            variants={fadeInUp}
-                        >
-                            <span className="text-slate-900 dark:text-white">We don&apos;t build software.</span>
-                            <br />
-                            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">We build systems.</span>
-                        </motion.h1>
-
-                        {/* Subtext */}
-                        <motion.p
-                            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA] mb-12"
-                            variants={fadeInUp}
-                        >
-                            We architect proprietary solutions that solve real problems, impact thousands, and generate revenue.
-                        </motion.p>
-
-                        {/* CTAs - View Impact is PRIMARY */}
-                        <motion.div
-                            className="flex flex-wrap gap-4 justify-center"
-                            variants={fadeInUp}
-                        >
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading leading-tight mb-6 mt-6">
+                            We don’t build software. <br />
+                            <span className="bg-gradient-to-r from-systems to-primary bg-clip-text text-transparent">We build systems.</span>
+                        </h1>
+                        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
+                            We architect proprietary solutions that solve real problems, impact thousands, and
+                            generate revenue. Not demos — production platforms serving real users every day.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4">
                             <Link
                                 href="/systems/impact"
-                                className="inline-flex items-center gap-2 px-10 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/25 group"
+                                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-systems text-white font-semibold rounded-xl hover:bg-systems/90 transition-all shadow-lg shadow-systems/25"
                             >
                                 View Impact
-                                <div className="w-4 h-4 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>
+                                <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
                                 href="https://campusguide.pages.dev"
                                 target="_blank"
-                                className="inline-flex items-center gap-2 px-10 py-4 bg-transparent border border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-600/10 transition-all group"
+                                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-border dark:border-white/10 font-semibold rounded-xl hover:border-systems/50 transition-all"
                             >
                                 Explore Campus Guide
-                                <div className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><IconExternalLink /></div>
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4" />
                             </Link>
-                        </motion.div>
-
-                    </motion.div>
-                </section>
-
-                {/* ==================== CAMPUS GUIDE: THE FLAGSHIP ==================== */}
-                <section className="relative py-32 bg-slate-100 dark:bg-[#0B0B0F] overflow-hidden transition-colors duration-200">
-                    {/* Subtle divider line */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-blue-600/50 to-transparent" />
-
-                    <div className="max-w-7xl mx-auto px-6">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={stagger}
-                        >
-                            {/* Section Label */}
-                            <motion.div
-                                className="text-center mb-16"
-                                variants={fadeInUp}
-                            >
-                                <motion.div className="w-20 h-20 mx-auto mb-6 rounded-2xl" variants={scaleIn}>
-                                    <img src='/campusguidelogo.png' />
-                                </motion.div>
-                                <p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4">Featured System</p>
-                                <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">Campus Guide</h2>
-                                <p className="text-slate-600 dark:text-[#A1A1AA] max-w-2xl mx-auto text-lg">
-                                    Your essential campus companion. Everything UCC students need to navigate university life.
-                                </p>
-                            </motion.div>
-
-                            {/* Stats Row - Updated metrics */}
-                            <motion.div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
-                                variants={fadeInUp}
-                            >
-                                <div className="bg-white dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 text-center shadow-sm">
-                                    <p className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2">
-                                        <AnimatedCounter target={20000} suffix="+" />
-                                    </p>
-                                    <p className="text-slate-500 dark:text-[#A1A1AA] text-sm uppercase tracking-wider">Students Reached</p>
-                                </div>
-                                <div className="bg-white dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 text-center shadow-sm">
-                                    <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">1</p>
-                                    <p className="text-slate-500 dark:text-[#A1A1AA] text-sm uppercase tracking-wider">Semester</p>
-                                </div>
-                                <div className="bg-white dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 text-center shadow-sm">
-                                    <p className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2">
-                                        <AnimatedCounter target={10} suffix="%" />
-                                    </p>
-                                    <p className="text-slate-500 dark:text-[#A1A1AA] text-sm uppercase tracking-wider">Paid Conversion</p>
-                                </div>
-                                <div className="bg-white dark:bg-[#151521] rounded-2xl p-6 border border-slate-200 dark:border-white/5 text-center shadow-sm">
-                                    <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">#1</p>
-                                    <p className="text-slate-500 dark:text-[#A1A1AA] text-sm uppercase tracking-wider">Campus App</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Features Grid */}
-                            <motion.div
-                                className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-                                variants={stagger}
-                            >
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconMapPin />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Interactive Campus Map</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Navigate campus with ease. Find buildings, lecture halls, and facilities instantly.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconCalendar />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Timetable Builder</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Create and manage your class schedule effortlessly. Never miss a lecture again.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconCalculator />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">GPA Calculator</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Track your grades and calculate your GPA instantly. Monitor academic progress.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconBookOpen />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Registration Guides</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Step-by-step course registration and enrollment help. From admission to matriculation.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconBuilding />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Contact Directory</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Quick access to university departments, faculty offices, and essential services.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div
-                                    className="bg-white dark:bg-[#151521] rounded-2xl p-10 border border-slate-200 dark:border-white/5 group hover:border-blue-600/30 transition-all shadow-sm"
-                                    variants={scaleIn}
-                                >
-                                    <div className="w-10 h-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <IconSupport />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">24/7 Support</h3>
-                                    <p className="text-slate-600 dark:text-[#A1A1AA] text-sm leading-relaxed">
-                                        Always-on resources and support to help you succeed throughout your academic journey.
-                                    </p>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* CTA */}
-                            <motion.div
-                                className="text-center"
-                                variants={fadeInUp}
-                            >
-                                <Link
-                                    href="https://campusguide.pages.dev"
-                                    target="_blank"
-                                    className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/25 text-lg group"
-                                >
-                                    Launch Campus Guide
-                                    <div className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><IconExternalLink /></div>
-                                </Link>
-                                <p className="text-slate-500 dark:text-[#A1A1AA] text-sm mt-4">
-                                    <span className="inline-flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                        Available Now
-                                    </span>
-                                </p>
-                            </motion.div>
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
 
-                {/* ==================== MORE SYSTEMS ==================== */}
-                <section className="relative py-20 bg-white dark:bg-[#151521]/50 overflow-hidden transition-colors duration-200">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <div className="text-center mb-16">
-                            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-                                <p className="text-blue-600 text-sm font-bold uppercase tracking-[0.3em] mb-4">Expanding Ecosystem</p>
-                                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">More Systems</h2>
-                                <p className="text-slate-600 dark:text-[#A1A1AA] max-w-2xl mx-auto text-lg">
-                                    Specialized solutions powering specific sectors of campus life and beyond.
+                {/* ─────────── 01 — CAMPUS GUIDE (FLAGSHIP) ─────────── */}
+                <section className="px-6 py-16">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+                            {/* Left: heading */}
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-wider mb-4 bg-gradient-to-r from-systems to-primary bg-clip-text text-transparent">
+                                    01 — Featured System
                                 </p>
-                            </motion.div>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg ring-1 ring-systems/20 flex-shrink-0">
+                                        <img src='/campusguidelogo.png' alt="Campus Guide" className="w-full h-full object-contain" />
+                                    </div>
+                                    <h2 className="text-4xl md:text-6xl font-bold font-heading">Campus Guide</h2>
+                                </div>
+                                <p className="text-muted-foreground leading-relaxed mb-8">
+                                    The essential campus companion PWA. Everything UCC students need to navigate
+                                    university life — built as a local-first installable web app.
+                                </p>
+                                <div className="flex flex-wrap items-center gap-2 mb-8">
+                                    {["React 18", "Supabase", "Paystack", "OneSignal", "PWA"].map((tech) => (
+                                        <span key={tech} className="px-3 py-1.5 rounded-full bg-systems/10 text-systems text-xs font-semibold tracking-wide border border-systems/20">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                                <Link
+                                    href="https://campusguide.pages.dev"
+                                    target="_blank"
+                                    className="group inline-flex items-center gap-2 text-systems font-semibold hover:gap-3 transition-all"
+                                >
+                                    Launch Campus Guide
+                                    <ArrowTopRightOnSquareIcon className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                </Link>
+                            </div>
+
+                            {/* Right: stats glassmorphic grid */}
+                            <div className="grid grid-cols-2 gap-4">
+                                {flagshipStats.map((stat, i) => (
+                                    <div
+                                        key={i}
+                                        className={`bg-white/50 dark:bg-white/5 backdrop-blur-sm border rounded-2xl p-6 ${i % 2 === 0 ? 'border-systems/20' : 'border-primary/20'}`}
+                                    >
+                                        <p className={`text-3xl md:text-4xl font-bold mb-2 font-heading ${stat.accent ? 'text-systems' : 'text-primary'}`}>
+                                            {stat.value}
+                                        </p>
+                                        <p className="text-muted-foreground text-xs uppercase tracking-wider">{stat.label}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
+                        {/* Features grid */}
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {flagshipFeatures.map((feature, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="group bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-border dark:border-white/10 rounded-2xl p-8 hover:border-systems/40 transition-all hover:shadow-lg hover:-translate-y-1"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={viewportOnce}
+                                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                                >
+                                    <div className="text-3xl font-bold mb-4 opacity-20 text-systems">
+                                        0{index + 1}
+                                    </div>
+                                    <feature.icon className="w-7 h-7 text-systems mb-4 group-hover:scale-110 transition-transform" />
+                                    <h3 className="text-lg font-bold font-heading mb-2">{feature.title}</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ─────────── 02 — PRODUCT SUITE ─────────── */}
+                <section className="px-6 py-16">
+                    <div className="max-w-7xl mx-auto">
+                        <p className="text-xs font-bold uppercase tracking-wider mb-4 bg-gradient-to-r from-systems to-primary bg-clip-text text-transparent">
+                            02 — The Product Suite
+                        </p>
+                        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 leading-tight max-w-3xl">
+                            Real products. Real users.
+                        </h2>
+                        <p className="text-muted-foreground max-w-2xl leading-relaxed mb-12">
+                            Three production systems already in the hands of thousands — each solving a distinct
+                            problem with serious engineering behind it.
+                        </p>
+
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {productSuite.map((product, index) => (
+                                <motion.div
+                                    key={product.name}
+                                    className="group relative bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-border dark:border-white/10 rounded-2xl p-8 hover:border-systems/50 transition-all hover:shadow-lg hover:-translate-y-1 flex flex-col"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={viewportOnce}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                >
+                                    <div className="text-3xl font-bold mb-4 opacity-20 text-systems">
+                                        0{index + 1}
+                                    </div>
+                                    <div className="w-12 h-12 mb-6 rounded-xl bg-systems/10 p-2.5 border border-systems/20 text-systems">
+                                        <product.icon />
+                                    </div>
+                                    <h3 className="text-xl font-bold font-heading mb-1">{product.name}</h3>
+                                    <p className="text-systems text-xs font-bold uppercase tracking-wider mb-3">{product.tag}</p>
+                                    <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
+                                        {product.desc}
+                                    </p>
+                                    <div className="flex flex-wrap gap-1.5 mb-5">
+                                        {product.tech.map((t) => (
+                                            <span key={t} className="px-2 py-1 rounded-md bg-muted dark:bg-white/5 text-muted-foreground text-[10px] font-semibold tracking-wide">{t}</span>
+                                        ))}
+                                    </div>
+                                    <Link
+                                        href={product.link}
+                                        target={product.external ? "_blank" : undefined}
+                                        className="inline-flex items-center gap-2 text-systems font-semibold text-sm group/link mt-auto"
+                                    >
+                                        {product.linkLabel}
+                                        {product.external ? (
+                                            <ArrowTopRightOnSquareIcon className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                        ) : (
+                                            <ArrowRightIcon className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                                        )}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ─────────── 03 — MORE SYSTEMS ─────────── */}
+                <section className="px-6 py-16">
+                    <div className="max-w-7xl mx-auto">
+                        <p className="text-xs font-bold uppercase tracking-wider mb-4 bg-gradient-to-r from-systems to-primary bg-clip-text text-transparent">
+                            03 — Expanding Ecosystem
+                        </p>
+                        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 leading-tight max-w-3xl">
+                            More systems in the pipeline.
+                        </h2>
+                        <p className="text-muted-foreground max-w-2xl leading-relaxed mb-12">
+                            Specialized solutions powering specific sectors of campus life and beyond.
+                        </p>
+
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {[
-                                {
-                                    id: 'hostel-connect',
-                                    name: 'Hostel Connect',
-                                    icon: IconHostelConnect,
-                                    link: '/systems/hostel-connect',
-                                    desc: 'Accommodation management.'
-                                },
-                                {
-                                    id: 'scholastic-shield',
-                                    name: 'Scholastic Shield',
-                                    icon: IconScholasticShield,
-                                    link: '/systems/scholastic-shield',
-                                    desc: 'Campus security & safety.'
-                                },
-                                {
-                                    id: 'roommate-link',
-                                    name: 'Roommate Link',
-                                    icon: IconRoommateLink,
-                                    link: '/systems/roommate-link',
-                                    desc: 'Find your perfect roommate.'
-                                },
-                                {
-                                    id: 'job-pulse',
-                                    name: 'Job Pulse',
-                                    icon: IconJobPulse,
-                                    link: '/systems/job-pulse',
-                                    desc: 'Student career opportunities.'
-                                }
-                            ].map((system, index) => (
+                            {moreSystems.map((system, index) => (
                                 <motion.div
                                     key={system.id}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    variants={scaleIn}
-                                    transition={{ delay: index * 0.1 }}
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={viewportOnce}
+                                    transition={{ duration: 0.5, delay: index * 0.08 }}
                                 >
-                                    <Link href={system.link} className="block h-full">
-                                        <div className="h-full bg-slate-50 dark:bg-[#0B0B0F] rounded-2xl p-6 border border-slate-200 dark:border-white/5 hover:border-blue-600/40 hover:shadow-lg hover:shadow-blue-600/10 transition-all group">
-                                            <div className="w-14 h-14 mb-6 rounded-xl bg-white dark:bg-white/5 p-2 shadow-sm border border-slate-100 dark:border-white/5 group-hover:scale-110 transition-transform">
+                                    <Link href={system.link} className="block h-full group">
+                                        <div className={`h-full bg-white/50 dark:bg-white/5 backdrop-blur-sm border rounded-2xl p-6 hover:shadow-lg transition-all hover:-translate-y-1 ${index % 2 === 0 ? 'border-systems/20 hover:border-systems/50' : 'border-primary/20 hover:border-primary/50'}`}>
+                                            <div className={`w-14 h-14 mb-6 rounded-xl p-2.5 border group-hover:scale-110 transition-transform ${index % 2 === 0 ? 'bg-systems/10 border-systems/20 text-systems' : 'bg-primary/10 border-primary/20 text-primary'}`}>
                                                 <system.icon />
                                             </div>
-                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors">
+                                            <h3 className="text-lg font-bold font-heading mb-2 group-hover:text-systems transition-colors">
                                                 {system.name}
                                             </h3>
-                                            <p className="text-slate-500 dark:text-[#A1A1AA] text-sm leading-relaxed">
+                                            <p className="text-muted-foreground text-sm leading-relaxed">
                                                 {system.desc}
                                             </p>
                                         </div>
@@ -357,62 +336,49 @@ export default function SystemsPage() {
                     </div>
                 </section>
 
-                {/* ==================== CTA SECTION ==================== */}
-                <section className="relative py-24 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200">
-                    {/* Ambient glow */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="w-[600px] h-[300px] bg-blue-600/5 rounded-full blur-[100px]" />
-                    </div>
-
-                    <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={stagger}
-                        >
-                            <motion.div
-                                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 mb-8"
-                                variants={scaleIn}
-                            >
-                                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                    <polyline points="15 3 21 3 21 9" />
-                                    <line x1="10" y1="14" x2="21" y2="3" />
-                                </svg>
-                            </motion.div>
-
-                            <motion.h2
-                                className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
-                                variants={fadeInUp}
-                            >
-                                Build the future with us.
-                            </motion.h2>
-
-                            <motion.p
-                                className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-10 max-w-xl mx-auto"
-                                variants={fadeInUp}
-                            >
-                                The architecture is ready. The nodes are active. We are waiting for your input signal.
-                            </motion.p>
-
-                            <motion.div variants={fadeInUp}>
+                {/* ─────────── CLOSING CTA — gradient story card ─────────── */}
+                <section className="px-6 py-20">
+                    <motion.div
+                        className="max-w-5xl mx-auto bg-gradient-to-br from-systems-soft to-primary-soft dark:from-systems/5 dark:to-primary/5 rounded-3xl p-8 md:p-16 border border-systems/40 dark:border-white/5"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        variants={stagger}
+                    >
+                        <div className="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-wider mb-4 bg-gradient-to-r from-systems to-primary bg-clip-text text-transparent">
+                                    Build the future with us
+                                </p>
+                                <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 leading-tight">
+                                    The architecture is ready.
+                                </h2>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    The nodes are active. We are waiting for your input signal — whether
+                                    that’s a partnership, an integration, or a system worth building together.
+                                </p>
+                            </div>
+                            <div className="flex flex-col gap-4">
                                 <Link
-                                    href="/studio/contact?source=systems"
-                                    className="inline-flex items-center gap-2 px-10 py-5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/25 text-lg group"
+                                    href="/studio/work?source=systems#contact"
+                                    className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-systems text-white font-semibold rounded-xl hover:bg-systems/90 transition-all shadow-lg shadow-systems/25"
                                 >
                                     Partner With Us
-                                    <div className="w-5 h-5 group-hover:translate-x-1 transition-transform">
-                                        <IconArrowRight />
-                                    </div>
+                                    <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
-                            </motion.div>
-                        </motion.div>
-                    </div>
+                                <Link
+                                    href="/systems/impact"
+                                    className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-border dark:border-white/10 font-semibold rounded-xl hover:border-systems/50 transition-all"
+                                >
+                                    See Our Impact
+                                    <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </div>
+                    </motion.div>
                 </section>
             </main>
 
-            {/* ==================== FOOTER ==================== */}
             <SystemsFooter />
         </div>
     );

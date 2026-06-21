@@ -412,13 +412,13 @@ export const IconRocket = () => (
 
 export const IconArrowLeft = () => (
     <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="m15 18-6-6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
 export const IconArrowRight = () => (
     <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="m9 18 6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 

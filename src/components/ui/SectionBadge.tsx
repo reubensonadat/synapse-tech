@@ -8,33 +8,55 @@ interface SectionBadgeProps {
     variant?: 'studio' | 'systems' | 'neutral' | 'success' | 'warning';
     className?: string;
     animated?: boolean;
+    withDot?: boolean;
 }
 
-export default function SectionBadge({ title, variant = 'neutral', className = "", animated = false }: SectionBadgeProps) {
-    const variants = {
-        studio: "from-purple-400 to-indigo-400 text-purple-600 dark:text-purple-400",
-        systems: "from-blue-400 to-cyan-400 text-blue-600 dark:text-blue-400",
-        neutral: "from-slate-400 to-gray-400 text-slate-600 dark:text-slate-400",
-        success: "from-green-400 to-emerald-400 text-green-600 dark:text-green-400",
-        warning: "from-amber-400 to-orange-400 text-amber-600 dark:text-amber-400"
-    };
+/**
+ * SectionBadge — the consistent eyebrow label used across every section.
+ *
+ * Anti-slop fix: previously tracking jumped between 0.2em / 0.3em / "wide".
+ * Now every eyebrow uses one deliberate tracking (0.28em) + a pulsing brand
+ * dot indicator for the premium "live" feel.
+ */
+export default function SectionBadge({
+    title,
+    variant = 'neutral',
+    className = "",
+    animated = false,
+    withDot = true
+}: SectionBadgeProps) {
+    const dotColor = {
+        studio: "bg-primary-glow",
+        systems: "bg-systems-glow",
+        neutral: "bg-muted-foreground",
+        success: "bg-success",
+        warning: "bg-warning",
+    }[variant];
 
-    const colorClass = variants[variant];
+    const textColor = {
+        studio: "text-primary",
+        systems: "text-systems",
+        neutral: "text-muted-foreground",
+        success: "text-success",
+        warning: "text-warning",
+    }[variant];
 
     return (
         <motion.div
-            className={`inline-flex flex-col items-center gap-1.5 mb-6 ${className}`}
+            className={`inline-flex items-center gap-2.5 mb-6 ${className}`}
             initial={animated ? "hidden" : "visible"}
             animate="visible"
             variants={animated ? fadeInDown : {}}
         >
-            {/* Title with Gradient Spaced Caps */}
-            <span className={`text-sm md:text-base font-bold tracking-[0.35em] uppercase bg-gradient-to-r ${colorClass} bg-clip-text text-transparent`}>
+            {withDot && (
+                <span className="relative flex h-2 w-2">
+                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-60 ${dotColor}`}></span>
+                    <span className={`relative inline-flex rounded-full h-2 w-2 ${dotColor}`}></span>
+                </span>
+            )}
+            <span className={`text-xs md:text-[13px] font-bold tracking-[0.28em] uppercase ${textColor}`}>
                 {title}
             </span>
-
-            {/* Minimal Underline for extra styling */}
-            <div className={`h-[1px] w-8 bg-gradient-to-r ${colorClass} opacity-40`} />
         </motion.div>
     );
 }

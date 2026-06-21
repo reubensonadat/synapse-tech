@@ -16,7 +16,7 @@ export function NotFound() {
         <div className="relative flex min-h-[50vh] w-full items-center justify-center overflow-hidden">
             <Empty>
                 <EmptyHeader>
-                    <EmptyTitle className="mask-b-from-20% mask-b-to-80% font-extrabold text-9xl text-synapse-main/20 select-none">
+                    <EmptyTitle className="mask-b-from-20% mask-b-to-80% font-extrabold text-9xl text-primary/20 select-none">
                         404
                     </EmptyTitle>
                     <EmptyDescription className="-mt-8 text-nowrap text-foreground/80 text-xl font-medium">
@@ -31,7 +31,7 @@ export function NotFound() {
                             Go Home
                         </Button>
 
-                        <Button href="/studio/portfolio" variant="outline">
+                        <Button href="/studio/work" variant="outline">
                             <CompassIcon className="size-4 mr-2" />
                             Explore
                         </Button>

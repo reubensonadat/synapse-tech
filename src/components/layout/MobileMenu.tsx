@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight } from 'lucide-react';
+import { X, ChevronRight } from 'lucide-react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
 export default function MobileMenu() {
@@ -37,11 +37,9 @@ export default function MobileMenu() {
             ];
         } else if (isStudioWorld) {
             return [
-                { href: '/studio', label: 'Studio Home', description: undefined },
-                { href: '/studio/services', label: 'Services', description: undefined },
-                { href: '/studio/portfolio', label: 'Portfolio', description: undefined },
+                { href: '/studio', label: 'Studio', description: undefined },
+                { href: '/studio/work', label: 'Work', description: undefined },
                 { href: '/studio/pricing', label: 'Pricing', description: undefined },
-                { href: '/studio/contact', label: 'Contact', description: undefined },
                 { href: '/about?source=studio', label: 'About', description: undefined },
             ];
         } else if (isSystemsWorld) {
@@ -117,18 +115,18 @@ export default function MobileMenu() {
 
                             {/* Slide-in Menu Panel */}
                             <motion.div
-                                className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-synapse-black border-l border-gray-200 dark:border-white/10 z-[9999] md:hidden overflow-y-auto"
+                                className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-background border-l border-border dark:border-white/10 z-[9999] md:hidden overflow-y-auto"
                                 initial={{ x: '100%' }}
                                 animate={{ x: 0 }}
                                 exit={{ x: '100%' }}
                                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                             >
                                 {/* Header */}
-                                <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-white/10">
+                                <div className="flex items-center justify-between p-6 border-b border-border dark:border-white/10">
                                     <h2 className="text-xl font-bold font-heading">{isStudioWorld ? 'Studio' : isSystemsWorld ? 'Systems' : 'Menu'}</h2>
                                     <motion.button
                                         onClick={closeMenu}
-                                        className="p-2 hover:bg-red-50 dark:hover:bg-red-900/10 text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 rounded-lg transition-colors"
+                                        className="p-2 hover:bg-red-50 dark:hover:bg-red-900/10 text-muted-foreground hover:text-red-500 dark:text-muted-foreground dark:hover:text-red-400 rounded-lg transition-colors"
                                         aria-label="Close menu"
                                         whileHover={{ rotate: 90 }}
                                         whileTap={{ scale: 0.9 }}
@@ -149,8 +147,8 @@ export default function MobileMenu() {
                                             href={link.href}
                                             onClick={closeMenu}
                                             className={`block px-4 py-3 rounded-xl font-medium transition-all ${pathname === link.href
-                                                ? (isSystemsWorld ? 'bg-blue-600 text-white' : 'bg-synapse-main text-white')
-                                                : `text-gray-700 dark:text-gray-300 ${isSystemsWorld ? 'hover:bg-blue-50' : 'hover:bg-purple-50'} dark:hover:bg-white/5`
+                                                ? (isSystemsWorld ? 'bg-systems text-white' : 'bg-primary text-white')
+                                                : `text-foreground dark:text-muted-foreground/70 ${isSystemsWorld ? 'hover:bg-systems-soft' : 'hover:bg-primary-soft'} dark:hover:bg-white/5`
                                                 }`}
                                         >
                                             <div>
@@ -165,46 +163,46 @@ export default function MobileMenu() {
 
                                 {/* World Switcher */}
                                 {!isHome && (
-                                    <div className="p-6 border-t border-gray-200 dark:border-white/10">
-                                        <p className="text-xs font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+                                    <div className="p-6 border-t border-border dark:border-white/10">
+                                        <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground dark:text-muted-foreground mb-3">
                                             Switch World
                                         </p>
                                         {isStudioWorld ? (
                                             <Link
                                                 href="/systems"
                                                 onClick={closeMenu}
-                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-xl hover:shadow-lg transition-all group"
+                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-systems-soft to-primary-soft dark:from-systems-deep/20 dark:to-primary-deep/20 border border-systems/30 dark:border-systems/30 rounded-xl hover:shadow-lg transition-all group"
                                             >
                                                 <div>
-                                                    <div className="font-bold text-blue-900 dark:text-blue-100">Synapse Systems</div>
-                                                    <div className="text-xs text-blue-700 dark:text-blue-300 mt-1">
+                                                    <div className="font-bold text-systems dark:text-systems">Synapse Systems</div>
+                                                    <div className="text-xs text-systems dark:text-systems-glow mt-1">
                                                         Explore our products
                                                     </div>
                                                 </div>
-                                                <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform stroke-[2]" />
+                                                <ChevronRight className="w-5 h-5 text-systems dark:text-systems-glow group-hover:translate-x-1 transition-transform stroke-[2]" />
                                             </Link>
                                         ) : isSystemsWorld ? (
                                             <Link
                                                 href="/studio"
                                                 onClick={closeMenu}
-                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-purple-50 to-fuchsia-50 dark:from-purple-900/20 dark:to-fuchsia-900/20 border border-purple-200 dark:border-purple-800 rounded-xl hover:shadow-lg transition-all group"
+                                                className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary-soft to-primary-soft dark:from-primary-deep/20 dark:to-primary-deep/20 border border-primary/30 dark:border-primary/30 rounded-xl hover:shadow-lg transition-all group"
                                             >
                                                 <div>
-                                                    <div className="font-bold text-purple-900 dark:text-purple-100">Synapse Studio</div>
-                                                    <div className="text-xs text-purple-700 dark:text-purple-300 mt-1">
+                                                    <div className="font-bold text-primary dark:text-primary">Synapse Studio</div>
+                                                    <div className="text-xs text-primary dark:text-primary-glow mt-1">
                                                         Client services
                                                     </div>
                                                 </div>
-                                                <ArrowRight className="w-5 h-5 text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform stroke-[2]" />
+                                                <ChevronRight className="w-5 h-5 text-primary dark:text-primary-glow group-hover:translate-x-1 transition-transform stroke-[2]" />
                                             </Link>
                                         ) : null}
                                     </div>
                                 )}
 
                                 {/* Dark Mode Toggle */}
-                                <div className="p-6 border-t border-gray-200 dark:border-white/10">
+                                <div className="p-6 border-t border-border dark:border-white/10">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        <span className="text-sm font-medium text-foreground dark:text-muted-foreground/70">
                                             Theme
                                         </span>
                                         <ThemeToggle />
@@ -213,13 +211,13 @@ export default function MobileMenu() {
 
                                 {/* CTA Button */}
                                 {!isHome && (
-                                    <div className="p-6 border-t border-gray-200 dark:border-white/10">
+                                    <div className="p-6 border-t border-border dark:border-white/10">
                                         <Link
-                                            href={isStudioWorld ? '/studio/contact' : isSystemsWorld ? '/systems/collaborate' : '/studio/contact'}
+                                            href={isStudioWorld ? '/studio/work' : isSystemsWorld ? '/systems/collaborate' : '/studio/work'}
                                             onClick={closeMenu}
                                             className={`block w-full px-6 py-3 text-center font-bold text-white rounded-xl hover:shadow-lg transition-all ${isSystemsWorld
-                                                ? 'bg-blue-600 hover:bg-blue-500 hover:shadow-blue-600/30'
-                                                : 'bg-synapse-main hover:bg-synapse-main/90 hover:shadow-synapse-main/30'
+                                                ? 'bg-systems hover:bg-systems hover:shadow-systems/30'
+                                                : 'bg-primary hover:bg-primary/90 hover:shadow-primary/30'
                                                 }`}
                                         >
                                             {isStudioWorld ? 'Get Started' : isSystemsWorld ? 'Join Us' : 'Get Started'}

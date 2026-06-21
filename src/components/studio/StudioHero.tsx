@@ -9,7 +9,7 @@ export default function StudioHero() {
                 {/* Breadcrumb */}
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 text-sm text-synapse-gray hover:text-synapse-main transition-colors mb-8"
+                    className="inline-flex items-center gap-2 text-sm text-synapse-gray hover:text-primary transition-colors mb-8"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m12 19-7-7 7-7" />
@@ -24,7 +24,7 @@ export default function StudioHero() {
                     <div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight mb-6">
                             Creating digital experiences that{' '}
-                            <span className="text-synapse-main">drive real growth</span>.
+                            <span className="text-primary">drive real growth</span>.
                         </h1>
 
                         <p className="text-lg md:text-xl text-synapse-gray dark:text-synapse-gray mb-8 leading-relaxed">
@@ -34,10 +34,10 @@ export default function StudioHero() {
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button href="/studio/contact" variant="primary">
+                            <Button href="/studio/work" variant="primary">
                                 Book a free consultation
                             </Button>
-                            <Button href="/studio/portfolio" variant="text">
+                            <Button href="/studio/work" variant="text">
                                 Explore our work
                             </Button>
                         </div>
@@ -45,7 +45,7 @@ export default function StudioHero() {
 
                     {/* Right: Metrics Card */}
                     <div className="relative">
-                        <div className="bg-white dark:bg-synapse-slate border border-gray-200 dark:border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                        <div className="bg-white dark:bg-background-subtle border border-border dark:border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
                             <div className="flex items-start justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-synapse-gray uppercase tracking-wide mb-2">Client Growth</p>
@@ -58,8 +58,8 @@ export default function StudioHero() {
 
                             {/* Progress Bar */}
                             <div className="mb-4">
-                                <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                    <div className="h-full w-3/4 bg-gradient-to-r from-synapse-main to-synapse-glow rounded-full" />
+                                <div className="h-2 bg-muted dark:bg-muted rounded-full overflow-hidden">
+                                    <div className="h-full w-3/4 bg-gradient-to-r from-primary to-primary-glow rounded-full" />
                                 </div>
                             </div>
 
@@ -78,8 +78,8 @@ export default function StudioHero() {
                         </div>
 
                         {/* Decorative Elements */}
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-synapse-main/10 rounded-full blur-2xl -z-10" />
-                        <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-synapse-glow/10 rounded-full blur-3xl -z-10" />
+                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl -z-10" />
+                        <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-glow/10 rounded-full blur-3xl -z-10" />
                     </div>
                 </div>
             </div>

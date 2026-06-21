@@ -2,69 +2,669 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   LENIS SMOOTH-SCROLL RUNTIME
+   Mirrors Vendly's inertial scroll. Lenis drives native scroll position,
+   so fixed/sticky elements keep working. These classes are toggled by Lenis.
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   SYNAPSE — PEAK DESIGN SYSTEM
+   Signature palette: Purple #A88AED · Blue #6EABC6 · Light Blue #A9CFE0
+   Inspired by the Anti-Slop Peak-Application Design Bible (God Mode).
+   Blends Vendly's quiet-luxury discipline, Roomate Link's boutique premium
+   details, and Campus Guide's motion hierarchy into one cohesive language.
+   ========================================================================== */
+
 @layer base {
   :root {
+    /* ---- SURFACES (light) ---- */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* pure white */
+    --background-subtle: 205 30% 98%;
+    /* whisper of blue in off-white */
+    --foreground: 250 22% 12%;
+    /* deep purple-black text */
+
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 250 22% 12%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262 83% 58%;
-    /* Synapse Purple #7C3AED */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
-    --radius: 0.5rem;
+    --popover-foreground: 250 22% 12%;
+
+    /* ---- BRAND: Synapse Purple (#A88AED family) ----
+       Hero accent #A88AED = hsl(258 73% 74%) — used for glows, highlights,
+       gradient stops. Deeper variant powers solid fills for WCAG readability. */
+    --primary: 258 62% 55%;
+    /* #8C6EE0 — solid fill (AA on white) */
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 258 60% 95%;
+    /* subtle purple wash */
+    --primary-glow: 258 73% 74%;
+    /* #A88AED — THE signature accent */
+    --primary-deep: 258 70% 42%;
+    /* deep emphasis */
+
+    /* ---- SYSTEMS: Signature Blue (#6EABC6 family) ----
+       Hero accent #6EABC6 = hsl(198 44% 60%). Lighter #A9CFE0 = hsl(198 47% 77%). */
+    --systems: 198 44% 47%;
+    /* #5A9DB5 — solid fill (AA on white) */
+    --systems-foreground: 0 0% 100%;
+    --systems-glow: 198 44% 60%;
+    /* #6EABC6 — THE signature blue */
+    --systems-light: 198 47% 77%;
+    /* #A9CFE0 — lighter blue */
+    --systems-soft: 198 40% 95%;
+    /* subtle blue wash */
+    --systems-deep: 200 55% 35%;
+    /* deep emphasis */
+
+    /* ---- NEUTRALS ---- */
+    --secondary: 205 25% 96%;
+    --secondary-foreground: 250 22% 12%;
+
+    --muted: 205 20% 95%;
+    --muted-foreground: 250 8% 46%;
+    /* soft gray */
+
+    --accent: 258 60% 95%;
+    --accent-foreground: 258 62% 40%;
+
+    /* ---- SEMANTIC ---- */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 62% 40%;
+    --success-foreground: 152 80% 95%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 95% 95%;
+
+    --border: 205 20% 90%;
+    --input: 205 20% 90%;
+    --ring: 258 62% 55%;
+
+    /* ---- RADIUS SCALE (boutique progression) ---- */
+    --radius-xs: 0.375rem;
+    /* 6px  — tags, badges */
+    --radius-sm: 0.5rem;
+    /* 8px  — inputs */
+    --radius-md: 0.75rem;
+    /* 12px — buttons */
+    --radius-lg: 1rem;
+    /* 16px — cards */
+    --radius-xl: 1.375rem;
+    /* 22px — boutique containers */
+    --radius-2xl: 2rem;
+    /* 32px — hero elements */
+    --radius: 0.75rem;
+
+    /* ---- SHADOW SYSTEM (purple-tinted, three tiers) ---- */
+    --shadow-soft: 0 1px 2px rgba(80, 60, 130, 0.05), 0 1px 3px rgba(80, 60, 130, 0.07);
+    --shadow-medium: 0 4px 12px -2px rgba(110, 80, 180, 0.10), 0 2px 6px -2px rgba(110, 80, 180, 0.06);
+    --shadow-strong: 0 20px 40px -12px rgba(140, 110, 224, 0.22), 0 8px 16px -8px rgba(140, 110, 224, 0.14);
+    --shadow-luminous: 0 0 40px -8px rgba(168, 138, 237, 0.45);
+    --shadow-elevated: 0 30px 60px -12px rgba(140, 110, 224, 0.28);
+
+    /* ---- GLASS ---- */
+    --glass-bg: 255 255 255;
+    --glass-border: 255 255 255;
   }
 
   .dark {
-    --background: 240 10% 4%;
-    /* Deep Black #0B0B0F */
+    /* ---- SURFACES (dark) — institutional deep charcoal ---- */
+    --background: 250 18% 5%;
+    /* near-black with purple tint */
+    --background-subtle: 250 16% 7%;
     --foreground: 210 40% 98%;
-    --card: 240 10% 7%;
-    /* Dark Slate #151521 adjusted */
+
+    --card: 250 16% 8%;
+    /* dark slate */
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+
+    --popover: 250 16% 7%;
     --popover-foreground: 210 40% 98%;
-    --primary: 263 70% 50%;
-    /* #6D28D9 Synapse Core */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
+
+    /* ---- BRAND (brighter on dark — #A88AED sings here) ---- */
+    --primary: 258 80% 74%;
+    /* #A88AED — full hero on dark */
+    --primary-foreground: 250 25% 10%;
+    --primary-soft: 258 40% 18%;
+    --primary-glow: 258 85% 80%;
+    --primary-deep: 258 70% 55%;
+
+    /* ---- SYSTEMS (#6EABC6 brightened for dark) ---- */
+    --systems: 198 50% 62%;
+    /* readable on dark */
+    --systems-foreground: 250 25% 10%;
+    --systems-glow: 198 50% 68%;
+    --systems-light: 198 47% 77%;
+    /* #A9CFE0 */
+    --systems-soft: 198 35% 16%;
+    --systems-deep: 200 55% 45%;
+
+    /* ---- NEUTRALS ---- */
+    --secondary: 250 14% 13%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 263 70% 50%;
+
+    --muted: 250 14% 13%;
+    --muted-foreground: 250 10% 65%;
+
+    --accent: 258 40% 18%;
+    --accent-foreground: 258 80% 82%;
+
+    /* ---- SEMANTIC ---- */
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 62% 45%;
+    --success-foreground: 152 80% 95%;
+    --warning: 38 92% 58%;
+    --warning-foreground: 48 95% 95%;
+
+    --border: 250 14% 17%;
+    /* VISIBLE borders — not invisible */
+    --input: 250 14% 17%;
+    --ring: 258 80% 74%;
+
+    /* ---- SHADOWS (purple-tinted, deeper on dark) ---- */
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-medium: 0 4px 12px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(168, 138, 237, 0.06);
+    --shadow-strong: 0 20px 50px -12px rgba(168, 138, 237, 0.40), 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+    --shadow-luminous: 0 0 60px -10px rgba(168, 138, 237, 0.50);
+    --shadow-elevated: 0 40px 80px -20px rgba(168, 138, 237, 0.45);
+
+    --glass-bg: 18 18 24;
+    --glass-border: 255 255 255;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    /* Anti-slop: kill the tap flash on mobile */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100dvh;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Anti-slop: prevent iOS auto-zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Headings — boutique: tight tracking, brand display font */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Anti-slop: deliberate text selection in brand color */
+  ::selection {
+    background-color: hsl(var(--primary-glow) / 0.30);
+    color: hsl(var(--foreground));
+  }
+
+  /* Anti-slop: focus-visible ring on every interactive element */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
+
+  /* ============================================================
+     ANTI-SLOP: SCROLLBARS (refined, not brutalist)
+     ============================================================ */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 9999px;
+  }
+
+  /* ============================================================
+     SAFE-AREA INSETS (PWA / notched devices)
+     ============================================================ */
+  .safe-pt {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-pl {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-pr {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-mt {
+    margin-top: env(safe-area-inset-top);
+  }
+
+  .safe-mb {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ============================================================
+     SHADOW SYSTEM (purple-tinted tiers)
+     ============================================================ */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .shadow-luminous {
+    box-shadow: var(--shadow-luminous);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* ============================================================
+     GLASS EFFECTS (frosted crystal with saturate boost)
+     ============================================================ */
+  .glass {
+    background: rgba(var(--glass-bg) / 0.72);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(var(--glass-border) / 0.12);
+  }
+
+  .glass-strong {
+    background: rgba(var(--glass-bg) / 0.88);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(var(--glass-border) / 0.16);
+  }
+
+  /* ============================================================
+     GRADIENT TEXT (brand) — uses signature colors
+     ============================================================ */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, hsl(258 73% 68%), hsl(258 73% 80%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-systems {
+    background: linear-gradient(135deg, hsl(198 50% 52%), hsl(198 47% 70%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-aurora {
+    background: linear-gradient(115deg, hsl(258 73% 72%), hsl(220 60% 65%), hsl(198 50% 58%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* ============================================================
+     ANIMATIONS — motion hierarchy
+     ============================================================ */
+  .animate-fade-in {
+    animation: synapse-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-slide-up {
+    animation: synapse-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-scale-in {
+    animation: synapse-scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+        hsl(var(--muted)) 0%,
+        hsl(var(--muted) / 0.5) 50%,
+        hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    animation: synapse-shimmer 1.4s linear infinite;
+  }
+
+  .animate-float {
+    animation: synapse-float 6s ease-in-out infinite;
+  }
+
   .animate-pulse-slow {
-    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: synapse-pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: synapse-glow-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-grid-drift {
+    animation: synapse-grid-drift 40s linear infinite;
+  }
+
+  .animate-marquee {
+    animation: synapse-marquee 40s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: synapse-spin 14s linear infinite;
+  }
+
+  /* Living aurora gradient — slow drifting brand blobs (GPU-accelerated) */
+  .animate-aurora-1 {
+    animation: synapse-aurora-1 22s ease-in-out infinite;
+  }
+
+  .animate-aurora-2 {
+    animation: synapse-aurora-2 26s ease-in-out infinite;
+  }
+
+  .animate-aurora-3 {
+    animation: synapse-aurora-3 30s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+
+  /* Staggered entrance helpers */
+  .delay-0 {
+    animation-delay: 0ms;
+  }
+
+  .delay-1 {
+    animation-delay: 80ms;
+  }
+
+  .delay-2 {
+    animation-delay: 160ms;
+  }
+
+  .delay-3 {
+    animation-delay: 240ms;
+  }
+
+  .delay-4 {
+    animation-delay: 320ms;
+  }
+
+  .delay-5 {
+    animation-delay: 400ms;
+  }
+
+  .delay-6 {
+    animation-delay: 480ms;
+  }
+
+  /* Premium hover lift (Vendly-style: rise + scale) */
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease;
+    will-change: transform;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
+
+  .hover-lift:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  /* Tactile press (Roomate Link-style) */
+  .press {
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .press:active {
+    transform: scale(0.97);
+  }
+
+  /* Editorial uppercase tracked label (Vendly whisper) */
+  .label-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes synapse-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes synapse-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes synapse-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes synapse-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes synapse-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes synapse-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes synapse-glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes synapse-grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+@keyframes synapse-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes synapse-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes synapse-aurora-1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(6%, 8%) scale(1.15);
+  }
+}
+
+@keyframes synapse-aurora-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-7%, 5%) scale(1.12);
+  }
+}
+
+@keyframes synapse-aurora-3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(5%, -6%) scale(1.2);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

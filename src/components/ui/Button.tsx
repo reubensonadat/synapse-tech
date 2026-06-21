@@ -6,13 +6,25 @@ interface ButtonProps {
     children: ReactNode;
     href?: string;
     onClick?: () => void;
-    variant?: 'primary' | 'secondary' | 'outline' | 'text' | 'white';
+    variant?: 'primary' | 'systems' | 'secondary' | 'outline' | 'outlineSystems' | 'text' | 'white' | 'ghost';
     size?: 'sm' | 'md' | 'lg';
     className?: string;
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
 }
 
+/**
+ * Button — peak-UI button system.
+ *
+ * Physics (anti-slop):
+ *  - Hover: vertical lift (translateY -2px) + shadow growth. No scale on hover
+ *    (scaling nudges neighbors in tight grids).
+ *  - Active: push-down (translateY 1px + scale 0.98) — tactile, like pressing
+ *    into the surface.
+ *  - Focus-visible ring inherited globally for keyboard users.
+ *
+ * Variants cover both worlds: purple (Studio) + blue (Systems).
+ */
 export default function Button({
     children,
     href,
@@ -23,23 +35,34 @@ export default function Button({
     type = 'button',
     disabled = false
 }: ButtonProps) {
-    const baseStyles = 'inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300';
+    const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 ease-premium focus-visible:outline-none active:translate-y-[1px] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
 
     const variants = {
-        primary: 'bg-synapse-main text-white hover:bg-synapse-main/90 shadow-lg shadow-synapse-main/30 hover:shadow-synapse-main/50 hover:scale-105',
-        secondary: 'bg-gray-100 dark:bg-white/10 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-white/20',
-        outline: 'bg-transparent border-2 border-synapse-main text-synapse-main hover:bg-synapse-main hover:text-white',
-        text: 'bg-transparent text-synapse-gray dark:text-gray-400 hover:text-synapse-main',
-        white: 'bg-white text-synapse-main hover:bg-gray-100 shadow-lg'
+        primary:
+            'bg-primary text-primary-foreground shadow-medium hover:-translate-y-0.5 hover:shadow-strong hover:bg-primary/95',
+        systems:
+            'bg-systems text-systems-foreground shadow-medium hover:-translate-y-0.5 hover:shadow-strong hover:bg-systems/95',
+        secondary:
+            'bg-secondary text-secondary-foreground hover:-translate-y-0.5 hover:bg-muted',
+        outline:
+            'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5',
+        outlineSystems:
+            'bg-transparent border-2 border-systems text-systems hover:bg-systems hover:text-systems-foreground hover:-translate-y-0.5',
+        text:
+            'bg-transparent text-muted-foreground hover:text-primary',
+        ghost:
+            'bg-transparent text-foreground hover:bg-muted',
+        white:
+            'bg-white text-primary shadow-medium hover:-translate-y-0.5 hover:shadow-strong hover:bg-white/90',
     };
 
     const sizes = {
-        sm: 'px-4 py-2 text-sm',
-        md: 'px-6 py-3 text-base',
-        lg: 'px-8 py-4 text-lg'
+        sm: 'h-9 px-4 text-sm',
+        md: 'h-11 px-6 text-[15px]',
+        lg: 'h-13 px-8 text-base py-3.5',
     };
 
-    const styles = twMerge(baseStyles, variants[variant], sizes[size], disabled ? 'opacity-50 cursor-not-allowed' : '', className);
+    const styles = twMerge(baseStyles, variants[variant], sizes[size], className);
 
     if (href) {
         return (

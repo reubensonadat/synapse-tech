@@ -11,9 +11,9 @@ export default function ThemeToggle() {
     const isSystemsWorld = pathname?.startsWith('/systems');
 
     // Dynamic classes based on world
-    const hoverBgColor = isSystemsWorld ? 'hover:bg-blue-600/20' : 'hover:bg-synapse-main/20';
-    const hoverBorderColor = isSystemsWorld ? 'hover:border-blue-600/50' : 'hover:border-synapse-main/50';
-    const iconHoverColor = isSystemsWorld ? 'group-hover:text-blue-600' : 'group-hover:text-synapse-main';
+    const hoverBgColor = isSystemsWorld ? 'hover:bg-systems/20' : 'hover:bg-primary/20';
+    const hoverBorderColor = isSystemsWorld ? 'hover:border-systems/50' : 'hover:border-primary/50';
+    const iconHoverColor = isSystemsWorld ? 'group-hover:text-systems' : 'group-hover:text-primary';
 
     // Avoid hydration mismatch
     useEffect(() => {

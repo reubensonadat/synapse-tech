@@ -3,7 +3,7 @@ import { Mail, Phone, Linkedin, Twitter, Instagram, Github } from 'lucide-react'
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-50 dark:bg-synapse-slate border-t border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 transition-colors duration-200">
+        <footer className="bg-background-subtle dark:bg-background-subtle border-t border-border dark:border-white/10 text-muted-foreground dark:text-muted-foreground transition-colors duration-200">
             <div className="max-w-7xl mx-auto px-6 py-16">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -21,7 +21,7 @@ export default function Footer() {
                                 href="https://twitter.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-synapse-main hover:text-white dark:hover:bg-synapse-main transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all"
                                 aria-label="Twitter"
                             >
                                 <Twitter className="w-5 h-5" />
@@ -30,7 +30,7 @@ export default function Footer() {
                                 href="https://linkedin.com/company/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-synapse-main hover:text-white dark:hover:bg-synapse-main transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all"
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin className="w-5 h-5" />
@@ -39,7 +39,7 @@ export default function Footer() {
                                 href="https://instagram.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-synapse-main hover:text-white dark:hover:bg-synapse-main transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all"
                                 aria-label="Instagram"
                             >
                                 <Instagram className="w-5 h-5" />
@@ -48,7 +48,7 @@ export default function Footer() {
                                 href="https://github.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-synapse-main hover:text-white dark:hover:bg-synapse-main transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all"
                                 aria-label="GitHub"
                             >
                                 <Github className="w-5 h-5" />
@@ -63,23 +63,18 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <Link href="/studio/services" className="hover:text-synapse-main transition-colors">
-                                    Services
+                                <Link href="/studio" className="hover:text-primary transition-colors">
+                                    Studio
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/studio/portfolio" className="hover:text-synapse-main transition-colors">
-                                    Portfolio
+                                <Link href="/studio/work" className="hover:text-primary transition-colors">
+                                    Work
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/studio/pricing" className="hover:text-synapse-main transition-colors">
+                                <Link href="/studio/pricing" className="hover:text-primary transition-colors">
                                     Pricing
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/studio/contact" className="hover:text-synapse-main transition-colors">
-                                    Contact
                                 </Link>
                             </li>
                         </ul>
@@ -92,22 +87,22 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <Link href="/systems/products" className="hover:text-synapse-main transition-colors">
+                                <Link href="/systems/products" className="hover:text-primary transition-colors">
                                     Products
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/systems/impact" className="hover:text-synapse-main transition-colors">
+                                <Link href="/systems/impact" className="hover:text-primary transition-colors">
                                     Impact
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/systems/research" className="hover:text-synapse-main transition-colors">
+                                <Link href="/systems/research" className="hover:text-primary transition-colors">
                                     Research
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="hover:text-synapse-main transition-colors">
+                                <Link href="/about" className="hover:text-primary transition-colors">
                                     About Us
                                 </Link>
                             </li>
@@ -123,7 +118,7 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="mailto:synaptech25@gmail.com"
-                                    className="flex items-center gap-2 hover:text-synapse-main transition-colors"
+                                    className="flex items-center gap-2 hover:text-primary transition-colors"
                                 >
                                     <Mail className="w-4 h-4" />
                                     synaptech25@gmail.com
@@ -132,7 +127,7 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="tel:+233548135853"
-                                    className="flex items-center gap-2 hover:text-synapse-main transition-colors"
+                                    className="flex items-center gap-2 hover:text-primary transition-colors"
                                 >
                                     <Phone className="w-4 h-4" />
                                     +233 54 813 5853
@@ -140,8 +135,8 @@ export default function Footer() {
                             </li>
                             <li className="pt-4">
                                 <Link
-                                    href="/studio/contact"
-                                    className="inline-block px-4 py-2 bg-synapse-main text-white rounded-lg hover:bg-synapse-main/90 transition-all text-sm font-medium"
+                                    href="/studio/work"
+                                    className="inline-block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all text-sm font-medium"
                                 >
                                     Book a Consultation
                                 </Link>
@@ -151,17 +146,17 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-gray-200 dark:border-white/10">
+                <div className="pt-8 border-t border-border dark:border-white/10">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                        <p className="text-gray-500 dark:text-gray-500">
+                        <p className="text-muted-foreground dark:text-muted-foreground">
                             © {new Date().getFullYear()} Synapse Tech. All rights reserved.
                         </p>
 
                         <div className="flex gap-6">
-                            <Link href="/privacy" className="hover:text-synapse-main transition-colors">
+                            <Link href="/privacy" className="hover:text-primary transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="hover:text-synapse-main transition-colors">
+                            <Link href="/terms" className="hover:text-primary transition-colors">
                                 Terms of Service
                             </Link>
                         </div>

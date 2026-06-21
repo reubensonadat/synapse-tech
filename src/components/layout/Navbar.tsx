@@ -19,53 +19,51 @@ function NavbarContent() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 dark:bg-synapse-black/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors duration-200">
-                <Link href="/" className="flex items-center gap-2">
+            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3.5 glass border-b border-border/60 transition-colors duration-300">
+                <Link href="/" className="flex items-center gap-2.5 group">
                     {/* Logo */}
-                    <div className="relative w-8 h-8 rounded-md overflow-hidden">
+                    <div className="relative w-9 h-9 rounded-lg overflow-hidden ring-1 ring-border/60 shadow-soft transition-transform duration-300 group-hover:scale-105">
                         <Image src="/logo.png" alt="Synapse Logo" fill className="object-cover" />
                     </div>
-                    <span className="text-xl font-bold font-heading text-black dark:text-white tracking-wide">Synapse</span>
+                    <span className="text-xl font-bold font-heading text-foreground tracking-tight">Synapse</span>
                 </Link>
 
                 {/* Conditional Navigation based on world */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+                <div className="hidden md:flex items-center gap-1 text-[13px] font-medium text-muted-foreground">
                     {isHome ? (
                         <>
                             {/* Home navigation with Studio/Systems links */}
-                            <Link href="/studio" className="hover:text-synapse-main transition-colors">Studio</Link>
-                            <Link href="/systems" className="hover:text-synapse-main transition-colors">Systems</Link>
-                            <Link href="/about" className="hover:text-synapse-main transition-colors">About</Link>
+                            <Link href="/studio" className="px-3 py-2 rounded-full hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40 transition-all">Studio</Link>
+                            <Link href="/systems" className="px-3 py-2 rounded-full hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40 transition-all">Systems</Link>
+                            <Link href="/about" className="px-3 py-2 rounded-full hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40 transition-all">About</Link>
                             <ThemeToggle />
                         </>
                     ) : isStudioWorld ? (
                         <>
-                            {/* Studio navigation */}
-                            <Link href="/studio" className={`hover:text-synapse-main transition-colors ${pathname === '/studio' ? 'text-synapse-main' : ''}`}>Studio Home</Link>
-                            <Link href="/studio/services" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/services' ? 'text-synapse-main' : ''}`}>Services</Link>
-                            <Link href="/studio/portfolio" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/portfolio' ? 'text-synapse-main' : ''}`}>Portfolio</Link>
-                            <Link href="/studio/pricing" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/pricing' ? 'text-synapse-main' : ''}`}>Pricing</Link>
-                            <Link href="/studio/contact" className={`hover:text-synapse-main transition-colors ${pathname === '/studio/contact' ? 'text-synapse-main' : ''}`}>Contact</Link>
-                            <Link href="/about?source=studio" className={`hover:text-synapse-main transition-colors ${pathname === '/about' ? 'text-synapse-main' : ''}`}>About</Link>
+                            {/* Studio navigation — tightened to 4 links */}
+                            <Link href="/studio" className={`px-3 py-2 rounded-full transition-all ${pathname === '/studio' ? 'bg-primary text-primary-foreground shadow-soft' : 'hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40'}`}>Studio</Link>
+                            <Link href="/studio/work" className={`px-3 py-2 rounded-full transition-all ${pathname === '/studio/work' ? 'bg-primary text-primary-foreground shadow-soft' : 'hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40'}`}>Work</Link>
+                            <Link href="/studio/pricing" className={`px-3 py-2 rounded-full transition-all ${pathname === '/studio/pricing' ? 'bg-primary text-primary-foreground shadow-soft' : 'hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40'}`}>Pricing</Link>
+                            <Link href="/about?source=studio" className={`px-3 py-2 rounded-full transition-all ${pathname === '/about' ? 'bg-primary text-primary-foreground shadow-soft' : 'hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40'}`}>About</Link>
                             <ThemeToggle />
                         </>
                     ) : isSystemsWorld ? (
                         <>
                             {/* Systems navigation */}
-                            <Link href="/systems" className={`hover:text-blue-600 transition-colors ${pathname === '/systems' ? 'text-blue-600' : ''}`}>Systems Home</Link>
-                            <Link href="/systems/impact" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/impact' ? 'text-blue-600' : ''}`}>Impact</Link>
-                            <Link href="/systems/products" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/products' ? 'text-blue-600' : ''}`}>Products</Link>
-                            <Link href="/systems/collaborate" className={`hover:text-blue-600 transition-colors ${pathname === '/systems/collaborate' ? 'text-blue-600' : ''}`}>Collaborate</Link>
-                            <Link href="/about?source=systems" className={`hover:text-blue-600 transition-colors ${pathname === '/about' ? 'text-blue-600' : ''}`}>About</Link>
+                            <Link href="/systems" className={`px-3 py-2 rounded-full transition-all ${pathname === '/systems' ? 'bg-systems text-systems-foreground shadow-soft' : 'hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40'}`}>Systems Home</Link>
+                            <Link href="/systems/impact" className={`px-3 py-2 rounded-full transition-all ${pathname === '/systems/impact' ? 'bg-systems text-systems-foreground shadow-soft' : 'hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40'}`}>Impact</Link>
+                            <Link href="/systems/products" className={`px-3 py-2 rounded-full transition-all ${pathname === '/systems/products' ? 'bg-systems text-systems-foreground shadow-soft' : 'hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40'}`}>Products</Link>
+                            <Link href="/systems/collaborate" className={`px-3 py-2 rounded-full transition-all ${pathname === '/systems/collaborate' ? 'bg-systems text-systems-foreground shadow-soft' : 'hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40'}`}>Collaborate</Link>
+                            <Link href="/about?source=systems" className={`px-3 py-2 rounded-full transition-all ${pathname === '/about' ? 'bg-systems text-systems-foreground shadow-soft' : 'hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40'}`}>About</Link>
                             <ThemeToggle />
                         </>
                     ) : (
                         <>
                             {/* About page or other - show minimal */}
-                            <Link href="/" className="hover:text-synapse-main transition-colors">Home</Link>
-                            <Link href="/studio" className="hover:text-synapse-main transition-colors">Studio</Link>
-                            <Link href="/systems" className="hover:text-synapse-main transition-colors">Systems</Link>
-                            <Link href="/about" className="hover:text-synapse-main transition-colors">About</Link>
+                            <Link href="/" className="px-3 py-2 rounded-full hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40 transition-all">Home</Link>
+                            <Link href="/studio" className="px-3 py-2 rounded-full hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40 transition-all">Studio</Link>
+                            <Link href="/systems" className="px-3 py-2 rounded-full hover:text-systems hover:bg-systems-soft/60 dark:hover:bg-systems-soft/40 transition-all">Systems</Link>
+                            <Link href="/about" className="px-3 py-2 rounded-full hover:text-primary hover:bg-primary-soft/60 dark:hover:bg-primary-soft/40 transition-all">About</Link>
                             <ThemeToggle />
                         </>
                     )}
@@ -74,8 +72,8 @@ function NavbarContent() {
                 {/* CTA Button - conditional based on world */}
                 {!isHome && (
                     <Link
-                        href={isStudioWorld ? "/studio/contact" : isSystemsWorld ? "/systems/collaborate" : "/studio/contact"}
-                        className={`hidden md:flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white rounded-lg hover:scale-105 transition-all group ${isSystemsWorld ? 'bg-blue-600 hover:bg-blue-500' : 'bg-synapse-main hover:bg-synapse-main/90'}`}
+                        href={isStudioWorld ? "/studio/work" : isSystemsWorld ? "/systems/collaborate" : "/studio/work"}
+                        className={`hidden md:flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white rounded-lg hover:scale-105 transition-all group ${isSystemsWorld ? 'bg-systems hover:bg-systems' : 'bg-primary hover:bg-primary/90'}`}
                     >
                         {isStudioWorld ? "Get Started" : isSystemsWorld ? "Join Us" : "Get Started"}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>

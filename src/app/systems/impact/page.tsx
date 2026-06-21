@@ -71,14 +71,14 @@ const systems = [
 
 export default function ImpactPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-[#0B0B0F] text-slate-900 dark:text-white transition-colors duration-200">
+        <div className="min-h-screen bg-white dark:bg-background text-foreground dark:text-white transition-colors duration-200">
             <Navbar />
 
             <main className="pt-16">
                 {/* ==================== HERO SECTION ==================== */}
                 <section className="relative w-full py-24 md:py-32 overflow-hidden">
                     {/* Background */}
-                    <div className="absolute inset-0 bg-slate-50 dark:bg-[#0B0B0F] transition-colors duration-200" />
+                    <div className="absolute inset-0 bg-background-subtle dark:bg-background transition-colors duration-200" />
 
                     {/* Grid Overlay */}
                     <div
@@ -94,7 +94,7 @@ export default function ImpactPage() {
                     />
 
                     {/* Ambient Glow */}
-                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-systems/5 dark:bg-systems/10 rounded-full blur-[150px] pointer-events-none" />
 
                     <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
                         <motion.div
@@ -109,13 +109,13 @@ export default function ImpactPage() {
                                 className="text-4xl md:text-6xl font-bold font-heading tracking-tight mb-6"
                                 variants={fadeInUp}
                             >
-                                <span className="text-slate-900 dark:text-white">Our </span>
-                                <span className="text-[#2563EB]">Impact</span>
+                                <span className="text-foreground dark:text-white">Our </span>
+                                <span className="text-systems">Impact</span>
                             </motion.h1>
 
                             {/* Subtext */}
                             <motion.p
-                                className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-slate-600 dark:text-[#A1A1AA]"
+                                className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-muted-foreground dark:text-muted-foreground"
                                 variants={fadeInUp}
                             >
                                 The systems we&apos;ve built to solve real problems and impact thousands.
@@ -125,7 +125,7 @@ export default function ImpactPage() {
                 </section>
 
                 {/* ==================== SYSTEMS LIST ==================== */}
-                <section className="py-20 bg-white dark:bg-[#0B0B0F] transition-colors duration-200">
+                <section className="py-20 bg-white dark:bg-background transition-colors duration-200">
                     <div className="max-w-5xl mx-auto px-6">
                         <motion.div
                             className="space-y-8"
@@ -141,11 +141,11 @@ export default function ImpactPage() {
                                     className="group"
                                 >
                                     <Link href={system.link}>
-                                        <div className="bg-slate-50 dark:bg-[#151521] rounded-2xl p-8 border border-slate-200 dark:border-white/5 hover:border-[#2563EB]/30 transition-all shadow-sm hover:shadow-lg">
+                                        <div className="bg-background-subtle dark:bg-background rounded-2xl p-8 border border-border dark:border-white/5 hover:border-systems/30 transition-all shadow-sm hover:shadow-lg">
                                             <div className="flex flex-col md:flex-row md:items-center gap-6">
                                                 {/* Icon */}
                                                 {/* Icon or Image */}
-                                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform ${system.image ? 'bg-white p-2 border border-slate-100 dark:border-white/10 dark:bg-white/5' : 'bg-[#2563EB]/10 dark:bg-[#2563EB]/20 p-3'}`}>
+                                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform ${system.image ? 'bg-white p-2 border border-border dark:border-white/10 dark:bg-white/5' : 'bg-systems/10 dark:bg-systems/20 p-3'}`}>
                                                     {system.image ? (
                                                         <img src={system.image} alt={`${system.name} Logo`} className="w-full h-full object-contain" />
                                                     ) : (
@@ -156,7 +156,7 @@ export default function ImpactPage() {
                                                 {/* Content */}
                                                 <div className="flex-grow">
                                                     <div className="flex items-center gap-3 mb-2">
-                                                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{system.name}</h3>
+                                                        <h3 className="text-2xl font-bold text-foreground dark:text-white">{system.name}</h3>
                                                         {system.status === 'live' && (
                                                             <span className="px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center gap-1">
                                                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -169,19 +169,19 @@ export default function ImpactPage() {
                                                             </span>
                                                         )}
                                                     </div>
-                                                    <p className="text-sm font-medium text-[#2563EB] mb-2">{system.tagline}</p>
-                                                    <p className="text-slate-600 dark:text-[#A1A1AA] leading-relaxed">{system.description}</p>
+                                                    <p className="text-sm font-medium text-systems mb-2">{system.tagline}</p>
+                                                    <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">{system.description}</p>
 
                                                     {/* Stats for live systems */}
                                                     {system.stats && (
-                                                        <div className="flex items-center gap-6 mt-4 pt-4 border-t border-slate-200 dark:border-white/5">
+                                                        <div className="flex items-center gap-6 mt-4 pt-4 border-t border-border dark:border-white/5">
                                                             <div>
-                                                                <span className="text-2xl font-bold text-[#2563EB]">{system.stats.users}</span>
-                                                                <span className="text-sm text-slate-500 dark:text-[#A1A1AA]/60 ml-2">students</span>
+                                                                <span className="text-2xl font-bold text-systems">{system.stats.users}</span>
+                                                                <span className="text-sm text-muted-foreground dark:text-muted-foreground/60 ml-2">students</span>
                                                             </div>
                                                             <div>
-                                                                <span className="text-sm text-slate-500 dark:text-[#A1A1AA]/60">in</span>
-                                                                <span className="text-lg font-semibold text-slate-900 dark:text-white ml-2">{system.stats.timeframe}</span>
+                                                                <span className="text-sm text-muted-foreground dark:text-muted-foreground/60">in</span>
+                                                                <span className="text-lg font-semibold text-foreground dark:text-white ml-2">{system.stats.timeframe}</span>
                                                             </div>
                                                         </div>
                                                     )}
@@ -195,12 +195,12 @@ export default function ImpactPage() {
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             onClick={(e) => e.stopPropagation()}
-                                                            className="p-3 rounded-xl bg-[#2563EB]/10 dark:bg-[#2563EB]/20 text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors"
+                                                            className="p-3 rounded-xl bg-systems/10 dark:bg-systems/20 text-systems hover:bg-systems hover:text-white transition-colors"
                                                         >
                                                             <div className="w-5 h-5"><IconExternalLink /></div>
                                                         </a>
                                                     )}
-                                                    <div className="p-3 rounded-xl bg-slate-200 dark:bg-white/5 text-slate-400 dark:text-[#A1A1AA]/40 group-hover:bg-[#2563EB] group-hover:text-white transition-colors">
+                                                    <div className="p-3 rounded-xl bg-muted dark:bg-white/5 text-muted-foreground dark:text-muted-foreground/40 group-hover:bg-systems group-hover:text-white transition-colors">
                                                         <div className="w-5 h-5"><IconArrowRight /></div>
                                                     </div>
                                                 </div>
@@ -214,7 +214,7 @@ export default function ImpactPage() {
                 </section>
 
                 {/* ==================== CTA SECTION ==================== */}
-                <section className="py-20 bg-slate-50 dark:bg-[#151521]/50 transition-colors duration-200">
+                <section className="py-20 bg-background-subtle dark:bg-background/50 transition-colors duration-200">
                     <div className="max-w-3xl mx-auto px-6 text-center">
                         <motion.div
                             initial="hidden"
@@ -223,13 +223,13 @@ export default function ImpactPage() {
                             variants={stagger}
                         >
                             <motion.h2
-                                className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+                                className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4"
                                 variants={fadeInUp}
                             >
                                 Want something similar?
                             </motion.h2>
                             <motion.p
-                                className="text-lg text-slate-600 dark:text-[#A1A1AA] mb-8"
+                                className="text-lg text-muted-foreground dark:text-muted-foreground mb-8"
                                 variants={fadeInUp}
                             >
                                 We apply the same rigor to every project. Let&apos;s build systems that work.
@@ -237,7 +237,7 @@ export default function ImpactPage() {
                             <motion.div variants={fadeInUp}>
                                 <Link
                                     href="/studio/contact?source=systems-impact"
-                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white font-bold rounded-xl hover:bg-[#2563EB]/90 transition-all shadow-lg shadow-[#2563EB]/25 group"
+                                    className="inline-flex items-center gap-2 px-8 py-4 bg-systems text-white font-bold rounded-xl hover:bg-systems/90 transition-all shadow-lg shadow-systems/25 group"
                                 >
                                     Contact Us
                                     <div className="w-5 h-5 group-hover:translate-x-1 transition-transform"><IconArrowRight /></div>

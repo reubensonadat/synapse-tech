@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceCard from './ServiceCard';
-import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { CodeBracketIcon, DevicePhoneMobileIcon, PencilSquareIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp, stagger, viewportOnce } from '@/lib/animations';
@@ -32,7 +32,7 @@ export default function CuratedSolutions() {
     ];
 
     return (
-        <section className="py-20 px-6 bg-gray-50 dark:bg-synapse-black/50">
+        <section className="py-20 px-6 bg-background-subtle dark:bg-background/50">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <motion.div
@@ -56,11 +56,11 @@ export default function CuratedSolutions() {
                     </motion.div>
                     <motion.div variants={fadeInUp}>
                         <Link
-                            href="/studio/services"
-                            className="hidden md:inline-flex items-center gap-2 text-synapse-main font-medium hover:gap-3 transition-all group"
+                            href="/studio"
+                            className="hidden md:inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all group"
                         >
                             See all solutions
-                            <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </motion.div>
                 </motion.div>
@@ -93,11 +93,11 @@ export default function CuratedSolutions() {
                     transition={{ delay: 0.5 }}
                 >
                     <Link
-                        href="/studio/services"
-                        className="md:hidden inline-flex items-center gap-2 text-synapse-main font-medium hover:gap-3 transition-all mt-8 group"
+                        href="/studio"
+                        className="md:hidden inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all mt-8 group"
                     >
                         See all solutions
-                        <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
             </div>

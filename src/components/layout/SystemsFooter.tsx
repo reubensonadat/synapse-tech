@@ -3,7 +3,7 @@ import { Mail, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 export default function SystemsFooter() {
     return (
-        <footer className="bg-gray-50 dark:bg-synapse-slate border-t border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 transition-colors duration-200">
+        <footer className="bg-background-subtle dark:bg-background-subtle border-t border-border dark:border-white/10 text-muted-foreground dark:text-muted-foreground transition-colors duration-200">
             <div className="max-w-7xl mx-auto px-6 py-16">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -13,7 +13,7 @@ export default function SystemsFooter() {
                         <h3 className="text-xl font-bold font-heading text-black dark:text-white mb-2">
                             Synapse Systems
                         </h3>
-                        <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-4">
+                        <p className="text-sm text-systems dark:text-systems-glow font-medium mb-4">
                             We don&apos;t just build software, we build systems.
                         </p>
                         <p className="text-sm leading-relaxed mb-6">
@@ -24,7 +24,7 @@ export default function SystemsFooter() {
                                 href="https://twitter.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-systems hover:text-white dark:hover:bg-systems transition-all"
                                 aria-label="Twitter"
                             >
                                 <Twitter className="w-5 h-5" />
@@ -33,7 +33,7 @@ export default function SystemsFooter() {
                                 href="https://linkedin.com/company/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-systems hover:text-white dark:hover:bg-systems transition-all"
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin className="w-5 h-5" />
@@ -42,7 +42,7 @@ export default function SystemsFooter() {
                                 href="https://instagram.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-gray-200 dark:bg-white/5 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all"
+                                className="p-2 rounded-lg bg-muted dark:bg-white/5 hover:bg-systems hover:text-white dark:hover:bg-systems transition-all"
                                 aria-label="Instagram"
                             >
                                 <Instagram className="w-5 h-5" />
@@ -57,22 +57,22 @@ export default function SystemsFooter() {
                         </h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <Link href="/systems" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/systems" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Our Systems
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/systems/impact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/systems/impact" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Impact
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/systems/roadmap" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/systems/roadmap" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Roadmap
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/systems/collaborate" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/systems/collaborate" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Collaborate
                                 </Link>
                             </li>
@@ -86,17 +86,17 @@ export default function SystemsFooter() {
                         </h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <Link href="/systems/collaborate" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/systems/collaborate" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Contact Support
                                 </Link>
                             </li>
-                            <li className="pt-2 border-t border-gray-200 dark:border-white/10">
-                                <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <li className="pt-2 border-t border-border dark:border-white/10">
+                                <Link href="/privacy" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/terms" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <Link href="/terms" className="hover:text-systems dark:hover:text-systems-glow transition-colors">
                                     Terms of Service
                                 </Link>
                             </li>
@@ -112,7 +112,7 @@ export default function SystemsFooter() {
                             <li>
                                 <a
                                     href="mailto:synaptech25@gmail.com"
-                                    className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                    className="flex items-center gap-2 hover:text-systems dark:hover:text-systems-glow transition-colors"
                                 >
                                     <Mail className="w-4 h-4" />
                                     synaptech25@gmail.com
@@ -124,7 +124,7 @@ export default function SystemsFooter() {
                         <div className="space-y-3">
                             <Link
                                 href="/systems/collaborate"
-                                className="block w-full px-6 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-500 transition-all text-sm font-bold shadow-lg shadow-blue-600/20"
+                                className="block w-full px-6 py-3 bg-systems text-white text-center rounded-lg hover:bg-systems transition-all text-sm font-bold shadow-lg shadow-systems/20"
                             >
                                 Partner With Us
                             </Link>
@@ -132,7 +132,7 @@ export default function SystemsFooter() {
                                 href="https://twitter.com/synapse"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block w-full px-6 py-2 border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white text-center rounded-lg hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all text-sm font-medium"
+                                className="block w-full px-6 py-2 border border-border dark:border-white/20 text-foreground dark:text-white text-center rounded-lg hover:border-systems dark:hover:border-systems/40 hover:text-systems dark:hover:text-systems-glow transition-all text-sm font-medium"
                             >
                                 Follow Our Journey
                             </a>
@@ -141,12 +141,12 @@ export default function SystemsFooter() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-gray-200 dark:border-white/10">
+                <div className="pt-8 border-t border-border dark:border-white/10">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                        <p className="text-gray-500 dark:text-gray-500">
+                        <p className="text-muted-foreground dark:text-muted-foreground">
                             © {new Date().getFullYear()} Synapse Tech. All rights reserved.
                         </p>
-                        <Link href="/studio" className="text-xs hover:text-synapse-main transition-colors font-medium">
+                        <Link href="/studio" className="text-xs hover:text-primary transition-colors font-medium">
                             Need client services? → Synapse Studio
                         </Link>
                     </div>

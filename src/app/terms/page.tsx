@@ -3,12 +3,12 @@ import MainFooter from '@/components/layout/MainFooter';
 
 export default function TermsPage() {
     return (
-        <div className="min-h-screen bg-white dark:bg-synapse-black text-black dark:text-white transition-colors duration-200">
+        <div className="min-h-screen bg-white dark:bg-background text-black dark:text-white transition-colors duration-200">
             <Navbar />
             <main className="pt-24 pb-16 px-6">
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-4xl md:text-5xl font-bold font-heading mb-8">Terms of Service</h1>
-                    <p className="text-gray-600 dark:text-gray-400 mb-12">
+                    <p className="text-muted-foreground dark:text-muted-foreground mb-12">
                         Last updated: {new Date().toLocaleDateString()}
                     </p>
 
